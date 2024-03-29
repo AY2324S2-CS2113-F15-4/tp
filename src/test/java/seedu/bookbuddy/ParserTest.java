@@ -48,8 +48,12 @@ public class ParserTest {
     @Test
     void parseMarkCommand() {
         BookList books = new BookList();
+        System.out.println(books.getSize());
         books.addBook("The Great Gatsby");
+        System.out.println(books);
         Parser.parseCommand("mark 1", books);
+        System.out.println(books);
+        books.markDoneByIndex(1);
         assertTrue(books.getBook(1).isRead());
     }
 

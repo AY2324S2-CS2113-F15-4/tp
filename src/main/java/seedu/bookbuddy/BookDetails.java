@@ -1,7 +1,5 @@
 package seedu.bookbuddy;
 
-import static seedu.bookbuddy.BookList.books;
-
 public class BookDetails {
 
     protected String summary;
@@ -13,12 +11,12 @@ public class BookDetails {
      * @param summary The summary to set for the book.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
-    public static void setBookSummaryByIndex(int index, String summary) throws IndexOutOfBoundsException {
-        if (index < 0 || index >= books.size()) {
+    public static void setBookSummaryByIndex(int index, String summary, BookList books) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
-        books.get(index).setSummary(summary);
-        String title = books.get(index).getTitle();
+        books.getBook(index).setSummary(summary);
+        String title = books.getBook(index).getTitle();
         Ui.summaryBookMessage(title, summary);
     }
 
@@ -29,15 +27,15 @@ public class BookDetails {
      * @param label The label to set for the book.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
-    public static void setBookLabelByIndex(int index, String label) throws IndexOutOfBoundsException {
+    public static void setBookLabelByIndex(int index, String label, BookList books) throws IndexOutOfBoundsException {
         // Check for valid index
-        if (index < 0 || index >= books.size()) {
-            throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
+        if (index < 0 || index > books.getSize()) {
+            throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index. nows");
         }
 
         // Set the label for the book at the specified index
-        books.get(index).setLabel(label);
-        String title = books.get(index).getTitle();
+        books.getBook(index).setLabel(label);
+        String title = books.getBook(index).getTitle();
         Ui.labelBookMessage(title, label);
     }
 
@@ -48,15 +46,15 @@ public class BookDetails {
      * @param genre The genre to set for the book.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
-    public static void setBookGenreByIndex(int index, String genre) throws IndexOutOfBoundsException {
+    public static void setBookGenreByIndex(int index, String genre, BookList books) throws IndexOutOfBoundsException {
         // Check for valid index
-        if (index < 0 || index >= books.size()) {
+        if (index < 0 || index > books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
 
         // Set the genre for the book at the specified index
-        books.get(index).setGenre(genre);
-        String title = books.get(index).getTitle();
+        books.getBook(index).setGenre(genre);
+        String title = books.getBook(index).getTitle();
         Ui.setGenreBookMessage(title, genre);
     }
 
@@ -65,16 +63,16 @@ public class BookDetails {
      * @param index The index of hte book in the list.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
-    public static void displayDetails(int index) throws IndexOutOfBoundsException {
-        if (index < 0 || index >= books.size()) {
+    public static void displayDetails(int index, BookList books) throws IndexOutOfBoundsException {
+        if (index < 0 || index > books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
 
         System.out.println("Here are the details of your book:");
-        System.out.println("Title: " + books.get(index).getTitle());
-        System.out.println("Status: " + (books.get(index).isRead ? "Read" : "Unread"));
-        System.out.println("Label: " + books.get(index).getLabel());
-        System.out.println("Genre: " + books.get(index).getGenre());
+        System.out.println("Title: " + books.getBook(index).getTitle());
+        System.out.println("Status: " + (books.getBook(index).isRead ? "Read" : "Unread"));
+        System.out.println("Label: " + books.getBook(index).getLabel());
+        System.out.println("Genre: " + books.getBook(index).getGenre());
     }
 
 }

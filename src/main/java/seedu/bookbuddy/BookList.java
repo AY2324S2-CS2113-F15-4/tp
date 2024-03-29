@@ -15,7 +15,7 @@ import static seedu.bookbuddy.BookBuddy.LOGGER;
  * and marking book as read or unread.
  */
 public class BookList {
-    protected static ArrayList<Book> books;
+    protected ArrayList<Book> books;
 
     /**
      * Constructs a new BookList instance with an empty list.
@@ -67,7 +67,7 @@ public class BookList {
      */
     public void deleteBook(int index) throws IndexOutOfBoundsException {
         try {
-            Ui.removeBookMessage(index - 1);
+            Ui.removeBookMessage(index, this);
             books.remove(index - 1);
             assert books.size() >= 0 : "Book list size should not be negative after deletion";
         } catch (IndexOutOfBoundsException e) {
@@ -126,12 +126,12 @@ public class BookList {
     /**
      * Prints all books currently in the list.
      */
-    public static void printAllBooks() {
-        assert BookList.books != null : "Books list should not be null since it has been initialised.";
-        if (!BookList.books.isEmpty()) {
+    public void printAllBooks() {
+        assert books != null : "Books list should not be null since it has been initialised.";
+        if (!books.isEmpty()) {
             System.out.println("All books:");
-            for (int i = 0; i < BookList.books.size(); i++) {
-                Book currentBook = BookList.books.get(i);
+            for (int i = 0; i < books.size(); i++) {
+                Book currentBook = books.get(i);
                 assert currentBook != null : "Book in list should not be null";
                 System.out.print((i + 1) + ". ");
                 System.out.println(currentBook.toString());
