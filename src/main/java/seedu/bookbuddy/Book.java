@@ -6,6 +6,8 @@ public class Book {
     protected String label;
     protected String genre;
 
+    protected String summary;
+
     /**
      * Creates a new Book with the specified title.
      *
@@ -52,6 +54,24 @@ public class Book {
      */
     public String getLabel() {
         return this.label;
+    }
+
+    /**
+     * Sets the summary for this book.
+     *
+     * @param summary The summary to set for the book.
+     */
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    /**
+     * Returns the summary of the book.
+     *
+     * @return The summary of the book.
+     */
+    public String getSummary() {
+        return this.summary;
     }
 
     /**

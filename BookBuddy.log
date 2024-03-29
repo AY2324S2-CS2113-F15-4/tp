@@ -134,3 +134,53 @@ Mar 22, 2024 2:50:51 AM seedu.bookbuddy.BookBuddy main
 INFO: BookBuddy application started.
 Mar 22, 2024 2:50:51 AM seedu.bookbuddy.BookBuddy getUserInput
 INFO: Starting to get user input.
+Mar 22, 2024 3:14:04 PM seedu.bookbuddy.Parser parseCommand
+WARNING: The add Command requires a book title
+Mar 22, 2024 3:14:04 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Invalid command argument: The add command requires a book title.
+Mar 22, 2024 3:14:04 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Sorry but that is not a valid command. Please try again
+Mar 22, 2024 3:14:04 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Command is invalid
+Mar 22, 2024 3:16:33 PM seedu.bookbuddy.BookBuddy main
+INFO: BookBuddy application started.
+Mar 22, 2024 3:16:33 PM seedu.bookbuddy.BookBuddy getUserInput
+INFO: Starting to get user input.
+Mar 22, 2024 3:16:51 PM seedu.bookbuddy.BookBuddy main
+INFO: BookBuddy application started.
+Mar 22, 2024 3:16:51 PM seedu.bookbuddy.BookBuddy getUserInput
+INFO: Starting to get user input.
+Mar 29, 2024 10:16:12 PM seedu.bookbuddy.Parser parseCommand
+WARNING: The add Command requires a book title
+Mar 29, 2024 10:16:12 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Invalid command argument: The add command requires a book title.
+Mar 29, 2024 10:16:12 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Sorry but that is not a valid command. Please try again
+Mar 29, 2024 10:16:12 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Command is invalid
+Mar 29, 2024 10:16:27 PM seedu.bookbuddy.BookBuddy main
+INFO: BookBuddy application started.
+Mar 29, 2024 10:16:28 PM seedu.bookbuddy.BookBuddy getUserInput
+INFO: Starting to get user input.
+Mar 29, 2024 10:22:51 PM seedu.bookbuddy.BookBuddy main
+INFO: BookBuddy application started.
+Mar 29, 2024 10:22:51 PM seedu.bookbuddy.BookBuddy getUserInput
+INFO: Starting to get user input.
+Mar 29, 2024 10:24:58 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Sorry but that is not a valid command. Please try again
+Mar 29, 2024 10:24:58 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Command is invalid
+Mar 29, 2024 10:24:58 PM seedu.bookbuddy.BookBuddy getUserInput
+WARNING: Unsupported command: genre 0 testgenre
+Mar 29, 2024 11:10:04 PM seedu.bookbuddy.BookBuddy main
+INFO: BookBuddy application started.
+Mar 29, 2024 11:10:04 PM seedu.bookbuddy.BookBuddy getUserInput
+INFO: Starting to get user input.
+Mar 29, 2024 11:13:30 PM seedu.bookbuddy.Parser parseCommand
+WARNING: The add Command requires a book title
+Mar 29, 2024 11:13:30 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Invalid command argument: The add command requires a book title.
+Mar 29, 2024 11:13:30 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Sorry but that is not a valid command. Please try again
+Mar 29, 2024 11:13:30 PM seedu.bookbuddy.Parser parseCommand
+WARNING: Command is invalid
