@@ -67,6 +67,22 @@ public class ParserTest {
     }
 
     @Test
+    void parseLabelCommand() {
+        BookList books = new BookList();
+        books.addBook("The Great Gatsby");
+        Parser.parseCommand("label 1 Great Book", books);
+        assertEquals("Great Book", books.getBook(1).getLabel());
+    }
+
+    @Test
+    void parseGenreCommand() {
+        BookList books = new BookList();
+        books.addBook("The Great Gatsby");
+        Parser.parseCommand("set-genre 1 Classic", books);
+        assertEquals("Classic", books.getBook(1).getGenre());
+    }
+
+    @Test
     void parseInvalidAddCommandThrowsException() {
         BookList books = new BookList();
         String input = "add"; // No book title provided
