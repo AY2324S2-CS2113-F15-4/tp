@@ -46,8 +46,8 @@ public class Ui {
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");
     }
-    public static void removeBookMessage(int index) {
-        System.out.println("alright.. i've removed " + BookList.books.get(index).getTitle() + " from the list.");
+    public static void removeBookMessage(int index, BookList books) {
+        System.out.println("alright.. i've removed " + books.getBook(index).getTitle() + " from the list.");
     }
     public static void helpMessage() {
         System.out.println("Here's a list of commands to get you started!!");
