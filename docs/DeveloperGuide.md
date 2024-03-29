@@ -60,6 +60,22 @@ An alternative design could have centralized the categorization logic within a s
 multiple responsibilities and to adhere to the Single Responsibility Principle. By distributing the tasks, the system 
 gains in maintainability and scalability, facilitating future enhancements and modifications. 
 
+### BookList Class Component
+The `BookList` class is responsible for all actions involving the list of books that the user has. 
+
+#### Overview
+The `BookList` class contains one protected static ArrayList named books. This ArrayList will contain Book objects. The methods in 
+this class all change the ArrayList according to the command given.
+
+#### Detailed Workflow
+Apart from the constructor, the methods of this class like getSize(), addBook() all either return a piece of information about the ArrayList,
+the book object that is selected or change an attribute of the ArrayList or selected book object. For the printAllBooks() method, the ArrayList
+is iterated through, with the details of each book being printed out according to the toString() format of each book. Other than that, methods like
+markDoneByIndex() and markUndoneByIndex() both will change the isRead() attribute of the book of the given index. This class handles errors related to the
+ArrayList, throwing exceptions for invalid indexes and invalid actions based on current state (if trying to mark a book that is already read).
+
+#### Implementation and Rationale
+
 ### Parser Class Component
 The `Parser` class is responsible for parsing any input from the user and making sense of them to execute the correct commands.
 
@@ -71,7 +87,10 @@ input from the user.
 Whenever input from the user is detected by the program, the `Parser` class will split the command into 2 parts, with the first part
 containing the command and the second containing details of the command (if present). The command entered is then evaluated using a
 switch statement, with the value of it being compared to the values of each case. In the case of a match, the `Parser` class will then 
-execute the respective action associated with that command by calling other classes from the program such as `BookList` or `BookDetails`.
+execute the respective action associated with that command by calling other classes from the program such as `BookList` or `BookDetails`. 
+This class also handles errors and exceptions associated with the users input. For example, if the user were to give the command `mark` without
+specifying an index for which book to mark, or gives a negative number, an appropriate error message will be shown and the command will be rendered
+invalid.
 
 #### Implementation and Rationale
 The `Parser` class incorporates exception handling to detect invalid or unrecognized commands. This allows the program to continue running
