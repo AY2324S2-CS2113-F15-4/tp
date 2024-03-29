@@ -38,6 +38,10 @@ public class Ui {
         System.out.println("okii labeled [" + title + "] as [" + label + "]");
         System.out.println("remember to read it soon....");
     }
+    public static void summaryBookMessage(String title, String summary) {
+        System.out.println("okii you have written: [" + summary + "] for the book: [" + title + "]");
+        System.out.println("remember to read it soon....");
+    }
     public static void setGenreBookMessage(String title, String genre) {
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");

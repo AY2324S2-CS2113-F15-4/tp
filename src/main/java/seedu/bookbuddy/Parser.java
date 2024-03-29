@@ -21,6 +21,7 @@ public class Parser {
     public static final String HELP_COMMAND = "help";
     public static final String LABEL_COMMAND = "label";
     public static final String GENRE_COMMAND = "set-genre";
+    public static final String SUMMARY_COMMAND = "give-summary";
     public static final String DISPLAY_COMMAND = "display";
 
     /**
@@ -107,6 +108,25 @@ public class Parser {
                     System.out.println("An error occurred while setting the label: " + e.getMessage());
                 }
                 break;
+                case SUMMARY_COMMAND:
+                    assert inputArray.length >= 2 : "Command requires additional arguments";
+                    String[] summaryMessageParts = inputArray[1].split(" ", 2);
+                    assert summaryMessageParts.length == 2 : "Command requires an index and a label message";
+
+                    try {
+                        index = Integer.parseInt(summaryMessageParts[0]);
+                        assert index >= 0 : "Index should be non-negative";
+                        String summary = summaryMessageParts[1];
+                        BookDetails.setBookSummaryByIndex(index - 1, summary);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input: " + summaryMessageParts[0]
+                                + " is not a valid number. Please enter a valid numeric index.");
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Invalid book index. Please enter a valid index.");
+                    } catch (Exception e) {
+                        System.out.println("An error occurred while setting the label: " + e.getMessage());
+                    }
+                    break;
             case GENRE_COMMAND:
                 assert inputArray.length >= 2 : "Command requires additional arguments";
                 String[] genreMessageParts = inputArray[1].split(" ", 2);
