@@ -103,7 +103,7 @@ object-oriented programming.
 ## Product scope
 ### Target user profile
 
-{Describe the target user profile}
+Users that want an all-in-one app to track the books read, progress for each book. Users will be able to sort books according to genre and completion status.
 
 ### Value proposition
 
