@@ -11,7 +11,8 @@ public class BookDetails {
      * @param summary The summary to set for the book.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
-    public static void setBookSummaryByIndex(int index, String summary, BookList books) throws IndexOutOfBoundsException {
+    public static void setBookSummaryByIndex(int index, String summary, BookList books)
+            throws IndexOutOfBoundsException {
         if (index < 0 || index >= books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
