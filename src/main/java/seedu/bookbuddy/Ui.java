@@ -34,6 +34,18 @@ public class Ui {
         System.out.println("okii added [" + title + "] to the list.");
         System.out.println("remember to read it soon....");
     }
+    public static void labelBookMessage(String title, String label) {
+        System.out.println("okii labeled [" + title + "] as [" + label + "]");
+        System.out.println("remember to read it soon....");
+    }
+    public static void summaryBookMessage(String title, String summary) {
+        System.out.println("okii you have written: [" + summary + "] for the book: [" + title + "]");
+        System.out.println("remember to read it soon....");
+    }
+    public static void setGenreBookMessage(String title, String genre) {
+        System.out.println("okii categorised [" + title + "] as [" + genre + "]");
+        System.out.println("remember to read it soon....");
+    }
     public static void removeBookMessage(int index) {
         System.out.println("alright.. i've removed " + BookList.books.get(index).getTitle() + " from the list.");
     }
