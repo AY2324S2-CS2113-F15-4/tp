@@ -4,13 +4,16 @@ import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 
 public class ParserTest {
@@ -78,8 +81,19 @@ public class ParserTest {
     void parseGenreCommand() {
         BookList books = new BookList();
         books.addBook("The Great Gatsby");
-        Parser.parseCommand("set-genre 1 Classic", books);
-        assertEquals("Classic", books.getBook(1).getGenre());
+        // Simulate user input for genre selection "Classic"
+        String simulatedUserInput = "6\nClassic\n"; // Assuming '3' is the option to add a new genre
+        InputStream savedStandardInputStream = System.in;
+        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
+        Parser.parseCommand("set-genre 1", books); // Changed to fit your updated command-handling logic
+        assertEquals("Classic", books.getBook(1).getGenre()); // Indexes are typically 0-based in lists
+
+        books.addBook("Geronimo");
+        String nextSimulatedUserInput = "3\n";
+        System.setIn(new ByteArrayInputStream(nextSimulatedUserInput.getBytes()));
+        Parser.parseCommand("set-genre 2", books);
+        assertEquals("Mystery", books.getBook(2).getGenre());
+        System.setIn(savedStandardInputStream);
     }
 
     @Test
