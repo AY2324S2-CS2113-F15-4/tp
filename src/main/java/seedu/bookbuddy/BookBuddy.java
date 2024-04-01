@@ -39,7 +39,6 @@ public class BookBuddy {
 
     private static BookList books = new BookList();
     public static void main(String[] args) {
-        assert false : "dummy assertion set to fail";
         LOGGER.log(Level.INFO, "BookBuddy application started.");
         Ui.printWelcome();
         assert books != null : "BookList not created";

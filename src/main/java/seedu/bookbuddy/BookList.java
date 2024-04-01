@@ -6,6 +6,8 @@ import exceptions.BookReadAlreadyException;
 import exceptions.BookUnreadAlreadyException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 
 import static seedu.bookbuddy.BookBuddy.LOGGER;
@@ -15,6 +17,8 @@ import static seedu.bookbuddy.BookBuddy.LOGGER;
  * and marking book as read or unread.
  */
 public class BookList {
+    protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
+            "Mystery", "Science Fiction", "Fantasy"));
     protected ArrayList<Book> books;
 
     /**
