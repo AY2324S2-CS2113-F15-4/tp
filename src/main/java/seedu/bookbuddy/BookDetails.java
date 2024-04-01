@@ -1,8 +1,15 @@
 package seedu.bookbuddy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class BookDetails {
 
     protected String summary;
+    protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
+            "Mystery", "Science Fiction", "Fantasy"));
+
 
     /**
      * Sets the summary of the book at the specified index.

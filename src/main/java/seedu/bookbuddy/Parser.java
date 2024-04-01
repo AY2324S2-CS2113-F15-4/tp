@@ -5,7 +5,9 @@ import exceptions.InvalidBookIndexException;
 import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
 
+import java.util.Scanner;
 import java.util.logging.Level;
+
 import static seedu.bookbuddy.BookBuddy.LOGGER;
 
 /**
@@ -157,34 +159,64 @@ public class Parser {
                 }
                 break;
             case GENRE_COMMAND:
-                assert inputArray.length >= 2 : "Command requires additional arguments";
-                if (inputArray.length < 2) {
-                    LOGGER.log(Level.WARNING, "The genre Command requires a book index and genre", inputArray);
-                    throw new InvalidCommandArgumentException("The genre command requires a book index and genre.");
-                }
-                String[] genreMessageParts = inputArray[1].split(" ", 2);
-
-                if (genreMessageParts.length < 2) {
-                    throw new InvalidCommandArgumentException("You need to have a genre message");
-                }
-                // Split the message into index and genre message
-                assert genreMessageParts.length == 2 : "Command requires an index and a genre message";
-
                 try {
-                    index = Integer.parseInt(genreMessageParts[0]);
-                    assert index >= 0 : "Index should be non-negative";
-                    String label = genreMessageParts[1];
-                    BookDetails.setBookGenreByIndex(index, label, books);
+                    if (inputArray.length < 2) {
+                        throw new InvalidCommandArgumentException("Usage: set-genre [index]");
+                    }
+
+                    index = Integer.parseInt(inputArray[1]);
+                    if (index < 0 || index > books.getSize()) {
+                        throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index. " +
+                                "Type 'list' to view the list of books.");
+                    }
+                    System.out.println("Available genres:");
+                    for (int i = 0; i < BookDetails.availableGenres.size(); i++) {
+                        System.out.println((i + 1) + ". " + BookDetails.availableGenres.get(i));
+                    }
+                    System.out.println((BookDetails.availableGenres.size() + 1) + ". Add a new genre");
+
+                    System.out.println("Enter the number for the desired genre, or add a new one:");
+                    Scanner scanner = new Scanner(System.in);
+
+                    String selectedGenre = null;
+                    while (selectedGenre == null) {
+                        while (!scanner.hasNextInt()) {  // Ensure the next input is an integer
+                            String newInput = scanner.nextLine();
+                            if ("exit".equalsIgnoreCase(newInput)) {
+                                return; // Exit the command if user types 'exit'
+                            } else {
+                                System.out.println("Invalid input. Please enter a valid number or type 'exit'" +
+                                        " to cancel.");
+                            }
+                        }
+
+                        int genreSelection = scanner.nextInt();
+                        scanner.nextLine(); // Consume the newline after the number
+
+                        if (genreSelection == BookDetails.availableGenres.size() + 1) {
+                            System.out.println("Enter the new genre:");
+                            selectedGenre = scanner.nextLine();
+                            BookDetails.availableGenres.add(selectedGenre); // Add the new genre to the list
+                        } else if (genreSelection > 0 && genreSelection <= BookDetails.availableGenres.size()) {
+                            selectedGenre = BookDetails.availableGenres.get(genreSelection - 1);
+                        } else {
+                            System.out.println("Invalid selection. Please enter a valid number " +
+                                    "or type 'exit' to cancel.");
+                            // No need for the nextLine or parsing logic here, the while loop will continue
+                        }
+                    }
+
+                    BookDetails.setBookGenreByIndex(index, selectedGenre, books);
+                    System.out.println("Genre set to " + selectedGenre + " for book at index " + index);
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input: " + genreMessageParts[0]
-                            + " is not a valid number. Please enter a valid numeric index.");
-                } catch (InvalidCommandArgumentException e) {
+                    System.out.println("Invalid input: " + inputArray[1] + " is not a valid number. " +
+                            "Please enter a valid numeric index. Type 'list' to view the list of books.") ;
+                } catch (InvalidCommandArgumentException | IndexOutOfBoundsException e) {
                     System.out.println(e.getMessage());
-                } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Invalid book index. Please enter a valid index.");
                 } catch (Exception e) {
                     System.out.println("An error occurred while setting the genre: " + e.getMessage());
                 }
+
                 break;
             case DISPLAY_COMMAND:
                 assert inputArray.length >= 2 : "Command requires additional arguments";
