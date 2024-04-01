@@ -1,5 +1,7 @@
 package seedu.bookbuddy;
 
+import java.util.ArrayList;
+
 public class Ui {
     public static void printWelcome() {
         String logo =
@@ -57,5 +59,15 @@ public class Ui {
         System.out.println("mark (index) -> to mark book as read [R]");
         System.out.println("unmark (index) -> to unmark book as unread [U]");
         System.out.println("bye -> to exit BookBuddy software");
+    }
+
+    public static void printBookFound(ArrayList<Book> bookTitles){
+        for (int i = 0; i < bookTitles.size(); i++) {
+            System.out.println(i + 1 + ". " + bookTitles.get(i));
+        }
+    }
+    public static void printNoBookFound(){
+        System.out.println("no such books added...");
+
     }
 }
