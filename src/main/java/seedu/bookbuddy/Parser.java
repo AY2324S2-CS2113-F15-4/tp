@@ -19,6 +19,7 @@ public class Parser {
     public static final String UNMARK_COMMAND = "unmark";
     public static final String EXIT_COMMAND = "bye";
     public static final String HELP_COMMAND = "help";
+    public static final String FIND_COMMAND = "find";
     public static final String LABEL_COMMAND = "label";
     public static final String GENRE_COMMAND = "set-genre";
     public static final String SUMMARY_COMMAND = "give-summary";
@@ -95,6 +96,9 @@ public class Parser {
                 break;
             case HELP_COMMAND:
                 Ui.helpMessage();
+                break;
+            case FIND_COMMAND:
+                books.findBook(inputArray[1]);
                 break;
             case LABEL_COMMAND:
                 assert inputArray.length == 2 : "Command requires additional arguments";

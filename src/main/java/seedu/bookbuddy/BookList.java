@@ -61,6 +61,20 @@ public class BookList {
         }
     }
 
+    public void findBook(String title) {
+        ArrayList<Book> bookTitles = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().contains(title)) {
+                bookTitles.add(book);
+            }
+        }
+        if (bookTitles.isEmpty()){
+            Ui.printNoBookFound();
+        } else {
+            Ui.printBookFound(bookTitles);
+        }
+    }
+
     /**
      * Deletes a book from the list by its index.
      * @param index The index of the book to delete.
