@@ -1,7 +1,6 @@
 package seedu.bookbuddy;
 
 import exceptions.BookNotFoundException;
-import exceptions.InvalidBookIndexException;
 import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
 
@@ -26,6 +25,8 @@ public class Parser {
     public static final String GENRE_COMMAND = "set-genre";
     public static final String SUMMARY_COMMAND = "give-summary";
     public static final String DISPLAY_COMMAND = "display";
+    public static final String RATING_COMMAND = "rate";
+    public static final String PRINT_ORDERED_COMMAND = "listrated";
 
     /**
      * Scans the user input for valid commands and handles them accordingly.
@@ -149,7 +150,7 @@ public class Parser {
                     BookDetails.setBookSummaryByIndex(index, summary, books);
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input: " + summaryMessageParts[0]
-                            + " is not a valid number. Please enter a valid numeric index.");
+                            + " is not a valid number. Please enter a valid numeric index. here");
                 } catch (InvalidCommandArgumentException e) {
                     System.out.println(e.getMessage());
                 } catch (IndexOutOfBoundsException e) {
@@ -170,10 +171,10 @@ public class Parser {
                                 "Type 'list' to view the list of books.");
                     }
                     System.out.println("Available genres:");
-                    for (int i = 0; i < BookDetails.availableGenres.size(); i++) {
-                        System.out.println((i + 1) + ". " + BookDetails.availableGenres.get(i));
+                    for (int i = 0; i < BookList.availableGenres.size(); i++) {
+                        System.out.println((i + 1) + ". " + BookList.availableGenres.get(i));
                     }
-                    System.out.println((BookDetails.availableGenres.size() + 1) + ". Add a new genre");
+                    System.out.println((BookList.availableGenres.size() + 1) + ". Add a new genre");
 
                     System.out.println("Enter the number for the desired genre, or add a new one:");
                     Scanner scanner = new Scanner(System.in);
@@ -193,12 +194,12 @@ public class Parser {
                         int genreSelection = scanner.nextInt();
                         scanner.nextLine(); // Consume the newline after the number
 
-                        if (genreSelection == BookDetails.availableGenres.size() + 1) {
+                        if (genreSelection == BookList.availableGenres.size() + 1) {
                             System.out.println("Enter the new genre:");
                             selectedGenre = scanner.nextLine();
-                            BookDetails.availableGenres.add(selectedGenre); // Add the new genre to the list
-                        } else if (genreSelection > 0 && genreSelection <= BookDetails.availableGenres.size()) {
-                            selectedGenre = BookDetails.availableGenres.get(genreSelection - 1);
+                            BookList.availableGenres.add(selectedGenre); // Add the new genre to the list
+                        } else if (genreSelection > 0 && genreSelection <= BookList.availableGenres.size()) {
+                            selectedGenre = BookList.availableGenres.get(genreSelection - 1);
                         } else {
                             System.out.println("Invalid selection. Please enter a valid number " +
                                     "or type 'exit' to cancel.");
@@ -216,7 +217,31 @@ public class Parser {
                 } catch (Exception e) {
                     System.out.println("An error occurred while setting the genre: " + e.getMessage());
                 }
-
+                break;
+            case RATING_COMMAND:
+                assert inputArray.length >= 2 : "Command requires additional arguments";
+                if (inputArray.length < 2) {
+                    LOGGER.log(Level.WARNING, "The rating Command requires a book index", inputArray);
+                    throw new InvalidCommandArgumentException("The rating command requires a book index.");
+                }
+                try {
+                    String[] ratingParts = inputArray[1].split(" ", 2);
+                    // Split the message into index and label message
+                    assert ratingParts.length == 2 : "Command requires an index and a rating";
+                    if (ratingParts.length < 2) {
+                        throw new InvalidCommandArgumentException("You need to have a book index and a rating");
+                    }
+                    index = Integer.parseInt(ratingParts[0]);
+                    int rating = Integer.parseInt(ratingParts[1]);
+                    BookDetails.setBookRatingByIndex(index, rating, books);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input: " + inputArray[1] + " is not a valid number. " +
+                            "Please enter a valid numeric index.");
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Invalid book index. Please enter a valid index.");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case DISPLAY_COMMAND:
                 assert inputArray.length >= 2 : "Command requires additional arguments";
@@ -236,6 +261,9 @@ public class Parser {
                     System.out.println(e.getMessage());
                 }
                 break;
+            case PRINT_ORDERED_COMMAND:
+                BookDetails.printBooksByRating(books);
+                break;
             case EXIT_COMMAND:
                 Ui.printExitMessage();
                 System.exit(0);
@@ -245,9 +273,7 @@ public class Parser {
                 throw new UnsupportedCommandException("Sorry but that is not a valid command. " +
                         "Please try again or type: help");
             }
-        } catch (NumberFormatException e) {
-            throw new InvalidBookIndexException("Book index must be an integer.");
-        } catch (IndexOutOfBoundsException e) {
+        }  catch (IndexOutOfBoundsException e) {
             throw new BookNotFoundException("Book not found at the provided index.");
         } catch (InvalidCommandArgumentException e) {
             LOGGER.log(Level.WARNING, "Invalid command argument: {0}", e.getMessage());

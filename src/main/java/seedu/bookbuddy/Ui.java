@@ -48,6 +48,10 @@ public class Ui {
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");
     }
+    public static void setRatingBookMessage(String title, int rating) {
+        System.out.println("okii set rating for [" + title + "] as [" + rating +"]");
+        System.out.println("remember to read it soon....");
+    }
     public static void removeBookMessage(int index, BookList books) {
         System.out.println("alright.. i've removed " + books.getBook(index).getTitle() + " from the list.");
     }

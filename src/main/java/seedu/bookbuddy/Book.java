@@ -5,7 +5,7 @@ public class Book {
     protected boolean isRead;
     protected String label;
     protected String genre;
-
+    protected int rating;
     protected String summary;
 
     /**
@@ -18,6 +18,29 @@ public class Book {
         this.isRead = false; //Completion status of the book (True: Read, False: Unread)
         this.label = "";
         this.genre = "";
+        this.rating = -1;
+    }
+
+    /**
+     * Sets the rating for this book. The rating must be between 1 and 5.
+     *
+     * @param rating The rating to set for the book.
+     * @throws IllegalArgumentException if the rating is not between 1 and 5.
+     */
+    public void setRating(int rating) {
+        if (rating < 1 || rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 1 and 5.");
+        }
+        this.rating = rating;
+    }
+
+    /**
+     * Returns the rating of the book.
+     *
+     * @return The rating of the book.
+     */
+    public int getRating() {
+        return this.rating;
     }
 
     /**
