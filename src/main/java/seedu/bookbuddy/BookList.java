@@ -151,7 +151,7 @@ public class BookList {
                 System.out.println(currentBook.toString());
             }
         } else {
-            System.out.println("The list is empty.");
+            System.out.println("The list is empty. Add books by 'add [book]'");
         }
     }
 }
