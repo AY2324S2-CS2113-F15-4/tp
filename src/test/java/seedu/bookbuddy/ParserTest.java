@@ -3,6 +3,7 @@ package seedu.bookbuddy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.bookbuddy.parser.Parser;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

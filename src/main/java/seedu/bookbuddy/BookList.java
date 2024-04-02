@@ -19,6 +19,9 @@ import static seedu.bookbuddy.BookBuddy.LOGGER;
 public class BookList {
     protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
             "Mystery", "Science Fiction", "Fantasy"));
+    public static List<String> getAvailableGenres() {
+        return availableGenres;
+    }
     protected ArrayList<Book> books;
 
     /**

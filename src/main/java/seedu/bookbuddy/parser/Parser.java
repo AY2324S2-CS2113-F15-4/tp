@@ -1,12 +1,10 @@
-package seedu.bookbuddy;
+package seedu.bookbuddy.parser;
 
 import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
-import seedu.bookbuddy.bookdetails.BookDisplay;
-import seedu.bookbuddy.bookdetails.BookGenre;
-import seedu.bookbuddy.bookdetails.BookLabel;
-import seedu.bookbuddy.bookdetails.BookRating;
-import seedu.bookbuddy.bookdetails.BookSummary;
+import seedu.bookbuddy.BookList;
+import seedu.bookbuddy.Ui;
+import seedu.bookbuddy.bookdetails.*;
 
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -31,7 +29,7 @@ public class Parser {
     public static final String DISPLAY_COMMAND = "display";
     public static final String RATING_COMMAND = "rate";
     public static final String PRINT_ORDERED_COMMAND = "list-rated";
-    private static void validateCommandArguments(String[] inputArray, int requiredArgs, String errorMessage)
+    public static void validateCommandArguments(String[] inputArray, int requiredArgs, String errorMessage)
             throws InvalidCommandArgumentException {
         if (inputArray.length < requiredArgs) {
             LOGGER.log(Level.WARNING, errorMessage, inputArray);
@@ -39,7 +37,7 @@ public class Parser {
         }
     }
 
-    private static void handleException(Exception e, String command, String[] inputArray) {
+    public static void handleException(Exception e, String command, String[] inputArray) {
         if (e instanceof UnsupportedCommandException) {
             LOGGER.log(Level.WARNING, "Command is invalid: {0}", e.getMessage());
             System.out.println(e.getMessage());
@@ -150,10 +148,10 @@ public class Parser {
                             "Type 'list' to view the list of books.");
                 }
                 System.out.println("Available genres:");
-                for (int i = 0; i < BookList.availableGenres.size(); i++) {
-                    System.out.println((i + 1) + ". " + BookList.availableGenres.get(i));
+                for (int i = 0; i < BookList.getAvailableGenres().size(); i++) {
+                    System.out.println((i + 1) + ". " + BookList.getAvailableGenres().get(i));
                 }
-                System.out.println((BookList.availableGenres.size() + 1) + ". Add a new genre");
+                System.out.println((BookList.getAvailableGenres().size() + 1) + ". Add a new genre");
 
                 System.out.println("Enter the number for the desired genre, or add a new one:");
                 Scanner scanner = new Scanner(System.in);
@@ -173,12 +171,12 @@ public class Parser {
                     int genreSelection = scanner.nextInt();
                     scanner.nextLine(); // Consume the newline after the number
 
-                    if (genreSelection == BookList.availableGenres.size() + 1) {
+                    if (genreSelection == BookList.getAvailableGenres().size() + 1) {
                         System.out.println("Enter the new genre:");
                         selectedGenre = scanner.nextLine();
-                        BookList.availableGenres.add(selectedGenre); // Add the new genre to the list
-                    } else if (genreSelection > 0 && genreSelection <= BookList.availableGenres.size()) {
-                        selectedGenre = BookList.availableGenres.get(genreSelection - 1);
+                        BookList.getAvailableGenres().add(selectedGenre); // Add the new genre to the list
+                    } else if (genreSelection > 0 && genreSelection <= BookList.getAvailableGenres().size()) {
+                        selectedGenre = BookList.getAvailableGenres().get(genreSelection - 1);
                     } else {
                         System.out.println("Invalid selection. Please enter a valid number " +
                                 "or type 'exit' to cancel.");

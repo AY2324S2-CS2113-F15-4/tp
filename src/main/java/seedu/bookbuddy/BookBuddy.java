@@ -2,6 +2,7 @@ package seedu.bookbuddy;
 
 import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
+import seedu.bookbuddy.parser.Parser;
 
 import java.io.IOException;
 import java.util.Scanner;
