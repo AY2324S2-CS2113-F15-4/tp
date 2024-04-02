@@ -1,5 +1,7 @@
 package seedu.bookbuddy;
 
+import seedu.bookbuddy.booklist.BookList;
+
 import java.util.ArrayList;
 
 public class Ui {

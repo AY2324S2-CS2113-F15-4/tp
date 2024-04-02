@@ -1,5 +1,8 @@
 package seedu.bookbuddy;
 
+import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.booklist.BookListModifier;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +47,7 @@ public class FileStorage {
 
         while (sc.hasNext()) {
             String line = sc.nextLine();
-            books.addBookFromFile(line);
+            BookListModifier.addBookFromFile(books, line);
         }
 
         sc.close();

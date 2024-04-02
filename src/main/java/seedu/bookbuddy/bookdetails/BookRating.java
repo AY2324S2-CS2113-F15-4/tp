@@ -1,7 +1,7 @@
 package seedu.bookbuddy.bookdetails;
 
 import seedu.bookbuddy.Book;
-import seedu.bookbuddy.BookList;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 import java.util.Comparator;

@@ -1,6 +1,6 @@
 package seedu.bookbuddy.bookdetails;
 
-import seedu.bookbuddy.BookList;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookLabel {
