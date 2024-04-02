@@ -21,5 +21,6 @@ public class BookDisplay {
         System.out.println("Label: " + books.getBook(index).getLabel());
         System.out.println("Genre: " + books.getBook(index).getGenre());
         System.out.println("Rating: " + books.getBook(index).getRating());
+        System.out.println("Summary: " + books.getBook(index).getSummary());
     }
 }
