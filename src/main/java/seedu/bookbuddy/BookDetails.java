@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BookDetails {
-    protected String summary;
-
 
     /**
      * Sets the rating of the book at the specified index.
@@ -49,6 +47,23 @@ public class BookDetails {
             String rating = book.getRating() >= 0 ? String.valueOf(book.getRating()) : "Not Rated";
             System.out.println(book.getTitle() + " - " + rating);
         }
+    }
+
+    /**
+     * Prints the summary of a book given its index.
+     */
+    public static void printSummaryByIndex(BookList books, int index) throws IndexOutOfBoundsException{
+        if (books.books.isEmpty()) {
+            System.out.println("The list is empty. Add books by 'add [book]'");
+            return;
+        }
+
+        if (index < 0 || index > books.getSize()) {
+            throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
+        }
+
+        System.out.println("This is the summary that you gave: " + books.getBook(index).getSummary());
+
     }
 
     /**

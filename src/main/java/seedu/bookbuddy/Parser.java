@@ -23,7 +23,8 @@ public class Parser {
     public static final String FIND_COMMAND = "find";
     public static final String LABEL_COMMAND = "label";
     public static final String GENRE_COMMAND = "set-genre";
-    public static final String SUMMARY_COMMAND = "give-summary";
+    public static final String SET_SUMMARY_COMMAND = "give-summary";
+    public static final String GET_SUMMARY_COMMAND = "read-summary";
     public static final String DISPLAY_COMMAND = "display";
     public static final String RATING_COMMAND = "rate";
     public static final String PRINT_ORDERED_COMMAND = "listrated";
@@ -132,7 +133,7 @@ public class Parser {
                     System.out.println("An error occurred while setting the label: " + e.getMessage());
                 }
                 break;
-            case SUMMARY_COMMAND:
+            case SET_SUMMARY_COMMAND:
                 assert inputArray.length == 2 : "Command requires additional arguments";
                 if (inputArray.length < 2) {
                     LOGGER.log(Level.WARNING, "The summary Command requires a book index and summary", inputArray);
@@ -152,6 +153,25 @@ public class Parser {
                     System.out.println("Invalid input: " + summaryMessageParts[0]
                             + " is not a valid number. Please enter a valid numeric index. here");
                 } catch (InvalidCommandArgumentException e) {
+                    System.out.println(e.getMessage());
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Invalid book index. Please enter a valid index.");
+                } catch (Exception e) {
+                    System.out.println("An error occurred while setting the label: " + e.getMessage());
+                }
+                break;
+            case GET_SUMMARY_COMMAND:
+                assert inputArray.length == 1 : "Command requires additional arguments";
+                if (inputArray.length < 2) {
+                    LOGGER.log(Level.WARNING, "The get-summary Command requires a book index", inputArray);
+                    throw new InvalidCommandArgumentException("The summary command requires a book index.");
+                }
+                try {
+                    index = Integer.parseInt(inputArray[1]);
+                    assert index >= 0 : "Index should be non-negative";
+                    BookDetails.printSummaryByIndex(books, index);
+                }
+                catch (InvalidCommandArgumentException e) {
                     System.out.println(e.getMessage());
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("Invalid book index. Please enter a valid index.");
