@@ -2,6 +2,8 @@ package seedu.bookbuddy;
 
 import exceptions.InvalidCommandArgumentException;
 import exceptions.UnsupportedCommandException;
+import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.parser.ParserMain;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -64,7 +66,7 @@ public class BookBuddy {
             assert !userInput.isEmpty() : "User input should not be empty at this point";
             LOGGER.log(Level.FINE, "Processing user input: {0}", userInput);
             try {
-                Parser.parseCommand(userInput, books);
+                ParserMain.parseCommand(userInput, books);
             } catch (UnsupportedCommandException e) {
                 LOGGER.log(Level.WARNING, "Unsupported command: {0}", userInput);
                 System.out.println(e.getMessage());

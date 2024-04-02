@@ -1,6 +1,8 @@
-package seedu.bookbuddy.bookdetails;
+package seedu.bookbuddy.bookdetailsmodifier;
 
-import seedu.bookbuddy.BookList;
+import seedu.bookbuddy.book.Summary;
+import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookSummary {
@@ -17,8 +19,8 @@ public class BookSummary {
         if (index < 0 || index > books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
-        books.getBook(index).setSummary(summary);
-        String title = books.getBook(index).getTitle();
+        Summary.setSummary(books.getBook(index), summary);
+        String title = Title.getTitle(books.getBook(index));
         Ui.summaryBookMessage(title, summary);
     }
 }

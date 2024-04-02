@@ -1,5 +1,9 @@
 package seedu.bookbuddy;
 
+import seedu.bookbuddy.book.BookMain;
+import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.booklist.BookList;
+
 import java.util.ArrayList;
 
 public class Ui {
@@ -48,7 +52,7 @@ public class Ui {
         System.out.println("remember to read it soon....");
     }
     public static void removeBookMessage(int index, BookList books) {
-        System.out.println("alright.. i've removed " + books.getBook(index).getTitle() + " from the list.");
+        System.out.println("alright.. i've removed " + Title.getTitle(books.getBook(index)) + " from the list.");
     }
     public static void helpMessage() {
         System.out.println("Here's a list of commands to get you started!!");
@@ -60,7 +64,7 @@ public class Ui {
         System.out.println("bye -> to exit BookBuddy software");
     }
 
-    public static void printBookFound(ArrayList<Book> bookTitles){
+    public static void printBookFound(ArrayList<BookMain> bookTitles){
         for (int i = 0; i < bookTitles.size(); i++) {
             System.out.println(i + 1 + ". " + bookTitles.get(i));
         }

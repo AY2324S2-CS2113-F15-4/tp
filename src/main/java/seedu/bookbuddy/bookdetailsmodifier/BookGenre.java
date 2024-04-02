@@ -1,6 +1,8 @@
-package seedu.bookbuddy.bookdetails;
+package seedu.bookbuddy.bookdetailsmodifier;
 
-import seedu.bookbuddy.BookList;
+import seedu.bookbuddy.book.Genre;
+import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookGenre {
@@ -18,8 +20,8 @@ public class BookGenre {
         }
 
         // Set the genre for the book at the specified index
-        books.getBook(index).setGenre(genre);
-        String title = books.getBook(index).getTitle();
+        Genre.setGenre(books.getBook(index), genre);
+        String title = Title.getTitle(books.getBook(index));
         Ui.setGenreBookMessage(title, genre);
     }
 }
