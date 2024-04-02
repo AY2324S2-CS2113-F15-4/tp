@@ -17,7 +17,7 @@ import static java.util.logging.Logger.getLogger;
 
 
 public class BookBuddy {
-    static final Logger LOGGER = getLogger(BookBuddy.class.getName());
+    public static final Logger LOGGER = getLogger(BookBuddy.class.getName());
 
     static {
         try {

@@ -1,6 +1,8 @@
 package seedu.bookbuddy;
 
 import org.junit.jupiter.api.Test;
+import seedu.bookbuddy.bookdetails.BookGenre;
+import seedu.bookbuddy.bookdetails.BookLabel;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,9 +12,9 @@ public class BookDetailsTest {
         BookList books = new BookList();
         books.addBook("The Great Gatsby");
         books.addBook("Geronimo Stilton");
-        BookDetails.setBookLabelByIndex(1, "Great Classic", books);
+        BookLabel.setBookLabelByIndex(1, "Great Classic", books);
         assertEquals("Great Classic" ,books.getBook(1).getLabel());
-        BookDetails.setBookLabelByIndex(2, "Great Classic", books);
+        BookLabel.setBookLabelByIndex(2, "Great Classic", books);
         assertEquals("Great Classic" ,books.getBook(2).getLabel());
     }
 
@@ -21,9 +23,9 @@ public class BookDetailsTest {
         BookList books = new BookList();
         books.addBook("The Great Gatsby");
         books.addBook("Geronimo Stilton");
-        BookDetails.setBookGenreByIndex(1, "Classic", books);
+        BookGenre.setBookGenreByIndex(1, "Classic", books);
         assertEquals("Classic" ,books.getBook(1).getGenre());
-        BookDetails.setBookGenreByIndex(2, "Fantasy", books);
+        BookGenre.setBookGenreByIndex(2, "Fantasy", books);
         assertEquals("Fantasy" ,books.getBook(2).getGenre());
     }
 }
