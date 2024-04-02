@@ -13,9 +13,8 @@ public class Label {
 
     /**
      * Returns the label of the book.
-     *
-     * @return The label of the book.
      * @param book
+     * @return The label of the book.
      */
     public static String getLabel(BookMain book) {
         return book.label;

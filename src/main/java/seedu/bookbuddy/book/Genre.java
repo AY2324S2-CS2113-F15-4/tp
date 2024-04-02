@@ -13,9 +13,8 @@ public class Genre {
 
     /**
      * Returns the genre of the book.
-     *
-     * @return The genre of the book.
      * @param book
+     * @return The genre of the book.
      */
     public static String getGenre(BookMain book) {
         return book.genre;

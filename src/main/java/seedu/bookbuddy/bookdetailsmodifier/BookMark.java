@@ -20,7 +20,8 @@ public class BookMark {
      * @param bookList
      * @param index The index of the book to mark as read.
      */
-    public static void markDoneByIndex(BookList bookList, int index) throws IndexOutOfBoundsException, BookReadAlreadyException {
+    public static void markDoneByIndex(BookList bookList, int index) throws IndexOutOfBoundsException,
+            BookReadAlreadyException {
         try {
             assert index > 0 && index <= bookList.getBooks().size() : "Index out of valid range";
             if (Read.getRead(bookList.getBooks().get(index - 1))) {
@@ -46,7 +47,8 @@ public class BookMark {
      * @param bookList
      * @param index The index of the book to mark as unread.
      */
-    public static void markUndoneByIndex(BookList bookList, int index) throws IndexOutOfBoundsException, BookReadAlreadyException{
+    public static void markUndoneByIndex(BookList bookList, int index) throws IndexOutOfBoundsException,
+            BookReadAlreadyException{
         try {
             assert index > 0 && index <= bookList.getBooks().size() : "Index out of valid range";
             if (!Read.getRead(bookList.getBooks().get(index - 1))) {

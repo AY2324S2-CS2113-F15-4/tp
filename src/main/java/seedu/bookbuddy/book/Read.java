@@ -4,9 +4,8 @@ public class Read {
     //@@author lordgareth10
     /**
      * Checks if the book is read.
-     *
-     * @return True if the book is read, false otherwise.
      * @param book
+     * @return True if the book is read, false otherwise.
      */
     public static boolean getRead(BookMain book) {
         return book.isRead;

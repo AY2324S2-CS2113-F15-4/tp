@@ -23,7 +23,9 @@ public class ParserGenre {
 
         String selectedGenre = null;
         selectedGenre = invalidInputLooper(selectedGenre, scanner);
-        if (selectedGenre == null) return true;
+        if (selectedGenre == null) {
+            return true;
+        }
 
         BookGenre.setBookGenreByIndex(index, selectedGenre, books);
         System.out.println("Genre set to " + selectedGenre + " for book at index " + index);

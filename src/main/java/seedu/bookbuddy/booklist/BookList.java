@@ -12,19 +12,20 @@ import java.util.List;
  * and marking book as read or unread.
  */
 public class BookList {
+    protected ArrayList<BookMain> books;
+    public BookList() {
+        this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
+    }
     protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
             "Mystery", "Science Fiction", "Fantasy"));
     public static List<String> getAvailableGenres() {
         return availableGenres;
     }
-    protected ArrayList<BookMain> books;
 
     /**
      * Constructs a new BookList instance with an empty list.
      */
-    public BookList() {
-        this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
-    }
+
     // Public getter method for the books field
     public List<BookMain> getBooks() {
         return this.books;
