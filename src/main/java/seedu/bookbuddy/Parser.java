@@ -22,7 +22,6 @@ public class Parser {
     public static final String LIST_COMMAND = "list";
     public static final String MARK_COMMAND = "mark";
     public static final String UNMARK_COMMAND = "unmark";
-    public static final String EXIT_COMMAND = "bye";
     public static final String HELP_COMMAND = "help";
     public static final String FIND_COMMAND = "find";
     public static final String LABEL_COMMAND = "label";
@@ -213,10 +212,6 @@ public class Parser {
                 break;
             case PRINT_ORDERED_COMMAND:
                 BookRating.printBooksByRating(books);
-                break;
-            case EXIT_COMMAND:
-                Ui.printExitMessage();
-                System.exit(0);
                 break;
             default:
                 LOGGER.log(Level.WARNING, "Sorry but that is not a valid command. Please try again", command);
