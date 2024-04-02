@@ -21,15 +21,15 @@ public class BookList {
             "Mystery", "Science Fiction", "Fantasy"));
     protected ArrayList<Book> books;
 
-    // Public getter method for the books field
-    public List<Book> getBooks() {
-        return this.books;
-    }
     /**
      * Constructs a new BookList instance with an empty list.
      */
     public BookList() {
         this.books = new ArrayList<Book>(); // Use ArrayList instead of array
+    }
+    // Public getter method for the books field
+    public List<Book> getBooks() {
+        return this.books;
     }
 
     /**

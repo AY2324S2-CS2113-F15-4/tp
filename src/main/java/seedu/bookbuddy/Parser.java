@@ -42,7 +42,7 @@ public class Parser {
     private static void handleException(Exception e, String command, String[] inputArray) {
         if (e instanceof UnsupportedCommandException) {
             LOGGER.log(Level.WARNING, "Command is invalid: {0}", e.getMessage());
-            throw (UnsupportedCommandException) e;  // rethrow if you need to propagate it
+            System.out.println(e.getMessage());
         } else if (e instanceof NumberFormatException) {
             System.out.println("Invalid input: " + inputArray[1] + " is not a valid number. " +
                     "Please enter a valid numeric index. Type 'list' to view list of books.");
