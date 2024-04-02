@@ -1,7 +1,7 @@
 package seedu.bookbuddy;
 
-import exceptions.InvalidCommandArgumentException;
-import exceptions.UnsupportedCommandException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -10,13 +10,23 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ParserTest {
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
     @Test
     void testParser() {
         BookList books = new BookList();
@@ -100,8 +110,11 @@ public class ParserTest {
     void parseInvalidAddCommandThrowsException() {
         BookList books = new BookList();
         String input = "add"; // No book title provided
-        assertThrows(InvalidCommandArgumentException.class,
-                () -> Parser.parseCommand(input, books), "The add command requires a book title.");
+        Parser.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "The add Command requires a book title";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
     }
 
     @Test
@@ -126,8 +139,10 @@ public class ParserTest {
     void parseUnsupportedCommandThrowsException() {
         BookList books = new BookList();
         String input = "Geronimo Stilton"; // Completely unsupported command
-        assertThrows(UnsupportedCommandException.class,
-                () -> Parser.parseCommand(input, books), "Sorry but that is not a valid command. Please try again");
+        Parser.parseCommand(input, books); // Execute the command
+        String expectedMessage = "Sorry but that is not a valid command. Please try again";
+        assertTrue(outContent.toString().contains(expectedMessage),
+                "Expected message not found in the console output.");
     }
 }
 

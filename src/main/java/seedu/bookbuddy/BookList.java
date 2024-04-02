@@ -27,6 +27,10 @@ public class BookList {
     public BookList() {
         this.books = new ArrayList<Book>(); // Use ArrayList instead of array
     }
+    // Public getter method for the books field
+    public List<Book> getBooks() {
+        return this.books;
+    }
 
     /**
      * Returns the current size of the book list.
