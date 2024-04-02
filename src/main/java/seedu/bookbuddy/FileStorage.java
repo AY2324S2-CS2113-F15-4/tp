@@ -35,8 +35,9 @@ public class FileStorage {
     /**
      * Scans through each line of the file and converts them to books,
      * along with their proper details.
-     * @param file the name of the file whose content is to be read
-     * @throws FileNotFoundException when the file does not exist
+     *
+     * @param file The name of the file whose content is to be read.
+     * @throws FileNotFoundException When the file does not exist.
      */
     public void readData(BookList books, File file) throws FileNotFoundException {
         Scanner sc = new Scanner(file);
@@ -49,11 +50,17 @@ public class FileStorage {
         sc.close();
     }
 
+    /**
+     * Saves the data in the current session to the file.
+     *
+     * @param books The list of books.
+     * @throws IOException when there is an error with the file creation.
+     */
     public void saveData(BookList books) throws IOException {
         File file = new File(FILE_PATH);
         FileWriter fw = new FileWriter(file);
         for (int i = 1; i <= books.getSize(); i += 1) {
-            fw.write(books.getBook(i).saveFormat());
+            fw.write(books.getBook(i).saveFormat() + '\n');
         }
 
         fw.close();
