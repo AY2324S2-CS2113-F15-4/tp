@@ -52,11 +52,18 @@ public class Ui {
     }
     public static void helpMessage() {
         System.out.println("Here's a list of commands to get you started!!");
-        System.out.println("add (Bookname) -> to add new books to the list");
+        System.out.println("add [BOOK_TITLE] -> to add new books to the list");
+        System.out.println("remove [BOOK_INDEX] -> to remove a book from the list");
         System.out.println("list -> to show whole list of added books");
-        System.out.println("remove (index) -> to remove the book from the corresponding index");
-        System.out.println("mark (index) -> to mark book as read [R]");
-        System.out.println("unmark (index) -> to unmark book as unread [U]");
+        System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
+        System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
+        System.out.println("set-genre [BOOK_INDEX] -> to set a genre for a book");
+        System.out.println("label [BOOK_INDEX] [LABEL] -> to set a label for a book");
+        System.out.println("give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary");
+        System.out.println("rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5");
+        System.out.println("list-rated -> to sort books by rating in descending order");
+        System.out.println("display [BOOK_INDEX] -> to view more details about a book");
+        System.out.println("find [KEYWORD] -> to find books with keyword in their title");
         System.out.println("bye -> to exit BookBuddy software");
     }
 

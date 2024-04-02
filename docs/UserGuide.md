@@ -1,13 +1,31 @@
 # BookBuddy User Guide
 
 ## Overview
-
 BookBuddy is an application that helps users track and manage the list of books
 that they are reading. It is optimised for users that are familiar with the CLI so that
 the tracking and management objectives can be achieved more efficiently.
 
-## Getting Started
+## Table of Contents
+* [Getting Started](#getting-started)
+* [Features](#features)
+    * [help](#viewing-all-commands-help)
+    * [add](#adding-a-book-add)
+    * [remove](#removing-a-book-remove)
+    * [list](#viewing-all-books-list)
+    * [mark](#marking-a-book-as-read-mark)
+    * [unmark](#marking-a-book-as-unread-unmark)
+    * [set-genre](#setting-the-genre-of-a-book-set-genre)
+    * [label](#labelling-a-book-label)
+    * [give-summary](#adding-a-book-summary-give-summary)
+    * [rate](#rating-a-book-rate)
+    * [list-rated](#sorting-books-by-rating-list-rated)
+    * [display](#displaying-the-details-of-a-book-display)
+    * [find](#finding-a-book-find)
+    * [bye](#exiting-the-program-bye)
+* [FAQ](#faq)
+* [Command Summary](#command-summary)
 
+## Getting Started
 1. Ensure that you have Java 11 or above installed.
 2. Download the latest JAR file of BookBuddy [here](https://github.com/AY2324S2-CS2113-F15-4/tp/releases).
 3. Move the JAR file into an empty folder.
@@ -17,8 +35,8 @@ the tracking and management objectives can be achieved more efficiently.
 
 ## Features
 
-### Adding a book: `help`
-View all the commands available in BookBuddy and instructions on their formatting.
+### Viewing all commands: `help`
+View all the commands available in BookBuddy and instructions on their usage.
 
 Format: `help`
 
@@ -87,12 +105,26 @@ unmark 1
 
 Sets the genre of a specific book to the provided input.
 
-Format: `set-genre [BOOK_INDEX] [BOOK_GENRE]`
+Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
+in the previous step
 
-Example of usage:
+Example of usage with expected output:
 
 ```
-set-genre 1 fiction
+set-genre 1
+Available genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
+6. Add a new genre
+Enter the number for the desired genre, or add a new one:
+6
+Enter the new genre:
+satire
+okii categorised [animal farm] as [satire]
+remember to read it soon....
 ```
 
 ### Labelling a book: `label`
@@ -118,6 +150,28 @@ Example of usage:
 give-summary 1 A book about a young boy who is invited to study at Hogwarts.
 ```
 
+### Rating a book: `rate`
+Assigns a rating to a specific book, from a scale of 1-5.
+
+Format: `rate [BOOK_INDEX] [BOOK_RATING]`
+
+Example of usage:
+
+```
+rate 1 3
+```
+
+### Sorting books by rating: `list-rated`
+Prints a list of books and their ratings in descending order.
+
+Format: `list-rated`
+
+Example of usage:
+
+```
+list-rated
+```
+
 ### Displaying the details of a book: `display`
 Gives more detailed information about a specific book like its genre, label and summary.
 
@@ -130,7 +184,7 @@ display 1
 ```
 
 ### Finding a book: `find`
-Returns all books in the book list that contains the keyword.
+Returns all books in the book list that contain the keyword in their title.
 
 Format: `find [KEYWORD]`
 
@@ -142,7 +196,7 @@ find harry
 
 ### Exiting the program: `bye`
 
-Exits the application.
+Exits the application and saves all tasks in a file.
 
 Format: `bye`
 
@@ -154,12 +208,27 @@ bye
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: How do I load and save data from a previous session? 
 
-**A**: {your answer here}
+**A**: All data entered is automatically saved by the program and does not require any
+commands from the user. Upon running the file for the first time, the `books.txt` file
+will be created in the `data` folder. This folder will be in the same folder as the JAR file.
+**Users must exit the program with the `bye` command for the data in the session
+to be saved.**
 
 ## Command Summary
 
-{Give a 'cheat sheet' of commands here}
-
-* Add todo `todo n/TODO_NAME d/DEADLINE`
+* View commands: `help`
+* Add book: `add [BOOK_TITLE]`
+* Remove book: `remove [BOOK_INDEX]`
+* View all books: `list`
+* Mark book as read: `mark [BOOK_INDEX]`
+* Mark book as unread: `unmark [BOOK_INDEX]`
+* Set genre: `set-genre [BOOK_INDEX]`, `[NUMBER]` and `[CUSTOM_GENRE]` if necessary
+* Label book: `label [BOOK_INDEX] [LABEL]`
+* Add summary: `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`
+* Rate a book: `rate [BOOK_INDEX] [BOOK_RATING]`
+* Sort books by rating: `list-rated`
+* Display details: `display [BOOK_INDEX]`
+* Find books: `find [KEYWORD]`
+* Exit program: `bye`

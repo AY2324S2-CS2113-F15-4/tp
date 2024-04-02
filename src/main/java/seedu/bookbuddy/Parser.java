@@ -186,7 +186,6 @@ public class Parser {
                 }
 
                 BookGenre.setBookGenreByIndex(index, selectedGenre, books);
-                System.out.println("Genre set to " + selectedGenre + " for book at index " + index);
 
                 break;
             case RATING_COMMAND:
