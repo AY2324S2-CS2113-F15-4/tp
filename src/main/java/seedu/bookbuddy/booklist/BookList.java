@@ -12,17 +12,15 @@ import java.util.List;
  * and marking book as read or unread.
  */
 public class BookList {
-    public static List<String> getAvailableGenres() {
-        return availableGenres;
-    }
     protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
             "Mystery", "Science Fiction", "Fantasy"));
     protected ArrayList<BookMain> books;
     public BookList() {
         this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
     }
-
-
+    public static List<String> getAvailableGenres() {
+        return availableGenres;
+    }
 
     /**
      * Constructs a new BookList instance with an empty list.
