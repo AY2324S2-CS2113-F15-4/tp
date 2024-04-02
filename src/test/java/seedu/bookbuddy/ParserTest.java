@@ -9,8 +9,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ParserTest {
@@ -134,20 +135,11 @@ public class ParserTest {
         System.setOut(System.out); // Reset standard out
     }
 
-//    @Test
-//    void parseUnsupportedCommandThrowsException() {
-//        BookList books = new BookList();
-//        String input = "Geronimo Stilton"; // Completely unsupported command
-//        assertThrows(UnsupportedCommandException.class,
-//                () -> Parser.parseCommand(input, books), "Sorry but that is not a valid command. Please try again");
-//    }
     @Test
     void parseUnsupportedCommandThrowsException() {
         BookList books = new BookList();
         String input = "Geronimo Stilton"; // Completely unsupported command
         Parser.parseCommand(input, books); // Execute the command
-
-        // Check that the specific error message is printed to the console
         String expectedMessage = "Sorry but that is not a valid command. Please try again";
         assertTrue(outContent.toString().contains(expectedMessage),
                 "Expected message not found in the console output.");
