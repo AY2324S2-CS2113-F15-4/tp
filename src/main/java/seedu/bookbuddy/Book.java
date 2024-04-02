@@ -3,7 +3,7 @@ package seedu.bookbuddy;
 import java.util.Objects;
 
 public class Book {
-    public String title;
+    protected String title;
     protected boolean isRead;
     protected String label;
     protected String genre;
@@ -143,6 +143,7 @@ public class Book {
         System.out.println("Successfully marked " + this.getTitle() + " as unread.");
     }
 
+    @Override
     public String toString() {
         String statusMark = this.isRead() ? "R" : "U"; // Mark with 'R' if read and 'U' if unread
         return "[" + statusMark + "] " + this.title;
