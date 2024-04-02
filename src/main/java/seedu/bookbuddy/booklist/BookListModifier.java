@@ -1,6 +1,6 @@
 package seedu.bookbuddy.booklist;
 
-import seedu.bookbuddy.Book;
+import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.Ui;
 
 import java.util.logging.Level;
@@ -18,7 +18,7 @@ public class BookListModifier {
         String genre = bookDetails[3];
         int rating = Integer.parseInt(bookDetails[4]);
         String summary = bookDetails[5];
-        bookList.books.add(new Book(title, status, label, genre, rating, summary));
+        bookList.books.add(new BookMain(title, status, label, genre, rating, summary));
     }
 
     //@@author
@@ -30,7 +30,7 @@ public class BookListModifier {
      */
     public static void addBook(BookList bookList, String title) {
         try {
-            bookList.books.add(new Book(title));
+            bookList.books.add(new BookMain(title));
             Ui.addBookMessage(title);
             assert !bookList.books.isEmpty() : "Book list should not be empty after adding a book";
         } catch (Exception e) {

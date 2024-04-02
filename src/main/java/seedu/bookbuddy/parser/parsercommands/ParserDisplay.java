@@ -1,7 +1,7 @@
 package seedu.bookbuddy.parser.parsercommands;
 
 import seedu.bookbuddy.booklist.BookList;
-import seedu.bookbuddy.bookdetails.BookDisplay;
+import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 public class ParserDisplay {

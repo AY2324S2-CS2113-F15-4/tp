@@ -1,8 +1,8 @@
 package seedu.bookbuddy;
 
 import org.junit.jupiter.api.Test;
-import seedu.bookbuddy.bookdetails.BookDisplay;
-import seedu.bookbuddy.bookdetails.BookMark;
+import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
+import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 

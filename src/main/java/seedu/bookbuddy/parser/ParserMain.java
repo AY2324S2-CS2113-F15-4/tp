@@ -1,10 +1,10 @@
 package seedu.bookbuddy.parser;
 
 import exceptions.UnsupportedCommandException;
-import seedu.bookbuddy.bookdetails.BookDisplay;
+import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.bookdetails.BookRating;
+import seedu.bookbuddy.bookdetailsmodifier.BookRating;
 import seedu.bookbuddy.parser.parsercommands.ParserAdd;
 import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
 import seedu.bookbuddy.parser.parsercommands.ParserGenre;

@@ -1,6 +1,6 @@
 package seedu.bookbuddy.parser.parsercommands;
 
-import seedu.bookbuddy.bookdetails.BookMark;
+import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 

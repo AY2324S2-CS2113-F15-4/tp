@@ -2,7 +2,7 @@ package seedu.bookbuddy.parser.parsercommands;
 
 import exceptions.InvalidCommandArgumentException;
 import seedu.bookbuddy.booklist.BookList;
-import seedu.bookbuddy.bookdetails.BookRating;
+import seedu.bookbuddy.bookdetailsmodifier.BookRating;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 public class ParserRating {

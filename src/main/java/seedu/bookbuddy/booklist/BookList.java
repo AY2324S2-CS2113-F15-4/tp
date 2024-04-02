@@ -1,7 +1,7 @@
 package seedu.bookbuddy.booklist;
 
 import exceptions.BookNotFoundException;
-import seedu.bookbuddy.Book;
+import seedu.bookbuddy.book.BookMain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,16 +17,16 @@ public class BookList {
     public static List<String> getAvailableGenres() {
         return availableGenres;
     }
-    protected ArrayList<Book> books;
+    protected ArrayList<BookMain> books;
 
     /**
      * Constructs a new BookList instance with an empty list.
      */
     public BookList() {
-        this.books = new ArrayList<Book>(); // Use ArrayList instead of array
+        this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
     }
     // Public getter method for the books field
-    public List<Book> getBooks() {
+    public List<BookMain> getBooks() {
         return this.books;
     }
 
@@ -45,12 +45,12 @@ public class BookList {
      * @param index The index of the book to retrieve.
      * @return The Book at the specified index.
      */
-    public Book getBook(int index) throws BookNotFoundException{
+    public BookMain getBook(int index) throws BookNotFoundException{
         if (index < 0 || index > books.size()) {
             throw new BookNotFoundException("Book index out of range.");
         }
         assert books.get(index - 1) != null : "Retrieved book should not be null";
-        assert books.get(index - 1) instanceof Book : "Object at index should be an instance of Book";
+        assert books.get(index - 1) instanceof BookMain : "Object at index should be an instance of Book";
         return books.get(index - 1);
     }
 

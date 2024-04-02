@@ -1,6 +1,6 @@
-package seedu.bookbuddy.bookdetails;
+package seedu.bookbuddy.bookdetailsmodifier;
 
-import seedu.bookbuddy.Book;
+import seedu.bookbuddy.book.*;
 import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.booklist.BookList;
 
@@ -20,12 +20,12 @@ public class BookDisplay {
         }
 
         System.out.println("Here are the details of your book:");
-        System.out.println("Title: " + books.getBook(index).getTitle());
-        System.out.println("Status: " + (books.getBook(index).isRead() ? "Read" : "Unread"));
-        System.out.println("Label: " + books.getBook(index).getLabel());
-        System.out.println("Genre: " + books.getBook(index).getGenre());
-        System.out.println("Rating: " + books.getBook(index).getRating());
-        System.out.println("Summary: " + books.getBook(index).getSummary());
+        System.out.println("Title: " + Title.getTitle(books.getBook(index)));
+        System.out.println("Status: " + (Read.getRead(books.getBook(index)) ? "Read" : "Unread"));
+        System.out.println("Label: " + Label.getLabel(books.getBook(index)));
+        System.out.println("Genre: " + Genre.getGenre(books.getBook(index)));
+        System.out.println("Rating: " + Rating.getRating(books.getBook(index)));
+        System.out.println("Summary: " + Summary.getSummary(books.getBook(index)));
     }
 
     /**
@@ -37,7 +37,7 @@ public class BookDisplay {
         if (!bookList.getBooks().isEmpty()) {
             System.out.println("All books:");
             for (int i = 0; i < bookList.getBooks().size(); i++) {
-                Book currentBook = bookList.getBooks().get(i);
+                BookMain currentBook = bookList.getBooks().get(i);
                 assert currentBook != null : "Book in list should not be null";
                 System.out.print((i + 1) + ". ");
                 System.out.println(currentBook.toString());
@@ -49,9 +49,9 @@ public class BookDisplay {
 
     //@@author liuzehui03
     public static void findBook(BookList bookList, String title) {
-        ArrayList<Book> bookTitles = new ArrayList<>();
-        for (Book book : bookList.getBooks()) {
-            if (book.getTitle().contains(title)) {
+        ArrayList<BookMain> bookTitles = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if (Title.getTitle(book).contains(title)) {
                 bookTitles.add(book);
             }
         }

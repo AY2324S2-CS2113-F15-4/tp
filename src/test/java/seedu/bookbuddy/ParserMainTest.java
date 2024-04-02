@@ -3,7 +3,8 @@ package seedu.bookbuddy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.bookbuddy.bookdetails.BookMark;
+import seedu.bookbuddy.book.*;
+import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 import seedu.bookbuddy.parser.ParserMain;
@@ -42,7 +43,7 @@ public class ParserMainTest {
         assertEquals("[U] Gulliver's Travels", books.getBook(2).toString());
         BookListModifier.deleteBook(books, 1);
         BookMark.markDoneByIndex(books, 1);
-        assertTrue(books.getBook(1).isRead);
+        assertTrue(Read.getRead(books.getBook(1)));
         assertEquals("[R] Gulliver's Travels", books.getBook(1).toString());
     }
 
@@ -51,7 +52,7 @@ public class ParserMainTest {
         BookList testBookList = new BookList();
         ParserMain.parseCommand("add The Great Gatsby", testBookList);
         assertEquals(1, testBookList.getSize());
-        assertEquals("The Great Gatsby", testBookList.getBook(1).getTitle());
+        assertEquals("The Great Gatsby", Title.getTitle(testBookList.getBook(1)));
     }
 
     @Test
@@ -71,7 +72,7 @@ public class ParserMainTest {
         ParserMain.parseCommand("mark 1", books);
         System.out.println(books);
         BookMark.markDoneByIndex(books, 1);
-        assertTrue(books.getBook(1).isRead());
+        assertTrue(Read.getRead(books.getBook(1)));
     }
 
     @Test
@@ -80,7 +81,7 @@ public class ParserMainTest {
         BookListModifier.addBook(books, "The Great Gatsby");
         ParserMain.parseCommand("mark 1", books);
         ParserMain.parseCommand("unmark 1", books);
-        assertFalse(books.getBook(1).isRead());
+        assertFalse(Read.getRead(books.getBook(1)));
     }
 
     @Test
@@ -88,7 +89,7 @@ public class ParserMainTest {
         BookList books = new BookList();
         BookListModifier.addBook(books, "The Great Gatsby");
         ParserMain.parseCommand("label 1 Great Book", books);
-        assertEquals("Great Book", books.getBook(1).getLabel());
+        assertEquals("Great Book", Label.getLabel(books.getBook(1)));
     }
 
     @Test
@@ -100,13 +101,13 @@ public class ParserMainTest {
         InputStream savedStandardInputStream = System.in;
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
         ParserMain.parseCommand("set-genre 1", books); // Changed to fit your updated command-handling logic
-        assertEquals("Classic", books.getBook(1).getGenre()); // Indexes are typically 0-based in lists
+        assertEquals("Classic", Genre.getGenre(books.getBook(1))); // Indexes are typically 0-based in lists
 
         BookListModifier.addBook(books, "Geronimo");
         String nextSimulatedUserInput = "3\n";
         System.setIn(new ByteArrayInputStream(nextSimulatedUserInput.getBytes()));
         ParserMain.parseCommand("set-genre 2", books);
-        assertEquals("Mystery", books.getBook(2).getGenre());
+        assertEquals("Mystery", Genre.getGenre(books.getBook(2)));
         System.setIn(savedStandardInputStream);
     }
 

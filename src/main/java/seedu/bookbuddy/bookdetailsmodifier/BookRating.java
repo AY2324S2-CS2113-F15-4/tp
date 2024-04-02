@@ -1,6 +1,8 @@
-package seedu.bookbuddy.bookdetails;
+package seedu.bookbuddy.bookdetailsmodifier;
 
-import seedu.bookbuddy.Book;
+import seedu.bookbuddy.book.BookMain;
+import seedu.bookbuddy.book.Rating;
+import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
@@ -20,13 +22,13 @@ public class BookRating {
 
         System.out.println("Books sorted by rating:");
 
-        List<Book> sortedBooks = books.getBooks().stream()
-                .sorted(Comparator.comparingInt(Book::getRating).reversed())
+        List<BookMain> sortedBooks = books.getBooks().stream()
+                .sorted(Comparator.comparingInt(Rating::getRating).reversed())
                 .collect(Collectors.toList());
 
-        for (Book book : sortedBooks) {
-            String rating = book.getRating() >= 0 ? String.valueOf(book.getRating()) : "Not Rated";
-            System.out.println(book.getTitle() + " - " + rating);
+        for (BookMain book : sortedBooks) {
+            String rating = Rating.getRating(book) >= 0 ? String.valueOf(Rating.getRating(book)) : "Not Rated";
+            System.out.println(Title.getTitle(book) + " - " + rating);
         }
     }
 
@@ -46,8 +48,8 @@ public class BookRating {
         if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Rating must be between 1 and 5.");
         }
-        books.getBook(index).setRating(rating);
-        String title = books.getBook(index).getTitle();
+        Rating.setRating(books.getBook(index), rating);
+        String title = Title.getTitle(books.getBook(index));
         Ui.setRatingBookMessage(title, rating);
     }
 }
