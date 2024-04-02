@@ -1,6 +1,5 @@
 package seedu.bookbuddy;
 
-
 import exceptions.BookNotFoundException;
 import exceptions.BookReadAlreadyException;
 import exceptions.BookUnreadAlreadyException;
@@ -70,6 +69,17 @@ public class BookList {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred: {0}", e.getMessage());
             throw e; // Rethrow or handle as needed
         }
+    }
+
+    public void addBookFromFile(String inputArray) {
+        String[] bookDetails = inputArray.split(" \\| ");
+        String title = bookDetails[0];
+        int status = Integer.parseInt(bookDetails[1]);
+        String label = bookDetails[2];
+        String genre = bookDetails[3];
+        int rating = Integer.parseInt(bookDetails[4]);
+        String summary = bookDetails[5];
+        books.add(new Book(title, status, label, genre, rating, summary));
     }
 
     public void findBook(String title) {
