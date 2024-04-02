@@ -11,13 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
 import java.util.logging.Handler;
 
-
 import static java.util.logging.Logger.getLogger;
-
-
 
 public class BookBuddy {
     public static final Logger LOGGER = getLogger(BookBuddy.class.getName());
+    public static final String EXIT_COMMAND = "bye";
 
     static {
         try {
@@ -38,7 +36,7 @@ public class BookBuddy {
     }
 
     private static BookList books = new BookList();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         LOGGER.log(Level.INFO, "BookBuddy application started.");
         Ui.printWelcome();
         assert books != null : "BookList not created";
@@ -47,8 +45,9 @@ public class BookBuddy {
     }
 
 
-    public static void getUserInput(BookList books) {
+    public static void getUserInput(BookList books) throws IOException {
         Scanner input = new Scanner(System.in);
+        FileStorage filestorage = new FileStorage(books);
         LOGGER.log(Level.INFO, "Starting to get user input.");
 
         //noinspection InfiniteLoopStatement
@@ -57,6 +56,10 @@ public class BookBuddy {
             if (userInput.isEmpty()) {
                 // If the input is empty, do not call parseCommand and just prompt for input again.
                 continue;
+            } else if (userInput.equals(EXIT_COMMAND)) {
+                filestorage.saveData(books);
+                Ui.printExitMessage();
+                System.exit(0);
             }
             assert !userInput.isEmpty() : "User input should not be empty at this point";
             LOGGER.log(Level.FINE, "Processing user input: {0}", userInput);
