@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 public class BookDetails {
     protected String summary;
 
-
     /**
      * Sets the rating of the book at the specified index.
      *
@@ -122,6 +121,6 @@ public class BookDetails {
         System.out.println("Label: " + books.getBook(index).getLabel());
         System.out.println("Genre: " + books.getBook(index).getGenre());
         System.out.println("Rating: " + books.getBook(index).getRating());
+        System.out.println("Summary: " + books.getBook(index).getSummary());
     }
-
 }
