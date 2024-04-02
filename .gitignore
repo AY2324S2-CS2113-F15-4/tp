@@ -13,9 +13,9 @@ src/main/resources/docs/
 *.iml
 bin/
 data/books.txt
+Bookbuddy.txt
 *.log
-*.lck
-*.log.1
+BookBuddy.log.lck
 
 /text-ui-test/ACTUAL.TXT
 text-ui-test/EXPECTED-UNIX.TXT
