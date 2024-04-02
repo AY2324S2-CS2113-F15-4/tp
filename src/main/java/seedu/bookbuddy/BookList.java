@@ -36,6 +36,7 @@ public class BookList {
 
     /**
      * Returns the current size of the book list.
+     *
      * @return The number of books in the list.
      */
     public int getSize(){
@@ -44,6 +45,7 @@ public class BookList {
 
     /**
      * Retrieves a book from the list based on its index.
+     *
      * @param index The index of the book to retrieve.
      * @return The Book at the specified index.
      */
@@ -58,6 +60,7 @@ public class BookList {
 
     /**
      * Adds a new Book to the list.
+     *
      * @param title The title of the book.
      */
     public void addBook(String title) {
@@ -98,6 +101,7 @@ public class BookList {
 
     /**
      * Deletes a book from the list by its index.
+     *
      * @param index The index of the book to delete.
      */
     public void deleteBook(int index) throws IndexOutOfBoundsException {
@@ -115,6 +119,7 @@ public class BookList {
 
     /**
      * Marks a book as read by its index.
+     *
      * @param index The index of the book to mark as read.
      */
     public void markDoneByIndex(int index) throws IndexOutOfBoundsException, BookReadAlreadyException{
@@ -138,6 +143,7 @@ public class BookList {
 
     /**
      * Marks a book as unread by its index.
+     *
      * @param index The index of the book to mark as unread.
      */
     public void markUndoneByIndex(int index) throws IndexOutOfBoundsException, BookReadAlreadyException{

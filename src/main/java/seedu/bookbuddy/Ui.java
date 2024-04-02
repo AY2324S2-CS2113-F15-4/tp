@@ -27,11 +27,6 @@ public class Ui {
         System.out.println("Thank you for using BookBuddy! Hope to see you again keke :)");
     }
 
-    /*public static String printInvalidCommand() {
-        String message = "The add command requires a book title.";
-        System.out.println(message);
-        return message;
-    } */
     public static void addBookMessage(String title) {
         System.out.println("okii added [" + title + "] to the list.");
         System.out.println("remember to read it soon....");
