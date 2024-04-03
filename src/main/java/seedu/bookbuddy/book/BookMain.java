@@ -33,6 +33,7 @@ public class BookMain {
         this.summary = (Objects.equals(summary, "*")) ? "" : summary;
     }
 
+    //@@author joshuahoky
     @Override
     public String toString() {
         String statusMark = Read.getRead(this) ? "R" : "U"; // Mark with 'R' if read and 'U' if unread
