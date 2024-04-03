@@ -1,0 +1,22 @@
+@startuml
+
+User -> Parser : parseCommand(input, books)
+activate Parser
+
+alt input is ADD_COMMAND
+    Parser -> ParserAdd : executeParseAdd(books, inputArray)
+    activate ParserAdd
+    ParserAdd --> Parser : CommandExecuted
+    deactivate ParserAdd
+alt other commands
+    Parser -> Parser : handleOtherCommands()
+else unsupported command
+    Parser -> Exceptions : handleException(e, command, inputArray)
+    activate Exceptions
+    Exceptions --> Parser : ExceptionHandled
+    deactivate Exceptions
+end
+
+Parser --> User : getUserInput(books)
+deactivate Parser
+@enduml

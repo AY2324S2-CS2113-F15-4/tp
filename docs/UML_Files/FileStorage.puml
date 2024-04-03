@@ -1,0 +1,21 @@
+@startuml
+class FileStorage {
+    - FILE_NAME : String = "books.txt"
+    - FILE_DIRECTORY : String = "./data"
+    - FILE_PATH : String = FILE_DIRECTORY + '/' + FILE_NAME
+
+    +FileStorage(books : BookList)
+    +readData(books : BookList, file : File) : void
+    +saveData(books : BookList) : void
+}
+
+class BookList {
+}
+
+class BookListModifier {
+    +addBookFromFile(books : BookList, line : String) : void
+}
+
+FileStorage --> BookList : uses
+FileStorage --> BookListModifier : uses
+@enduml
