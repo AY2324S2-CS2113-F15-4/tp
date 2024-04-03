@@ -41,22 +41,43 @@ View all the commands available in BookBuddy and instructions on their usage.
 
 Format: `help`
 
-Example of usage:
-
+Example usage:
 ```
 help
 ```
+Example output:
+````
+Here's a list of commands to get you started!!
+add [BOOK_TITLE] -> to add new books to the list
+remove [BOOK_INDEX] -> to remove a book from the list
+list -> to show whole list of added books
+mark [BOOK_INDEX] -> to mark book as read [R]
+unmark [BOOK_INDEX] -> to mark book as unread [U]
+set-genre [BOOK_INDEX] -> to set a genre for a book
+label [BOOK_INDEX] [LABEL] -> to set a label for a book
+give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary
+rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
+list-rated -> to sort books by rating in descending order
+display [BOOK_INDEX] -> to view more details about a book
+find-title [KEYWORD] -> to find books with keyword in their title
+find-genre -> to see all books with the selected genre
+bye -> to exit BookBuddy software
+````
 
 ### Adding a book: `add`
 Adds a new book to the book list.
 
 Format: `add [BOOK_TITLE]`
 
-Example of usage:
-
+Example usage:
 ```
 add Harry Potter
 ```
+Example output:
+````
+okii added [Harry Potter] to the list.
+remember to read it soon....
+````
 
 ### Removing a book: `remove`
 Removes a specific book from the book list.
@@ -69,16 +90,30 @@ Example of usage:
 remove 1
 ```
 
+Example output
+
+````
+alright.. i've removed Harry Potter from the list.
+````
+
 ### Viewing all books: `list`
 Shows all books in the list along with their titles and status.
 
 Format: `list`
 
-Example of usage:
+Example usage:
 
 ```
 list
 ```
+
+Example output
+
+````
+All books:
+1. [U] Harry Potter
+2. [U] Geronimo Stilton
+````
 
 ### Marking a book as read: `mark`
 Changes the status of a specific book to read.
@@ -91,6 +126,12 @@ Example of usage:
 mark 1
 ```
 
+Example output:
+
+````
+Successfully marked Harry Potter as read.
+````
+
 ### Marking a book as unread: `unmark`
 Changes the status of a specific book to unread.
 
@@ -101,6 +142,11 @@ Example of usage:
 ```
 unmark 1
 ```
+Example output:
+
+````
+Successfully marked Harry Potter as unread.
+````
 
 ### Setting the genre of a book: `set-genre`
 
@@ -112,9 +158,11 @@ in the previous step
 Example of usage with expected output:
 
 ```
+//input
 set-genre 1
 ```
 ````
+//output
 Available genres:
 1. Fiction
 2. Non-Fiction
@@ -125,15 +173,19 @@ Available genres:
 Enter the number for the desired genre, or add a new one:
 ````
 ````
+//input
 6
 ````
 ````
+//output
 Enter the new genre:
 ````
 ````
+//input
 satire
 ````
 ````
+//output
 okii categorised [animal farm] as [satire]
 remember to read it soon....
 ````
@@ -150,6 +202,13 @@ Example of usage:
 label 1 very cool
 ```
 
+Example output:
+
+````
+okii labeled [Harry Potter] as [very cool]
+remember to read it soon....
+````
+
 ### Adding a book summary: `give-summary`
 Provides a summary for the specified book.
 
@@ -160,6 +219,12 @@ Example of usage:
 ```
 give-summary 1 A book about a young boy who is invited to study at Hogwarts.
 ```
+
+Example output:
+````
+okii you have written: [A book about a young boy who is invited to study at Hogwarts.] for the book: [Harry Potter]
+remember to read it soon....
+````
 
 ### Rating a book: `rate`
 Assigns a rating to a specific book, from a scale of 1-5.
@@ -172,6 +237,13 @@ Example of usage:
 rate 1 3
 ```
 
+Example output:
+
+````
+okii set rating for [Harry Potter] as [3]
+remember to read it soon....
+````
+
 ### Sorting books by rating: `list-rated`
 Prints a list of books and their ratings in descending order.
 
@@ -182,6 +254,14 @@ Example of usage:
 ```
 list-rated
 ```
+
+Example output:
+````
+Books sorted by rating:
+The Boy in Striped Pyjamas - 5
+Geronimo Stilton - 4
+Harry Potter - 3
+````
 
 ### Displaying the details of a book: `display`
 Gives more detailed information about a specific book like its genre, label and summary.
@@ -194,6 +274,18 @@ Example of usage:
 display 1
 ```
 
+Example output:
+````
+Here are the details of your book:
+Title: Harry Potter
+Status: Read
+Label: very cool
+Genre: No genre provided
+Rating: 3
+Summary: A book about a young boy who is invited to study at Hogwarts.
+
+````
+
 ### Finding a book by title: `find-title`
 Returns all books in the book list that contain the keyword in their title.
 
@@ -202,18 +294,28 @@ Format: `find-title`
 Example of usage:
 
 ```
-find-title harry
+find-title Harry
 ```
+
+Example output:
+
+````
+1. [R] Harry Potter
+````
 
 ### Finding a book by genre: `find-genre`
 Returns all books in the book list that has the matching genre.
 
 Format: `find-genre` followed by `[NUMBER]`
 
-Example of usage:
+Example of usage with expected output:
 
 ```
+//input
 find-genre
+```
+````
+//output
 Available genres:
 1. Fiction
 2. Non-Fiction
@@ -221,9 +323,15 @@ Available genres:
 4. Science Fiction
 5. Fantasy
 Enter the number for the desired genre:
+````
+````
+//input
 1
+````
+````
+//ouput
 1. [U] harry potter
-```
+````
 
 ### Exiting the program: `bye`
 
@@ -236,6 +344,12 @@ Example of usage:
 ```
 bye
 ```
+
+Example output:
+````
+Writing successful. Data has been saved.
+Thank you for using BookBuddy! Hope to see you again keke :)
+````
 
 ## FAQ
 
