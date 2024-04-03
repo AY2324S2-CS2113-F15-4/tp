@@ -6,6 +6,7 @@ import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookSummary {
+
     //@@author lordgareth10
     /**
      * Sets the summary of the book at the specified index.
