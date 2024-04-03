@@ -13,6 +13,7 @@ import seedu.bookbuddy.booklist.BookList;
 import java.util.ArrayList;
 
 public class BookDisplay {
+
     //@@author joshuahoky
     /**
      * Prints the details of the book at the specified index.
@@ -36,6 +37,7 @@ public class BookDisplay {
 
     /**
      * Prints all books currently in the list.
+     *
      * @param bookList
      */
     public static void printAllBooks(BookList bookList) {
@@ -67,6 +69,7 @@ public class BookDisplay {
             Ui.printBookFound(bookTitles);
         }
     }
+
     public static void findBookGenre(BookList bookList, String genre) {
         ArrayList<BookMain> bookGenres = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {

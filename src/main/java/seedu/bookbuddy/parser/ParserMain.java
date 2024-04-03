@@ -29,6 +29,7 @@ public class ParserMain {
 
     /**
      * Scans the user input for valid commands and handles them accordingly.
+     *
      * @param input input from the user
      * @param books ArrayList of books
      */

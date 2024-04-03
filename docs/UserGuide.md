@@ -20,7 +20,8 @@ the tracking and management objectives can be achieved more efficiently.
     * [rate](#rating-a-book-rate)
     * [list-rated](#sorting-books-by-rating-list-rated)
     * [display](#displaying-the-details-of-a-book-display)
-    * [find](#finding-a-book-find)
+    * [find-title](#finding-a-book-by-title-find-title)
+    * [find-genre](#finding-a-book-by-genre-find-genre)
     * [bye](#exiting-the-program-bye)
 * [FAQ](#faq)
 * [Command Summary](#command-summary)
@@ -183,15 +184,35 @@ Example of usage:
 display 1
 ```
 
-### Finding a book: `find`
+### Finding a book by title: `find-title`
 Returns all books in the book list that contain the keyword in their title.
 
-Format: `find [KEYWORD]`
+Format: `find-title`
 
 Example of usage:
 
 ```
-find harry
+find-title harry
+```
+
+### Finding a book by genre: `find-genre`
+Returns all books in the book list that has the matching genre.
+
+Format: `find-genre` followed by `[NUMBER]`
+
+Example of usage:
+
+```
+find-genre
+Available genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
+Enter the number for the desired genre:
+1
+1. [U] harry potter
 ```
 
 ### Exiting the program: `bye`
@@ -225,11 +246,12 @@ to be saved.**
 * View all books: `list`
 * Mark book as read: `mark [BOOK_INDEX]`
 * Mark book as unread: `unmark [BOOK_INDEX]`
-* Set genre: `set-genre [BOOK_INDEX]`, `[NUMBER]` and `[CUSTOM_GENRE]` if necessary
+* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary
 * Label book: `label [BOOK_INDEX] [LABEL]`
 * Add summary: `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`
 * Rate a book: `rate [BOOK_INDEX] [BOOK_RATING]`
 * Sort books by rating: `list-rated`
 * Display details: `display [BOOK_INDEX]`
-* Find books: `find [KEYWORD]`
+* Find books with specific title: `find-title [KEYWORD]`
+* Find books with specific genre: `find-genre` followed by `[NUMBER]`
 * Exit program: `bye`
