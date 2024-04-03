@@ -57,8 +57,11 @@ public class ParserMain {
             case CommandList.HELP_COMMAND:
                 Ui.helpMessage();
                 break;
-            case CommandList.FIND_COMMAND:
-                BookDisplay.findBook(books, inputArray[1]);
+            case CommandList.FIND_TITLE_COMMAND:
+                BookDisplay.findBookTitle(books, inputArray[1]);
+                break;
+            case CommandList.FIND_GENRE_COMMAND:
+                BookDisplay.findBookGenre(books, inputArray[1]);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);

@@ -67,7 +67,7 @@ public class Ui {
         System.out.println("rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5");
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
-        System.out.println("find [KEYWORD] -> to find books with keyword in their title");
+        System.out.println("find-title [KEYWORD] -> to find books with keyword in their title");
         System.out.println("bye -> to exit BookBuddy software");
     }
 
@@ -77,6 +77,15 @@ public class Ui {
         }
     }
     public static void printNoBookFound(){
+        System.out.println("no such books added...");
+
+    }
+    public static void printGenresFound(ArrayList<BookMain> bookGenres){
+        for (int i = 0; i < bookGenres.size(); i++) {
+            System.out.println(i + 1 + ". " + bookGenres.get(i));
+        }
+    }
+    public static void printNoGenresFound(){
         System.out.println("no such books added...");
 
     }
