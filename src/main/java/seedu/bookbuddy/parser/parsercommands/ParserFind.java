@@ -5,7 +5,6 @@ import seedu.bookbuddy.booklist.BookList;
 
 import java.util.Scanner;
 
-import static seedu.bookbuddy.parser.parsercommands.ParserGenre.genreSelectionPrinter;
 import static seedu.bookbuddy.parser.parsercommands.ParserGenre.invalidInputLooper;
 
 public class ParserFind {
