@@ -32,7 +32,7 @@ public class ParserGenre {
         return false;
     }
 
-    private static void genreSelectionPrinter() {
+    static void genreSelectionPrinter() {
         System.out.println("Available genres:");
         for (int i = 0; i < BookList.getAvailableGenres().size(); i++) {
             System.out.println((i + 1) + ". " + BookList.getAvailableGenres().get(i));
@@ -40,7 +40,7 @@ public class ParserGenre {
         System.out.println((BookList.getAvailableGenres().size() + 1) + ". Add a new genre");
     }
 
-    private static String invalidInputLooper(String selectedGenre, Scanner scanner) {
+    static String invalidInputLooper(String selectedGenre, Scanner scanner) {
         while (selectedGenre == null) {
             while (!scanner.hasNextInt()) {  // Ensure the next input is an integer
                 String newInput = scanner.nextLine();

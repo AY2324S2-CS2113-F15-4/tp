@@ -7,7 +7,8 @@ public class CommandList {
     public static final String MARK_COMMAND = "mark";
     public static final String UNMARK_COMMAND = "unmark";
     public static final String HELP_COMMAND = "help";
-    public static final String FIND_COMMAND = "find";
+    public static final String FIND_TITLE_COMMAND = "find-title";
+    public static final String FIND_GENRE_COMMAND = "find-genre";
     public static final String LABEL_COMMAND = "label";
     public static final String GENRE_COMMAND = "set-genre";
     public static final String SUMMARY_COMMAND = "give-summary";

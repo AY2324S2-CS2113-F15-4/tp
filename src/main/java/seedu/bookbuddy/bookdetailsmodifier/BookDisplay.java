@@ -54,7 +54,7 @@ public class BookDisplay {
     }
 
     //@@author liuzehui03
-    public static void findBook(BookList bookList, String title) {
+    public static void findBookTitle(BookList bookList, String title) {
         ArrayList<BookMain> bookTitles = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
             if (Title.getTitle(book).contains(title)) {
@@ -65,6 +65,19 @@ public class BookDisplay {
             Ui.printNoBookFound();
         } else {
             Ui.printBookFound(bookTitles);
+        }
+    }
+    public static void findBookGenre(BookList bookList, String genre) {
+        ArrayList<BookMain> bookGenres = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if (Genre.getGenre(book).contains(genre)) {
+                bookGenres.add(book);
+            }
+        }
+        if (bookGenres.isEmpty()){
+            Ui.printNoGenresFound();
+        } else {
+            Ui.printGenresFound(bookGenres);
         }
     }
 }
