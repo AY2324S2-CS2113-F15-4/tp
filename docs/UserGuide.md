@@ -113,6 +113,8 @@ Example of usage with expected output:
 
 ```
 set-genre 1
+```
+````
 Available genres:
 1. Fiction
 2. Non-Fiction
@@ -121,12 +123,20 @@ Available genres:
 5. Fantasy
 6. Add a new genre
 Enter the number for the desired genre, or add a new one:
+````
+````
 6
+````
+````
 Enter the new genre:
+````
+````
 satire
+````
+````
 okii categorised [animal farm] as [satire]
 remember to read it soon....
-```
+````
 
 ### Labelling a book: `label`
 
