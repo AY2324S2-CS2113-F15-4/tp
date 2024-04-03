@@ -12,6 +12,10 @@ src/main/resources/docs/
 .DS_Store
 *.iml
 bin/
+data/books.txt
+Bookbuddy.txt
+*.log
+BookBuddy.log.lck
 
 /text-ui-test/ACTUAL.TXT
 text-ui-test/EXPECTED-UNIX.TXT

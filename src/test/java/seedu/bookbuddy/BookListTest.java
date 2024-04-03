@@ -1,6 +1,10 @@
 package seedu.bookbuddy;
 
 import org.junit.jupiter.api.Test;
+import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
+import seedu.bookbuddy.bookdetailsmodifier.BookMark;
+import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.booklist.BookListModifier;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -20,7 +24,7 @@ class BookListTest {
     @Test
     void addBook() {
         BookList testBookList = new BookList();
-        testBookList.addBook("Harry Potter");
+        BookListModifier.addBook(testBookList, "Harry Potter");
         assertEquals(1, testBookList.getSize());
         assertEquals("[U] Harry Potter", testBookList.getBook(1).toString());
     }
@@ -28,12 +32,12 @@ class BookListTest {
     @Test
     void printAllBooks() {
         BookList testBookList = new BookList();
-        testBookList.addBook("Harry Potter");
+        BookListModifier.addBook(testBookList, "Harry Potter");
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        testBookList.printAllBooks();
+        BookDisplay.printAllBooks(testBookList);
 
         String expectedOutput = "All books:\n1. [U] Harry Potter\n";
         String normalizedActualOutput = outContent.toString().replace("\r\n", "\n");
@@ -45,36 +49,36 @@ class BookListTest {
     @Test
     void deleteBook() {
         BookList bookList = new BookList();
-        bookList.addBook("Harry Potter");
+        BookListModifier.addBook(bookList, "Harry Potter");
         assertEquals(1, bookList.getSize());
-        bookList.deleteBook(1);
+        BookListModifier.deleteBook(bookList, 1);
         assertEquals(0, bookList.getSize());
     }
 
     @Test
     void getBook() {
         BookList bookList = new BookList();
-        bookList.addBook("Harry Potter");
-        bookList.addBook("Geronimo");
-        bookList.addBook("Cradle");
+        BookListModifier.addBook(bookList, "Harry Potter");
+        BookListModifier.addBook(bookList, "Geronimo");
+        BookListModifier.addBook(bookList, "Cradle");
         assertEquals("[U] Cradle", bookList.getBook(3).toString());
     }
 
     @Test
     void markDoneByIndex() {
         BookList bookList = new BookList();
-        bookList.addBook("Harry Potter");
-        bookList.markDoneByIndex(1);
+        BookListModifier.addBook(bookList, "Harry Potter");
+        BookMark.markDoneByIndex(bookList, 1);
         assertEquals("[R] Harry Potter", bookList.getBook(1).toString());
     }
 
     @Test
     void markUndoneByIndex() {
         BookList bookList = new BookList();
-        bookList.addBook("Harry Potter");
-        bookList.markDoneByIndex(1);
+        BookListModifier.addBook(bookList, "Harry Potter");
+        BookMark.markDoneByIndex(bookList, 1);
         assertEquals("[R] Harry Potter", bookList.getBook(1).toString());
-        bookList.markUndoneByIndex(1);
+        BookMark.markUndoneByIndex(bookList, 1);
         assertEquals("[U] Harry Potter", bookList.getBook(1).toString());
     }
 
