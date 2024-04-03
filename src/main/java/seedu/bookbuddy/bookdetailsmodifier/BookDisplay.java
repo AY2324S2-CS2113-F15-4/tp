@@ -18,7 +18,7 @@ public class BookDisplay {
     /**
      * Prints the details of the book at the specified index.
      *
-     * @param index The index of hte book in the list.
+     * @param index The index of the book in the list.
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
     public static void displayDetails(int index, BookList books) throws IndexOutOfBoundsException {
@@ -26,19 +26,23 @@ public class BookDisplay {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
         }
 
+        String label = Label.getLabel(books.getBook(index));
+        String genre = Genre.getGenre(books.getBook(index));
+        int rating = Rating.getRating(books.getBook(index));
+        String summary = Summary.getSummary(books.getBook(index));
         System.out.println("Here are the details of your book:");
         System.out.println("Title: " + Title.getTitle(books.getBook(index)));
         System.out.println("Status: " + (Read.getRead(books.getBook(index)) ? "Read" : "Unread"));
-        System.out.println("Label: " + Label.getLabel(books.getBook(index)));
-        System.out.println("Genre: " + Genre.getGenre(books.getBook(index)));
-        System.out.println("Rating: " + Rating.getRating(books.getBook(index)));
-        System.out.println("Summary: " + Summary.getSummary(books.getBook(index)));
+        System.out.println("Label: " + (label.isEmpty() ? "No label provided" : label));
+        System.out.println("Genre: " + (genre.isEmpty() ? "No genre provided" : genre));
+        System.out.println("Rating: " + ((rating == -1) ? "No rating provided" : rating));
+        System.out.println("Summary: " + (summary.isEmpty() ? "No summary provided" : summary));
     }
 
     /**
      * Prints all books currently in the list.
      *
-     * @param bookList
+     * @param bookList The bookList array with all the books
      */
     public static void printAllBooks(BookList bookList) {
         assert bookList.getBooks() != null : "Books list should not be null since it has been initialised.";

@@ -51,7 +51,6 @@ public class BookBuddy {
         FileStorage filestorage = new FileStorage(books);
         LOGGER.log(Level.INFO, "Starting to get user input.");
 
-        //noinspection InfiniteLoopStatement
         while (true) {
             String userInput = input.nextLine().trim();
             if (userInput.isEmpty()) {
