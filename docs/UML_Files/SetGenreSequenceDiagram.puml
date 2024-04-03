@@ -1,0 +1,45 @@
+
+
+@startuml
+participant User
+participant "ParserMain" as ParserMain
+participant "ParserGenre" as ParserGenre
+participant "BookList" as BookList
+participant "BookGenre" as BookGenre
+participant "Ui" as Ui
+
+User -> ParserMain : set-genre [BOOK_INDEX]
+ParserMain -> ParserGenre : executeParseSetGenre(books, inputArray)
+ParserGenre -> BookList : validate index
+ParserGenre -> ParserGenre : genreSelectionPrinter()
+ParserGenre -> User : Display available genres
+
+alt selecting existing genre
+    User -> ParserGenre : Select genre number
+    ParserGenre -> BookList : getAvailableGenres()
+    ParserGenre -> BookGenre : setBookGenreByIndex(index, selectedGenre, books)
+    BookGenre -> BookList : getBook(index)
+    BookGenre -> Ui : setGenreBookMessage(title, genre)
+    Ui -> User : confirmation message
+else adding new genre
+    User -> ParserGenre : 6 (Add new genre)
+    ParserGenre -> User : Enter new genre
+    User -> ParserGenre : Input custom genre
+    ParserGenre -> BookList : Add new genre to list
+    ParserGenre -> BookGenre : setBookGenreByIndex(index, newGenre, books)
+    BookGenre -> BookList : getBook(index)
+    BookGenre -> Ui : setGenreBookMessage(title, genre)
+    Ui -> User : confirmation message
+end
+
+@enduml
+
+
+
+Flow:
+1. The user initiates the set-genre command.
+2. ParserMain processes the input and delegates the command to ParserGenre.
+3. ParserGenre then interacts with BookList to validate the book index and displays the available genres.
+4. The user selects a genre or adds a new one, which ParserGenre processes.
+5. If a new genre is added, it is included in the available genres in BookList.
+6. Finally, BookGenre sets the genre for the specific book.
