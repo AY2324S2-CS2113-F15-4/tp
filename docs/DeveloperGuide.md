@@ -143,6 +143,7 @@ thereby ensuring data is saved for future sessions.
 The `FileStorage` class interacts with the `BookList` and `BookListModifier` classes to load and save book data. It ensures that 
 the data directory and file exist upon initialization and provides methods for reading from and writing to the data file. 
 The class diagram below illustrates the relationship between `FileStorage` and other classes.
+
 ![FileStorage.png](UML_diagrams/FileStorage.png)
 
 #### Detailed Workflow
