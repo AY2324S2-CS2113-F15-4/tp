@@ -76,6 +76,7 @@ public class Ui {
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
         System.out.println("find-title [KEYWORD] -> to find books with keyword in their title");
+        System.out.println("find-genre -> to see all books with the selected genre");
         System.out.println("bye -> to exit BookBuddy software");
     }
 
