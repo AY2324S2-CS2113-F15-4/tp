@@ -4,6 +4,7 @@ public class Read {
     //@@author lordgareth10
     /**
      * Checks if the book is read.
+     *
      * @param book
      * @return True if the book is read, false otherwise.
      */

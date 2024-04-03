@@ -23,6 +23,8 @@ public class Exceptions {
         } else if (e instanceof NumberFormatException) {
             System.out.println("Invalid input: " + inputArray[1] + " is not a valid number. " +
                     "Please enter a valid numeric index. Type 'list' to view list of books.");
+        } else if (e instanceof ArrayIndexOutOfBoundsException) {
+            System.out.println("Command requires more parameters than provided. Please try again or type: help");
         } else if (e instanceof IndexOutOfBoundsException) {
             System.out.println("Invalid book index. Please enter a valid index.");
         } else if (e instanceof InvalidCommandArgumentException) {
