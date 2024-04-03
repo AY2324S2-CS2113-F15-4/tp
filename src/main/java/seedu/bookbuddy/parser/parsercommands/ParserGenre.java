@@ -28,7 +28,6 @@ public class ParserGenre {
         }
 
         BookGenre.setBookGenreByIndex(index, selectedGenre, books);
-        System.out.println("Genre set to " + selectedGenre + " for book at index " + index);
         return false;
     }
 
