@@ -79,9 +79,7 @@ public class ParserMain {
                 break;
             case CommandList.GENRE_COMMAND:
                 // Exit the command if user types 'exit'
-                if (ParserGenre.executeParseSetGenre(books, inputArray)) {
-                    return;
-                }
+                ParserGenre.executeParseSetGenre(books, inputArray);
                 break;
             case CommandList.RATING_COMMAND:
                 ParserRating.executeParseSetRating(books, inputArray);

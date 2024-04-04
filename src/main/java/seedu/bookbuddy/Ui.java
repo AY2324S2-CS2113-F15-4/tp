@@ -47,6 +47,9 @@ public class Ui {
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");
     }
+    public static void exitCommandMessage() {
+        System.out.println("okii exitting the command now");
+    }
     public static void setRatingBookMessage(String title, int rating) {
         System.out.println("okii set rating for [" + title + "] as [" + rating +"]");
         System.out.println("remember to read it soon....");
