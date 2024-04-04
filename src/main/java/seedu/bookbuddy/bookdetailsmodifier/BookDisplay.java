@@ -63,7 +63,7 @@ public class BookDisplay {
     public static void findBookTitle(BookList bookList, String title) {
         ArrayList<BookMain> bookTitles = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
-            if (Title.getTitle(book).contains(title)) {
+            if (Title.getTitle(book).toLowerCase().contains(title.toLowerCase())) {
                 bookTitles.add(book);
             }
         }
@@ -77,7 +77,8 @@ public class BookDisplay {
     public static void findBookGenre(BookList bookList, String genre) {
         ArrayList<BookMain> bookGenres = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
-            if (Genre.getGenre(book).contains(genre)) {
+            String actualGenre = Genre.getGenre(book).toLowerCase();
+            if (actualGenre.contains(genre.toLowerCase())) {
                 bookGenres.add(book);
             }
         }

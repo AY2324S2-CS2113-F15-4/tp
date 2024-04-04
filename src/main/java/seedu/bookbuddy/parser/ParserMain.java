@@ -63,7 +63,7 @@ public class ParserMain {
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
             case CommandList.FIND_GENRE_COMMAND:
-                ParserFind.parseFindGenre(books);
+                ParserFind.parseFindGenre(books, inputArray[1]);
                 break;
             case CommandList.FIND_READ_COMMAND:
                 ParserFind.parseFindRead(books);
