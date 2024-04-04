@@ -169,13 +169,17 @@ Sets the genre of a specific book based on the provided input.
 Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
 in the previous step
 
+Or for Pro Users:
+
+Format: `set-genre [BOOK_INDEX] [GENRE]`
+
+
 Example of usage with expected output:
 
 ```
 //input
 set-genre 1
-```
-````
+
 //output
 Available genres:
 1. Fiction
@@ -185,23 +189,29 @@ Available genres:
 5. Fantasy
 6. Add a new genre
 Enter the number for the desired genre, or add a new one:
-````
-````
+
 //input
 6
-````
-````
+
 //output
 Enter the new genre:
-````
-````
+
 //input
 satire
-````
-````
+
 //output
 okii categorised [animal farm] as [satire]
 remember to read it soon....
+````
+
+````
+//input
+set-genre 1 Fiction
+okii categorised [Harry Potter] as [Fiction]
+remember to read it soon....
+
+//output
+Genre set to Fiction for book at index 1
 ````
 
 ### Labelling a book: `label`
@@ -414,7 +424,8 @@ to be saved.**
 * View all books: `list`
 * Mark book as read: `mark [BOOK_INDEX]`
 * Mark book as unread: `unmark [BOOK_INDEX]`
-* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary
+* Set genre: `set-genre [BOOK_INDEX] [GENRE]` (Single-Step for Pro users)
+* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary (Multi-Step)
 * Label book: `label [BOOK_INDEX] [LABEL]`
 * Add summary: `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`
 * Rate a book: `rate [BOOK_INDEX] [BOOK_RATING]`
