@@ -296,7 +296,6 @@ Label: very cool
 Genre: No genre provided
 Rating: 3
 Summary: A book about a young boy who is invited to study at Hogwarts.
-
 ````
 
 ### Finding a book by title: `find-title`
