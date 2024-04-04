@@ -3,10 +3,6 @@ package seedu.bookbuddy.parser.parsercommands;
 import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
 import seedu.bookbuddy.booklist.BookList;
 
-import java.util.Scanner;
-
-import static seedu.bookbuddy.parser.parsercommands.ParserGenre.invalidInputLooper;
-
 public class ParserFind {
     public static void parseTitle(BookList books, String inputArray) {
         BookDisplay.findBookTitle(books, inputArray);
