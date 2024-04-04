@@ -65,6 +65,12 @@ public class ParserMain {
             case CommandList.FIND_GENRE_COMMAND:
                 ParserFind.parseFindGenre(books);
                 break;
+            case CommandList.FIND_READ_COMMAND:
+                ParserFind.parseFindRead(books);
+                break;
+            case CommandList.FIND_UNREAD_COMMAND:
+                ParserFind.parseFindUnread(books);
+                break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);
                 break;
