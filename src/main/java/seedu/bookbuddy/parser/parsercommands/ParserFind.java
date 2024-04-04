@@ -11,6 +11,7 @@ public class ParserFind {
     public static void parseTitle(BookList books, String inputArray) {
         BookDisplay.findBookTitle(books, inputArray);
     }
+
     public static void parseFindGenre(BookList books) {
         //BookDisplay.findBookGenre(books, inputArray);
         System.out.println("Available genres:");

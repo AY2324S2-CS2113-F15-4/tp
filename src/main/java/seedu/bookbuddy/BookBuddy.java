@@ -46,13 +46,11 @@ public class BookBuddy {
         LOGGER.log(Level.INFO, "BookBuddy application is shutting down.");
     }
 
-
     public static void getUserInput(BookList books) throws IOException {
         Scanner input = new Scanner(System.in);
         FileStorage filestorage = new FileStorage(books);
         LOGGER.log(Level.INFO, "Starting to get user input.");
 
-        //noinspection InfiniteLoopStatement
         while (true) {
             String userInput = input.nextLine().trim();
             if (userInput.isEmpty()) {

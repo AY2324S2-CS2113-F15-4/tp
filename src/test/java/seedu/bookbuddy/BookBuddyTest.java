@@ -45,9 +45,6 @@ class BookBuddyTest {
         assertEquals(normalizedExpectedOutput, normalizedActualOutput);
     }
 
-
-
-
     @Test
     public void testPrintExitMessage() {
         Ui.printExitMessage();

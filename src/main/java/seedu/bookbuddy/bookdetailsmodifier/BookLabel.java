@@ -6,6 +6,7 @@ import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookLabel {
+
     /**
      * Sets the label of the book at the specified index.
      *

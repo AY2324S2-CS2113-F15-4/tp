@@ -15,6 +15,7 @@ public class Summary {
 
     /**
      * Returns the summary of the book.
+     *
      * @param book
      * @return The summary of the book.
      */

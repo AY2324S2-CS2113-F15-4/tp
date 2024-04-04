@@ -6,6 +6,7 @@ import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 
 public class BookGenre {
+
     /**
      * Sets the genre of the book at the specified index.
      *

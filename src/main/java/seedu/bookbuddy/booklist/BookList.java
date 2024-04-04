@@ -25,7 +25,6 @@ public class BookList {
     /**
      * Constructs a new BookList instance with an empty list.
      */
-
     // Public getter method for the books field
     public List<BookMain> getBooks() {
         return this.books;
@@ -54,5 +53,4 @@ public class BookList {
         assert books.get(index - 1) instanceof BookMain : "Object at index should be an instance of Book";
         return books.get(index - 1);
     }
-
 }

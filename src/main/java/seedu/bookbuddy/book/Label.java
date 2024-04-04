@@ -13,6 +13,7 @@ public class Label {
 
     /**
      * Returns the label of the book.
+     *
      * @param book
      * @return The label of the book.
      */

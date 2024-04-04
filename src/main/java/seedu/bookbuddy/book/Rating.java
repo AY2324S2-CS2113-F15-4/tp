@@ -17,6 +17,7 @@ public class Rating {
 
     /**
      * Returns the rating of the book.
+     *
      * @param book
      * @return The rating of the book.
      */

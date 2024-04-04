@@ -29,6 +29,7 @@ public class ParserMain {
 
     /**
      * Scans the user input for valid commands and handles them accordingly.
+     *
      * @param input input from the user
      * @param books ArrayList of books
      */
@@ -60,11 +61,9 @@ public class ParserMain {
                 break;
             case CommandList.FIND_TITLE_COMMAND:
                 ParserFind.parseTitle(books, inputArray[1]);
-                //BookDisplay.findBookTitle(books, inputArray[1]);
                 break;
             case CommandList.FIND_GENRE_COMMAND:
                 ParserFind.parseFindGenre(books);
-                //BookDisplay.findBookGenre(books, inputArray[1]);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);

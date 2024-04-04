@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BookRating {
+
     /**
      * Prints all books sorted by rating in descending order.
      */

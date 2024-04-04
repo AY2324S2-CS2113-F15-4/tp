@@ -13,6 +13,7 @@ public class Genre {
 
     /**
      * Returns the genre of the book.
+     *
      * @param book
      * @return The genre of the book.
      */

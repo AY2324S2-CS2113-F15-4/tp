@@ -69,6 +69,7 @@ public class BookMark {
     //@@author lordgareth10
     /**
      * Marks the book as read.
+     *
      * @param book
      */
     public static void markBookAsRead(BookMain book) {
@@ -78,11 +79,11 @@ public class BookMark {
 
     /**
      * Marks the book as unread.
+     *
      * @param book
      */
     public static void markBookAsUnread(BookMain book) {
         Read.setRead(book, false);
         System.out.println("Successfully marked " + Title.getTitle(book) + " as unread.");
     }
-    //@author
 }

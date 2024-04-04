@@ -20,7 +20,8 @@ the tracking and management objectives can be achieved more efficiently.
     * [rate](#rating-a-book-rate)
     * [list-rated](#sorting-books-by-rating-list-rated)
     * [display](#displaying-the-details-of-a-book-display)
-    * [find](#finding-a-book-find)
+    * [find-title](#finding-a-book-by-title-find-title)
+    * [find-genre](#finding-a-book-by-genre-find-genre)
     * [bye](#exiting-the-program-bye)
 * [FAQ](#faq)
 * [Command Summary](#command-summary)
@@ -36,26 +37,47 @@ the tracking and management objectives can be achieved more efficiently.
 ## Features
 
 ### Viewing all commands: `help`
-View all the commands available in BookBuddy and instructions on their usage.
+View all the commands available in BookBuddy and specific instructions on how the commands should be used.
 
 Format: `help`
 
-Example of usage:
-
+Example usage:
 ```
 help
 ```
+Example output:
+````
+Here's a list of commands to get you started!!
+add [BOOK_TITLE] -> to add new books to the list
+remove [BOOK_INDEX] -> to remove a book from the list
+list -> to show whole list of added books
+mark [BOOK_INDEX] -> to mark book as read [R]
+unmark [BOOK_INDEX] -> to mark book as unread [U]
+set-genre [BOOK_INDEX] -> to set a genre for a book
+label [BOOK_INDEX] [LABEL] -> to set a label for a book
+give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary
+rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
+list-rated -> to sort books by rating in descending order
+display [BOOK_INDEX] -> to view more details about a book
+find-title [KEYWORD] -> to find books with keyword in their title
+find-genre -> to see all books with the selected genre
+bye -> to exit BookBuddy software
+````
 
 ### Adding a book: `add`
 Adds a new book to the book list.
 
 Format: `add [BOOK_TITLE]`
 
-Example of usage:
-
+Example usage:
 ```
 add Harry Potter
 ```
+Example output:
+````
+okii added [Harry Potter] to the list.
+remember to read it soon....
+````
 
 ### Removing a book: `remove`
 Removes a specific book from the book list.
@@ -68,16 +90,30 @@ Example of usage:
 remove 1
 ```
 
+Example output
+
+````
+alright.. i've removed Harry Potter from the list.
+````
+
 ### Viewing all books: `list`
-Shows all books in the list along with their titles and status.
+Shows all books stored in the list along with their titles and read or unread status.
 
 Format: `list`
 
-Example of usage:
+Example usage:
 
 ```
 list
 ```
+
+Example output
+
+````
+All books:
+1. [U] Harry Potter
+2. [U] Geronimo Stilton
+````
 
 ### Marking a book as read: `mark`
 Changes the status of a specific book to read.
@@ -90,6 +126,12 @@ Example of usage:
 mark 1
 ```
 
+Example output:
+
+````
+Successfully marked Harry Potter as read.
+````
+
 ### Marking a book as unread: `unmark`
 Changes the status of a specific book to unread.
 
@@ -100,10 +142,15 @@ Example of usage:
 ```
 unmark 1
 ```
+Example output:
+
+````
+Successfully marked Harry Potter as unread.
+````
 
 ### Setting the genre of a book: `set-genre`
 
-Sets the genre of a specific book to the provided input.
+Sets the genre of a specific book based on the provided input.
 
 Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
 in the previous step
@@ -111,7 +158,11 @@ in the previous step
 Example of usage with expected output:
 
 ```
+//input
 set-genre 1
+```
+````
+//output
 Available genres:
 1. Fiction
 2. Non-Fiction
@@ -120,12 +171,24 @@ Available genres:
 5. Fantasy
 6. Add a new genre
 Enter the number for the desired genre, or add a new one:
+````
+````
+//input
 6
+````
+````
+//output
 Enter the new genre:
+````
+````
+//input
 satire
+````
+````
+//output
 okii categorised [animal farm] as [satire]
 remember to read it soon....
-```
+````
 
 ### Labelling a book: `label`
 
@@ -139,6 +202,13 @@ Example of usage:
 label 1 very cool
 ```
 
+Example output:
+
+````
+okii labeled [Harry Potter] as [very cool]
+remember to read it soon....
+````
+
 ### Adding a book summary: `give-summary`
 Provides a summary for the specified book.
 
@@ -149,6 +219,12 @@ Example of usage:
 ```
 give-summary 1 A book about a young boy who is invited to study at Hogwarts.
 ```
+
+Example output:
+````
+okii you have written: [A book about a young boy who is invited to study at Hogwarts.] for the book: [Harry Potter]
+remember to read it soon....
+````
 
 ### Rating a book: `rate`
 Assigns a rating to a specific book, from a scale of 1-5.
@@ -161,6 +237,13 @@ Example of usage:
 rate 1 3
 ```
 
+Example output:
+
+````
+okii set rating for [Harry Potter] as [3]
+remember to read it soon....
+````
+
 ### Sorting books by rating: `list-rated`
 Prints a list of books and their ratings in descending order.
 
@@ -171,6 +254,14 @@ Example of usage:
 ```
 list-rated
 ```
+
+Example output:
+````
+Books sorted by rating:
+The Boy in Striped Pyjamas - 5
+Geronimo Stilton - 4
+Harry Potter - 3
+````
 
 ### Displaying the details of a book: `display`
 Gives more detailed information about a specific book like its genre, label and summary.
@@ -183,16 +274,64 @@ Example of usage:
 display 1
 ```
 
-### Finding a book: `find`
+Example output:
+````
+Here are the details of your book:
+Title: Harry Potter
+Status: Read
+Label: very cool
+Genre: No genre provided
+Rating: 3
+Summary: A book about a young boy who is invited to study at Hogwarts.
+
+````
+
+### Finding a book by title: `find-title`
 Returns all books in the book list that contain the keyword in their title.
 
-Format: `find [KEYWORD]`
+Format: `find-title`
 
 Example of usage:
 
 ```
-find harry
+find-title Harry
 ```
+
+Example output:
+
+````
+1. [R] Harry Potter
+````
+
+### Finding a book by genre: `find-genre`
+Returns all books in the saved book list that are stored under the matching genre.
+
+Format: `find-genre` then user will be prompted to enter a `[NUMBER]` , the index corresponding to the available genre.
+
+Example of usage with expected output:
+
+```
+//input
+find-genre
+```
+````
+//output
+Available genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
+Enter the number for the desired genre:
+````
+````
+//input
+1
+````
+````
+//ouput
+1. [U] harry potter
+````
 
 ### Exiting the program: `bye`
 
@@ -205,6 +344,12 @@ Example of usage:
 ```
 bye
 ```
+
+Example output:
+````
+Writing successful. Data has been saved.
+Thank you for using BookBuddy! Hope to see you again keke :)
+````
 
 ## FAQ
 
@@ -225,11 +370,12 @@ to be saved.**
 * View all books: `list`
 * Mark book as read: `mark [BOOK_INDEX]`
 * Mark book as unread: `unmark [BOOK_INDEX]`
-* Set genre: `set-genre [BOOK_INDEX]`, `[NUMBER]` and `[CUSTOM_GENRE]` if necessary
+* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary
 * Label book: `label [BOOK_INDEX] [LABEL]`
 * Add summary: `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`
 * Rate a book: `rate [BOOK_INDEX] [BOOK_RATING]`
 * Sort books by rating: `list-rated`
 * Display details: `display [BOOK_INDEX]`
-* Find books: `find [KEYWORD]`
+* Find books with specific title: `find-title [KEYWORD]`
+* Find books with specific genre: `find-genre` followed by `[NUMBER]`
 * Exit program: `bye`
