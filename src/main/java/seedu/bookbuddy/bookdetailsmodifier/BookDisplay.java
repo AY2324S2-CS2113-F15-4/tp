@@ -87,4 +87,21 @@ public class BookDisplay {
             Ui.printGenresFound(bookGenres);
         }
     }
+    public static void findMarkStatus(BookList bookList, String status){
+        ArrayList<BookMain> bookRead = new ArrayList<>();
+        ArrayList<BookMain> bookUnread = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if (Read.getRead(book)) {
+                bookRead.add(book);
+            } else {
+                bookUnread.add(book);
+            }
+        }
+        if (bookRead.isEmpty() || bookUnread.isEmpty()){
+            Ui.printNoGenresFound();
+        } else {
+
+            Ui.printGenresFound(bookRead);
+        }
+    }
 }

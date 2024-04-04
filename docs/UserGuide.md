@@ -49,7 +49,7 @@ experience.
 ## Features
 
 ### Viewing all commands: `help`
-View all the commands available in BookBuddy and instructions on their usage.
+View all the commands available in BookBuddy and specific instructions on how the commands should be used.
 
 Format: `help`
 
@@ -109,7 +109,7 @@ alright.. i've removed Harry Potter from the list.
 ````
 
 ### Viewing all books: `list`
-Shows all books in the list along with their titles and status.
+Shows all books stored in the list along with their titles and read or unread status.
 
 Format: `list`
 
@@ -162,7 +162,7 @@ Successfully marked Harry Potter as unread.
 
 ### Setting the genre of a book: `set-genre`
 
-Sets the genre of a specific book to the provided input.
+Sets the genre of a specific book based on the provided input.
 
 Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
 in the previous step
@@ -316,9 +316,9 @@ Example output:
 ````
 
 ### Finding a book by genre: `find-genre`
-Returns all books in the book list that has the matching genre.
+Returns all books in the saved book list that are stored under the matching genre.
 
-Format: `find-genre` followed by `[NUMBER]`
+Format: `find-genre` then user will be prompted to enter a `[NUMBER]` , the index corresponding to the available genre.
 
 Example of usage with expected output:
 
