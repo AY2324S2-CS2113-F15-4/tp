@@ -72,7 +72,9 @@ rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
 list-rated -> to sort books by rating in descending order
 display [BOOK_INDEX] -> to view more details about a book
 find-title [KEYWORD] -> to find books with keyword in their title
-find-genre -> to see all books with the selected genre
+find-genre -> to find books under specific genres
+find-read -> to find list of books that are read
+find-unread -> to find list of books that are unread
 bye -> to exit BookBuddy software
 ````
 
@@ -345,6 +347,36 @@ Enter the number for the desired genre:
 1. [U] harry potter
 ````
 
+### Find books that are read: `find-read`
+Returns all books in the saved book list that are marked read.
+
+Format: `find-read`
+
+Example of usage with expected output:
+````
+//input
+find-read
+````
+````
+//ouput
+1. [R] harry potter
+````
+### Find books that are unread: `find-unread`
+Returns all books in the saved book list that are marked unread.
+
+Format: `find-unread`
+
+Example of usage with expected output:
+````
+//input
+find-unread
+````
+````
+//ouput
+1. [U] geronimo stilton
+2. [U] The Boy in Striped Pyjamas
+````
+
 ### Exiting the program: `bye`
 
 Exits the application and saves all tasks in a file.
@@ -390,4 +422,6 @@ to be saved.**
 * Display details: `display [BOOK_INDEX]`
 * Find books with specific title: `find-title [KEYWORD]`
 * Find books with specific genre: `find-genre` followed by `[NUMBER]`
+* Find books that are read: `find-read`
+* Find books that are unread: `find-unread`
 * Exit program: `bye`
