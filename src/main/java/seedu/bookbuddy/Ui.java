@@ -78,7 +78,6 @@ public class Ui {
     }
     public static void printNoBookFound(){
         System.out.println("no such books added...");
-
     }
     public static void printGenresFound(ArrayList<BookMain> bookGenres){
         for (int i = 0; i < bookGenres.size(); i++) {
@@ -87,6 +86,15 @@ public class Ui {
     }
     public static void printNoGenresFound(){
         System.out.println("no such books added...");
-
+    }
+    public static void printReadFound(ArrayList<BookMain> bookRead){
+        for (int i = 0; i < bookRead.size(); i++) {
+            System.out.println(i + 1 + ". " + bookRead.get(i));
+        }
+    }
+    public static void printUnreadFound(ArrayList<BookMain> bookUnread){
+        for (int i = 0; i < bookUnread.size(); i++) {
+            System.out.println(i + 1 + ". " + bookUnread.get(i));
+        }
     }
 }

@@ -27,4 +27,7 @@ public class ParserFind {
         }
         BookDisplay.findBookGenre(books, selectedGenre);
     }
+    public static void parseFindStatus(BookList books, String inputArray) {
+        BookDisplay.findMarkStatus(books, inputArray);
+    }
 }
