@@ -14,7 +14,9 @@ import seedu.bookbuddy.parser.ParserMain;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ParserMainTest {
@@ -90,24 +92,24 @@ public class ParserMainTest {
         assertEquals("Great Book", Label.getLabel(books.getBook(1)));
     }
 
-//    @Test
-//    void parseGenreCommand() {
-//        BookList books = new BookList();
-//        BookListModifier.addBook(books, "The Great Gatsby");
-//        // Simulate user input for genre selection "Classic"
-//        String simulatedUserInput = "6\nClassic\n"; // Assuming '3' is the option to add a new genre
-//        InputStream savedStandardInputStream = System.in;
-//        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
-//        ParserMain.parseCommand("set-genre 1", books); // Changed to fit your updated command-handling logic
-//        assertEquals("Classic", Genre.getGenre(books.getBook(1))); // Indexes are typically 0-based in lists
-//
-//        BookListModifier.addBook(books, "Geronimo");
-//        String nextSimulatedUserInput = "3\n";
-//        System.setIn(new ByteArrayInputStream(nextSimulatedUserInput.getBytes()));
-//        ParserMain.parseCommand("set-genre 2", books);
-//        assertEquals("Mystery", Genre.getGenre(books.getBook(2)));
-//        System.setIn(savedStandardInputStream);
-//    }
+    //    @Test
+    //    void parseGenreCommand() {
+    //        BookList books = new BookList();
+    //        BookListModifier.addBook(books, "The Great Gatsby");
+    //        // Simulate user input for genre selection "Classic"
+    //        String simulatedUserInput = "6\nClassic\n"; // Assuming '3' is the option to add a new genre
+    //        InputStream savedStandardInputStream = System.in;
+    //        System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
+    //        ParserMain.parseCommand("set-genre 1", books); // Changed to fit your updated command-handling logic
+    //        assertEquals("Classic", Genre.getGenre(books.getBook(1))); // Indexes are typically 0-based in lists
+    //
+    //        BookListModifier.addBook(books, "Geronimo");
+    //        String nextSimulatedUserInput = "3\n";
+    //        System.setIn(new ByteArrayInputStream(nextSimulatedUserInput.getBytes()));
+    //        ParserMain.parseCommand("set-genre 2", books);
+    //        assertEquals("Mystery", Genre.getGenre(books.getBook(2)));
+    //        System.setIn(savedStandardInputStream);
+    //    }
 
     @Test
     void parseInvalidAddCommandThrowsException() {
