@@ -1,8 +1,8 @@
 package seedu.bookbuddy.parser.parsercommands;
 
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.bookdetailsmodifier.BookGenre;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 import java.util.Scanner;
