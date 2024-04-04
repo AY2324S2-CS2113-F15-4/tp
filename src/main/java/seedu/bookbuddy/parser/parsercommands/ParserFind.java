@@ -28,7 +28,10 @@ public class ParserFind {
         }
         BookDisplay.findBookGenre(books, selectedGenre);
     }
-    public static void parseFindStatus(BookList books, String inputArray) {
-        BookDisplay.findMarkStatus(books, inputArray);
+    public static void parseFindRead(BookList books) {
+        BookDisplay.findRead(books);
+    }
+    public static void parseFindUnread(BookList books) {
+        BookDisplay.findUnread(books);
     }
 }
