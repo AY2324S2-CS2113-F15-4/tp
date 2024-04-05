@@ -330,28 +330,14 @@ Example output:
 ### Finding a book by genre: `find-genre`
 Returns all books in the saved book list that are stored under the matching genre.
 
-Format: `find-genre` then user will be prompted to enter a `[NUMBER]` , the index corresponding to the available genre.
+Format: `find-genre [KEYWORD]` .
 
 Example of usage with expected output:
 
 ```
 //input
-find-genre
+find-genre fiction
 ```
-````
-//output
-Available genres:
-1. Fiction
-2. Non-Fiction
-3. Mystery
-4. Science Fiction
-5. Fantasy
-Enter the number for the desired genre:
-````
-````
-//input
-1
-````
 ````
 //ouput
 1. [U] harry potter
@@ -438,7 +424,7 @@ to be saved.**
 * Sort books by rating: `list-rated`
 * Display details: `display [BOOK_INDEX]`
 * Find books with specific title: `find-title [KEYWORD]`
-* Find books with specific genre: `find-genre` followed by `[NUMBER]`
+* Find books with specific genre: `find-genre [KEYWORD]`
 * Find books that are read: `find-read`
 * Find books that are unread: `find-unread`
 * Exit program: `bye`
