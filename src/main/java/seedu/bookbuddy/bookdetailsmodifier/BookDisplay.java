@@ -115,4 +115,18 @@ public class BookDisplay {
             Ui.printUnreadFound(bookUnread);
         }
     }
+
+    public static void findLabel(BookList bookList, String inputArray) {
+        ArrayList<BookMain> bookLabel = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if(!Label.getLabel(book).isEmpty()){
+                bookLabel.add(book);
+            }
+        }
+        if (bookLabel.isEmpty()){
+            Ui.printNoBookFound();
+        } else {
+            Ui.printLabelFound(bookLabel);
+        }
+    }
 }

@@ -18,4 +18,8 @@ public class ParserFind {
     public static void parseFindUnread(BookList books) {
         BookDisplay.findUnread(books);
     }
+
+    public static void parseLabel(BookList books, String inputArray) {
+        BookDisplay.findLabel(books, inputArray);
+    }
 }

@@ -60,6 +60,7 @@ public class ParserMain {
             case CommandList.HELP_COMMAND:
                 Ui.helpMessage();
                 break;
+
             case CommandList.FIND_TITLE_COMMAND:
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
@@ -71,6 +72,9 @@ public class ParserMain {
                 break;
             case CommandList.FIND_UNREAD_COMMAND:
                 ParserFind.parseFindUnread(books);
+                break;
+            case CommandList.FIND_LABEL_COMMAND:
+                ParserFind.parseLabel(books, inputArray[1]);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);
