@@ -34,7 +34,7 @@ public class BookDisplay {
         System.out.println("Status: " + (Read.getRead(books.getBook(index)) ? "Read" : "Unread"));
         System.out.println("Label: " + (label.isEmpty() ? "No label provided" : label));
         System.out.println("Genre: " + (genre.isEmpty() ? "No genre provided" : genre));
-        System.out.println("Rating: " + ((rating == -1) ? "No rating provided" : rating));
+        System.out.println("Rating: " + ((rating == 0) ? "No rating provided" : rating));
         System.out.println("Summary: " + (summary.isEmpty() ? "No summary provided" : summary));
     }
 
