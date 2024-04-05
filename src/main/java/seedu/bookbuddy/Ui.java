@@ -21,14 +21,12 @@ public class Ui {
         System.out.println("How can I help you today?");
         printShortLine();
     }
-
     public static void printLine() {
         System.out.println("___________________________________");
     }
     public static void printShortLine() {
         System.out.println("_____________");
     }
-
     public static void printExitMessage() {
         System.out.println("Thank you for using BookBuddy! Hope to see you again keke :)");
     }
@@ -37,31 +35,28 @@ public class Ui {
         System.out.println("okii added [" + title + "] to the list.");
         System.out.println("remember to read it soon....");
     }
-
     public static void labelBookMessage(String title, String label) {
         System.out.println("okii labeled [" + title + "] as [" + label + "]");
         System.out.println("remember to read it soon....");
     }
-
     public static void summaryBookMessage(String title, String summary) {
         System.out.println("okii you have written: [" + summary + "] for the book: [" + title + "]");
         System.out.println("remember to read it soon....");
     }
-
     public static void setGenreBookMessage(String title, String genre) {
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");
     }
-
+    public static void exitCommandMessage() {
+        System.out.println("okii exitting the command now");
+    }
     public static void setRatingBookMessage(String title, int rating) {
         System.out.println("okii set rating for [" + title + "] as [" + rating +"]");
         System.out.println("remember to read it soon....");
     }
-
     public static void removeBookMessage(int index, BookList books) {
         System.out.println("alright.. i've removed " + Title.getTitle(books.getBook(index)) + " from the list.");
     }
-
     public static void helpMessage() {
         System.out.println("Here's a list of commands to get you started!!");
         System.out.println("add [BOOK_TITLE] -> to add new books to the list");
@@ -76,7 +71,9 @@ public class Ui {
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
         System.out.println("find-title [KEYWORD] -> to find books with keyword in their title");
-        System.out.println("find-genre -> to see all books with the selected genre");
+        System.out.println("find-genre -> to find books under specific genres");
+        System.out.println("find-read -> to find list of books that are read");
+        System.out.println("find-unread -> to find list of books that are unread");
         System.out.println("bye -> to exit BookBuddy software");
     }
 
@@ -85,19 +82,25 @@ public class Ui {
             System.out.println(i + 1 + ". " + bookTitles.get(i));
         }
     }
-
     public static void printNoBookFound(){
         System.out.println("no such books added...");
-
     }
-
     public static void printGenresFound(ArrayList<BookMain> bookGenres){
         for (int i = 0; i < bookGenres.size(); i++) {
             System.out.println(i + 1 + ". " + bookGenres.get(i));
         }
     }
-
     public static void printNoGenresFound(){
         System.out.println("no such books added...");
+    }
+    public static void printReadFound(ArrayList<BookMain> bookRead){
+        for (int i = 0; i < bookRead.size(); i++) {
+            System.out.println(i + 1 + ". " + bookRead.get(i));
+        }
+    }
+    public static void printUnreadFound(ArrayList<BookMain> bookUnread){
+        for (int i = 0; i < bookUnread.size(); i++) {
+            System.out.println(i + 1 + ". " + bookUnread.get(i));
+        }
     }
 }

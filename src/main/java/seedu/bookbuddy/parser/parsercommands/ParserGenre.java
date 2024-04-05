@@ -1,35 +1,72 @@
 package seedu.bookbuddy.parser.parsercommands;
 
-import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.bookdetailsmodifier.BookGenre;
+import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 import java.util.Scanner;
 
 public class ParserGenre {
-    static boolean parseSetGenre(BookList books, String[] inputArray) {
-        int index;
-        Exceptions.validateCommandArguments(inputArray, 2, "The set-genre " +
-                "Command requires a book index.");
-        index = Integer.parseInt(inputArray[1]);
-        if (index < 0 || index > books.getSize()) {
-            throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index. " +
-                    "Type 'list' to view the list of books.");
-        }
-        genreSelectionPrinter();
+    static void parseSetGenre(BookList books, String[] inputArray) {
+        Exceptions.validateCommandArguments(inputArray, 2, "The set-genre command requires " +
+                "at least a book index.");
 
+        String[] parts = inputArray[1].split(" ", 2); // Attempt to split inputArray[1] into two parts
+        int index;
+        try {
+            index = Integer.parseInt(parts[0]); // The first part should be the index
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid book index. Please enter a valid numeric index.");
+            return;
+        }
+
+        if (index <= 0 || index > books.getSize()) {
+            System.out.println("Invalid book index. Please enter a valid index. Type 'list' to view the " +
+                    "list of books.");
+            return;
+        }
+
+        if (parts.length > 1 && !parts[1].isEmpty()) {
+            // Single-step process: Set genre directly
+            singleStepSetGenre(books, parts, index);
+        } else {
+            // Multistep process: Follow the existing flow
+            multiStepSetGenre(books, index);
+        }
+    }
+
+    private static void multiStepSetGenre(BookList books, int index) {
+        genreSelectionPrinter();
         System.out.println("Enter the number for the desired genre, or add a new one:");
         Scanner scanner = new Scanner(System.in);
 
-        String selectedGenre = null;
-        selectedGenre = invalidInputLooper(selectedGenre, scanner);
+        String selectedGenre = invalidInputLooper(null, scanner);
         if (selectedGenre == null) {
-            return true;
+            return;
+        }
+        BookGenre.setBookGenreByIndex(index, selectedGenre, books);
+    }
+
+    private static void singleStepSetGenre(BookList books, String[] parts, int index) {
+        String genreInput = parts[1];
+        boolean genreExists = false;
+        for (String existingGenre : BookList.getAvailableGenres()) {
+            if (existingGenre.equalsIgnoreCase(genreInput)) {
+                genreExists = true;
+                genreInput = existingGenre; // Normalize to the existing genre's case
+                break;
+            }
         }
 
-        BookGenre.setBookGenreByIndex(index, selectedGenre, books);
-        return false;
+        if (!genreExists) {
+            BookList.getAvailableGenres().add(genreInput);
+            System.out.println("Added new genre to the list: " + genreInput);
+        }
+        BookGenre.setBookGenreByIndex(index, genreInput, books);
+        System.out.println("Genre set to " + genreInput + " for book at index " + index);
     }
+
 
     static void genreSelectionPrinter() {
         System.out.println("Available genres:");
@@ -39,11 +76,12 @@ public class ParserGenre {
         System.out.println((BookList.getAvailableGenres().size() + 1) + ". Add a new genre");
     }
 
-    static String invalidInputLooper(String selectedGenre, Scanner scanner) {
-        while (selectedGenre == null) {
+    static String invalidInputLooper(String input, Scanner scanner) {
+        while (input == null) {
             while (!scanner.hasNextInt()) {  // Ensure the next input is an integer
                 String newInput = scanner.nextLine();
                 if ("exit".equalsIgnoreCase(newInput)) {
+                    Ui.exitCommandMessage();
                     return null;
                 } else {
                     System.out.println("Invalid input. Please enter a valid number or type 'exit'" +
@@ -56,21 +94,20 @@ public class ParserGenre {
 
             if (genreSelection == BookList.getAvailableGenres().size() + 1) {
                 System.out.println("Enter the new genre:");
-                selectedGenre = scanner.nextLine();
-                BookList.getAvailableGenres().add(selectedGenre); // Add the new genre to the list
+                input = scanner.nextLine();
+                BookList.getAvailableGenres().add(input); // Add the new genre to the list
             } else if (genreSelection > 0 && genreSelection <= BookList.getAvailableGenres().size()) {
-                selectedGenre = BookList.getAvailableGenres().get(genreSelection - 1);
+                input = BookList.getAvailableGenres().get(genreSelection - 1);
             } else {
                 System.out.println("Invalid selection. Please enter a valid number " +
                         "or type 'exit' to cancel.");
                 // No need for the nextLine or parsing logic here, the while loop will continue
             }
         }
-        return selectedGenre;
+        return input;
     }
 
-    public static boolean executeParseSetGenre (BookList books, String[] inputArray) {
+    public static void executeParseSetGenre (BookList books, String[] inputArray) {
         parseSetGenre(books, inputArray);
-        return false;
     }
 }

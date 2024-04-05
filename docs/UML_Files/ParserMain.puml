@@ -1,0 +1,50 @@
+@startuml
+scale 2000 * 1500
+left to right direction
+class ParserMain {
+    +parseCommand(input : String, books : BookList) : void
+}
+
+class ParserCommands {
+    +execute(books : BookList, inputArray : String[]) : void
+}
+
+class BookList {
+    - static availableGenres : List<String>
+    - books : ArrayList<BookMain>
+    +BookList()
+    +getAvailableGenres() : List<String>
+    +getBooks() : List<BookMain>
+    +getSize() : int
+    +getBook(index : int) : BookMain
+}
+
+class BookDisplay {
+    +printAllBooks(books : BookList) : void
+}
+
+class Ui {
+    +helpMessage() : void
+}
+
+class Exceptions {
+    {static} +validateCommandArguments(inputArray : String[], requiredArgs : int, errorMessage : String) : void
+    {static} +handleException(e : Exception, command : String, inputArray : String[]) : void
+}
+
+class BookRating {
+    +printBooksByRating(books : BookList) : void
+}
+
+class CommandList {
+    {static} ADD_COMMAND : String = "add"
+}
+
+ParserMain --> ParserCommands : uses
+ParserMain --> BookList
+ParserMain --> BookDisplay : uses
+ParserMain --> Ui : uses
+ParserMain --> Exceptions : uses
+ParserMain --> BookRating : uses
+ParserMain --> CommandList : uses
+@enduml

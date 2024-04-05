@@ -63,7 +63,13 @@ public class ParserMain {
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
             case CommandList.FIND_GENRE_COMMAND:
-                ParserFind.parseFindGenre(books);
+                ParserFind.parseFindGenre(books, inputArray[1]);
+                break;
+            case CommandList.FIND_READ_COMMAND:
+                ParserFind.parseFindRead(books);
+                break;
+            case CommandList.FIND_UNREAD_COMMAND:
+                ParserFind.parseFindUnread(books);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);
@@ -73,9 +79,7 @@ public class ParserMain {
                 break;
             case CommandList.GENRE_COMMAND:
                 // Exit the command if user types 'exit'
-                if (ParserGenre.executeParseSetGenre(books, inputArray)) {
-                    return;
-                }
+                ParserGenre.executeParseSetGenre(books, inputArray);
                 break;
             case CommandList.RATING_COMMAND:
                 ParserRating.executeParseSetRating(books, inputArray);

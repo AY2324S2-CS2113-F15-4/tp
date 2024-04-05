@@ -112,6 +112,10 @@ public class ParserMainTest {
         ParserMain.parseCommand("set-genre 2", books);
         assertEquals("Mystery", Genre.getGenre(books.getBook(2)));
         System.setIn(savedStandardInputStream);
+
+        BookListModifier.addBook(books, "Tom And Jerry");
+        ParserMain.parseCommand("set-genre 3 Fantasy", books);
+        assertEquals("Fantasy", Genre.getGenre(books.getBook(3)));
     }
 
     @Test

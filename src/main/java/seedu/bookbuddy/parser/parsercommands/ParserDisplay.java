@@ -5,7 +5,7 @@ import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 public class ParserDisplay {
-    //@@ author joshuahoky
+    //@@author joshuahoky
     static void parseDisplay(BookList books, String[] inputArray) {
         int index;
         assert inputArray.length >= 2 : "Command requires additional arguments";
@@ -14,7 +14,7 @@ public class ParserDisplay {
         index = Integer.parseInt(inputArray[1]);
         BookDisplay.displayDetails(index, books);
     }
-    //@@author joshuahoky
+
     public static void executeParseAdd (BookList books, String[] inputArray) {
         parseDisplay(books, inputArray);
     }

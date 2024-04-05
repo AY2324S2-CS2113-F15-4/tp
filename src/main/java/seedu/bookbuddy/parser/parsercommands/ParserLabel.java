@@ -16,9 +16,8 @@ public class ParserLabel {
         Exceptions.validateCommandArguments(labelMessageParts, 2, "You " +
                 "need to have a label message");
         index = Integer.parseInt(labelMessageParts[0]);
-        assert index >= 0 : "Index should be non-negative";
+        assert index > 0 : "Index should be non-negative";
         String label = labelMessageParts[1];
-        System.out.println(index);
         BookLabel.setBookLabelByIndex(index, label, books);
     }
 

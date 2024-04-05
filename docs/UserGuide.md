@@ -5,6 +5,18 @@ BookBuddy is an application that helps users track and manage the list of books
 that they are reading. It is optimised for users that are familiar with the CLI so that
 the tracking and management objectives can be achieved more efficiently.
 
+#### Target user and value proposition
+BookBuddy targets people who are comfortable and proficient with using command-line-interfaces(CLI). These users 
+typically prefers the efficiency and flexibility of CLI environments over Graphical user Interfaces (GUIs). They are 
+likely to be avid readers who read multiple books simultaneously and who need an effective way to organise their reading 
+lists.
+
+Therefore, BookBuddy offers a streamlined and efficient solution for tracking and managing reading lists directly from 
+the command line. It provides quick access to book management features for users who prefer keyboard-driven commands and
+enjoy the directness and simplicity of CLI tools. With BookBuddy, users can easily add, update, and review their reading
+progress without the overhead of navigating traditional graphical applications, saving time and enhancing their reading 
+experience.
+
 ## Table of Contents
 * [Getting Started](#getting-started)
 * [Features](#features)
@@ -37,7 +49,7 @@ the tracking and management objectives can be achieved more efficiently.
 ## Features
 
 ### Viewing all commands: `help`
-View all the commands available in BookBuddy and instructions on their usage.
+View all the commands available in BookBuddy and specific instructions on how the commands should be used.
 
 Format: `help`
 
@@ -60,7 +72,9 @@ rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
 list-rated -> to sort books by rating in descending order
 display [BOOK_INDEX] -> to view more details about a book
 find-title [KEYWORD] -> to find books with keyword in their title
-find-genre -> to see all books with the selected genre
+find-genre -> to find books under specific genres
+find-read -> to find list of books that are read
+find-unread -> to find list of books that are unread
 bye -> to exit BookBuddy software
 ````
 
@@ -80,7 +94,7 @@ remember to read it soon....
 ````
 
 ### Removing a book: `remove`
-Removes a specific book from the book list.
+Removes a specific book from the book list by its index.
 
 Format: `remove [BOOK_INDEX]`
 
@@ -97,7 +111,7 @@ alright.. i've removed Harry Potter from the list.
 ````
 
 ### Viewing all books: `list`
-Shows all books in the list along with their titles and status.
+Shows all books stored in the list along with their titles and read or unread status.
 
 Format: `list`
 
@@ -150,18 +164,22 @@ Successfully marked Harry Potter as unread.
 
 ### Setting the genre of a book: `set-genre`
 
-Sets the genre of a specific book to the provided input.
+Sets the genre of a specific book based on the provided input and the provided index.
 
 Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
 in the previous step
+
+Or for Pro Users:
+
+Format: `set-genre [BOOK_INDEX] [GENRE]`
+
 
 Example of usage with expected output:
 
 ```
 //input
 set-genre 1
-```
-````
+
 //output
 Available genres:
 1. Fiction
@@ -171,28 +189,34 @@ Available genres:
 5. Fantasy
 6. Add a new genre
 Enter the number for the desired genre, or add a new one:
-````
-````
+
 //input
 6
-````
-````
+
 //output
 Enter the new genre:
-````
-````
+
 //input
 satire
-````
-````
+
 //output
 okii categorised [animal farm] as [satire]
 remember to read it soon....
 ````
 
+````
+//input
+set-genre 1 Fiction
+okii categorised [Harry Potter] as [Fiction]
+remember to read it soon....
+
+//output
+Genre set to Fiction for book at index 1
+````
+
 ### Labelling a book: `label`
 
-Sets the label of a specific book to the provided input.
+Sets the label of a specific book to the provided input by its index.
 
 Format: `label [BOOK_INDEX] [LABEL]`
 
@@ -256,6 +280,7 @@ list-rated
 ```
 
 Example output:
+
 ````
 Books sorted by rating:
 The Boy in Striped Pyjamas - 5
@@ -283,7 +308,6 @@ Label: very cool
 Genre: No genre provided
 Rating: 3
 Summary: A book about a young boy who is invited to study at Hogwarts.
-
 ````
 
 ### Finding a book by title: `find-title`
@@ -304,9 +328,9 @@ Example output:
 ````
 
 ### Finding a book by genre: `find-genre`
-Returns all books in the book list that has the matching genre.
+Returns all books in the saved book list that are stored under the matching genre.
 
-Format: `find-genre` followed by `[NUMBER]`
+Format: `find-genre` then user will be prompted to enter a `[NUMBER]` , the index corresponding to the available genre.
 
 Example of usage with expected output:
 
@@ -333,6 +357,36 @@ Enter the number for the desired genre:
 1. [U] harry potter
 ````
 
+### Find books that are read: `find-read`
+Returns all books in the saved book list that are marked read.
+
+Format: `find-read`
+
+Example of usage with expected output:
+````
+//input
+find-read
+````
+````
+//ouput
+1. [R] harry potter
+````
+### Find books that are unread: `find-unread`
+Returns all books in the saved book list that are marked unread.
+
+Format: `find-unread`
+
+Example of usage with expected output:
+````
+//input
+find-unread
+````
+````
+//ouput
+1. [U] geronimo stilton
+2. [U] The Boy in Striped Pyjamas
+````
+
 ### Exiting the program: `bye`
 
 Exits the application and saves all tasks in a file.
@@ -357,7 +411,13 @@ Thank you for using BookBuddy! Hope to see you again keke :)
 
 **A**: All data entered is automatically saved by the program and does not require any
 commands from the user. Upon running the file for the first time, the `books.txt` file
-will be created in the `data` folder. This folder will be in the same folder as the JAR file.
+will be created in the `data` folder. This folder will be in the same folder as the JAR file (For example, if
+JAR file is located in /Users/ZongYao/Desktop then the `books.txt` will be located in /Users/ZongYao/Desktop/data).
+
+**Q**: What happens if I give an invalid command or command argument?
+
+**A**: All invalid commands and invalid arguments are handled gracefully with exceptions. You will just
+be prompted to re-enter the command with an instruction on how to properly type the command.
 
 **Users MUST exit the program with the `bye` command for the data in the session
 to be saved.**
@@ -370,7 +430,8 @@ to be saved.**
 * View all books: `list`
 * Mark book as read: `mark [BOOK_INDEX]`
 * Mark book as unread: `unmark [BOOK_INDEX]`
-* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary
+* Set genre: `set-genre [BOOK_INDEX] [GENRE]` (Single-Step for Pro users)
+* Set genre: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if necessary (Multi-Step)
 * Label book: `label [BOOK_INDEX] [LABEL]`
 * Add summary: `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`
 * Rate a book: `rate [BOOK_INDEX] [BOOK_RATING]`
@@ -378,4 +439,6 @@ to be saved.**
 * Display details: `display [BOOK_INDEX]`
 * Find books with specific title: `find-title [KEYWORD]`
 * Find books with specific genre: `find-genre` followed by `[NUMBER]`
+* Find books that are read: `find-read`
+* Find books that are unread: `find-unread`
 * Exit program: `bye`

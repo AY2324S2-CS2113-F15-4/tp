@@ -1,0 +1,39 @@
+@startuml
+participant User
+participant "ParserMain" as ParserMain
+participant "ParserLabel" as ParserLabel
+participant "BookList" as BookList
+participant "BookLabel" as BookLabel
+participant "Ui" as Ui
+
+User -> ParserMain : label [BOOK_INDEX] [LABEL]
+activate ParserMain
+ParserMain -> ParserLabel : executeParseSetLabel(books, inputArray)
+activate ParserLabel
+
+ParserLabel -> BookList : getBook(index)
+activate BookList
+BookList --> ParserLabel : book
+deactivate BookList
+
+ParserLabel -> BookLabel : setBookLabelByIndex(index, label, books)
+activate BookLabel
+
+BookLabel -> Ui : labelBookMessage(title, label)
+activate Ui
+Ui -> User : confirmation message
+deactivate Ui
+
+deactivate BookLabel
+deactivate ParserLabel
+deactivate ParserMain
+@enduml
+
+
+
+Flow:
+1. The user initiates the label command with a book index and a label.
+2. ParserMain receives the command and delegates to ParserLabel.
+3. ParserLabel parses the command, validates the input, and then calls BookLabel to set the label for the specified book.
+4. BookLabel updates the label in the BookMain instance.
+5. Finally, a confirmation message is displayed to the user.
