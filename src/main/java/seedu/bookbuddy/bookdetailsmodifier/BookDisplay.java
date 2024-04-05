@@ -60,10 +60,12 @@ public class BookDisplay {
     }
 
     //@@author liuzehui03
-    public static void findBookTitle(BookList bookList, String title) {
+    public static void findBookTitle(BookList bookList, String input) {
         ArrayList<BookMain> bookTitles = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
-            if (Title.getTitle(book).toLowerCase().contains(title.toLowerCase())) {
+            String actualTitle = Title.getTitle(book).toLowerCase();
+            String title = input.toLowerCase();
+            if (actualTitle.contains(title)) {
                 bookTitles.add(book);
             }
         }
@@ -74,11 +76,12 @@ public class BookDisplay {
         }
     }
 
-    public static void findBookGenre(BookList bookList, String genre) {
+    public static void findBookGenre(BookList bookList, String input) {
         ArrayList<BookMain> bookGenres = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
             String actualGenre = Genre.getGenre(book).toLowerCase();
-            if (actualGenre.contains(genre.toLowerCase())) {
+            String genre = input.toLowerCase();
+            if (actualGenre.contains(genre)) {
                 bookGenres.add(book);
             }
         }
@@ -116,10 +119,12 @@ public class BookDisplay {
         }
     }
 
-    public static void findLabel(BookList bookList, String inputArray) {
+    public static void findLabel(BookList bookList, String input) {
         ArrayList<BookMain> bookLabel = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
-            if(!Label.getLabel(book).isEmpty()){
+            String actualLabel = Label.getLabel(book).toLowerCase();
+            String label = input.toLowerCase();
+            if(actualLabel.contains(label)){
                 bookLabel.add(book);
             }
         }
