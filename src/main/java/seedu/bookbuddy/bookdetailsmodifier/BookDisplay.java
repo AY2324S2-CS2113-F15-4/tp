@@ -67,7 +67,11 @@ public class BookDisplay {
                 bookTitles.add(book);
             }
         }
-
+        if (bookTitles.isEmpty()){
+            Ui.printNoBookFound();
+        } else {
+            Ui.printBookFound(bookTitles);
+        }
     }
 
     public static void findBookGenre(BookList bookList, String genre) {
