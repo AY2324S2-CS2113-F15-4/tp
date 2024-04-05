@@ -1,7 +1,5 @@
 package seedu.bookbuddy.book;
 
-import java.util.Objects;
-
 public class BookMain {
     protected String title;
     protected boolean isRead;
