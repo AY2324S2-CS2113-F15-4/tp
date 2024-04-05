@@ -44,10 +44,12 @@ public class FileStorage {
      */
     public void readData(BookList books, File file) throws FileNotFoundException {
         Scanner sc = new Scanner(file);
+        int lineNumber = 1;
 
         while (sc.hasNext()) {
             String line = sc.nextLine();
-            BookListModifier.addBookFromFile(books, line);
+            BookListModifier.addBookFromFile(books, line, lineNumber);
+            lineNumber += 1;
         }
 
         sc.close();
