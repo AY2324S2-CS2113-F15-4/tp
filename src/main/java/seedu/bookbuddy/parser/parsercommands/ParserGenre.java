@@ -21,7 +21,7 @@ public class ParserGenre {
             return;
         }
 
-        if (index < 0 || index > books.getSize()) {
+        if (index <= 0 || index > books.getSize()) {
             System.out.println("Invalid book index. Please enter a valid index. Type 'list' to view the " +
                     "list of books.");
             return;
