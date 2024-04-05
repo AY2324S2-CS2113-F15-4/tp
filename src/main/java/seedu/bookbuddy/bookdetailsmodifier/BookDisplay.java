@@ -67,11 +67,7 @@ public class BookDisplay {
                 bookTitles.add(book);
             }
         }
-        if (bookTitles.isEmpty()){
-            Ui.printNoBookFound();
-        } else {
-            Ui.printBookFound(bookTitles);
-        }
+
     }
 
     public static void findBookGenre(BookList bookList, String genre) {
@@ -113,6 +109,20 @@ public class BookDisplay {
         } else {
 
             Ui.printUnreadFound(bookUnread);
+        }
+    }
+
+    public static void findLabel(BookList bookList, String inputArray) {
+        ArrayList<BookMain> bookLabel = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if(!Label.getLabel(book).isEmpty()){
+                bookLabel.add(book);
+            }
+        }
+        if (bookLabel.isEmpty()){
+            Ui.printNoBookFound();
+        } else {
+            Ui.printLabelFound(bookLabel);
         }
     }
 }

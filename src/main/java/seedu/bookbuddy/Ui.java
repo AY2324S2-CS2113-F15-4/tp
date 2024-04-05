@@ -103,4 +103,10 @@ public class Ui {
             System.out.println(i + 1 + ". " + bookUnread.get(i));
         }
     }
+
+    public static void printLabelFound(ArrayList<BookMain> bookLabel) {
+        for (int i = 0; i < bookLabel.size(); i++) {
+            System.out.println(i + 1 + ". " + bookLabel.get(i));
+        }
+    }
 }
