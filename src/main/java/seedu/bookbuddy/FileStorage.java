@@ -8,12 +8,18 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.logging.Level;
+
+
+import java.util.logging.Logger;
+import static java.util.logging.Logger.getLogger;
 
 /**
  * The FileStorage class handles file operations such as creating directories,
  * reading and writing to files and also loading data from files.
  */
 public class FileStorage {
+    public static final Logger LOGGER = getLogger(BookBuddy.class.getName());
     private static final String FILE_NAME = "books.txt";
     private static final String FILE_DIRECTORY = "./data";
     private static final String FILE_PATH = FILE_DIRECTORY + '/' + FILE_NAME;
@@ -44,6 +50,7 @@ public class FileStorage {
      */
     public void readData(BookList books, File file) throws FileNotFoundException {
         Scanner sc = new Scanner(file);
+        LOGGER.log(Level.INFO, "starting read");
 
         while (sc.hasNext()) {
             String line = sc.nextLine();

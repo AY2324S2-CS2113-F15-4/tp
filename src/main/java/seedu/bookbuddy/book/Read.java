@@ -1,4 +1,5 @@
 package seedu.bookbuddy.book;
+import utils.DateTimeUtils;
 
 public class Read {
     //@@author lordgareth10
@@ -14,5 +15,11 @@ public class Read {
 
     public static void setRead(BookMain book, boolean read) {
         book.isRead = read;
+        if (read) {
+            book.datetimeread = DateTimeUtils.getCurrentDateTime();
+        } else {
+            book.datetimeread = "";
+        }
+
     }
 }

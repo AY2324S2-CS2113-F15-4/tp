@@ -3,6 +3,7 @@ package seedu.bookbuddy.booklist;
 import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.Ui;
 
+import java.util.Arrays;
 import java.util.logging.Level;
 
 import static seedu.bookbuddy.BookBuddy.LOGGER;
@@ -12,13 +13,15 @@ public class BookListModifier {
     //@@author joshuahoky
     public static void addBookFromFile(BookList bookList, String inputArray) {
         String[] bookDetails = inputArray.split(" \\| ");
+        LOGGER.log(Level.INFO, "bookDetails: {0}", Arrays.toString(bookDetails));
         String title = bookDetails[0];
         int status = Integer.parseInt(bookDetails[1]);
         String label = bookDetails[2];
         String genre = bookDetails[3];
         int rating = Integer.parseInt(bookDetails[4]);
         String summary = bookDetails[5];
-        bookList.books.add(new BookMain(title, status, label, genre, rating, summary));
+        String date_time = bookDetails[6];
+        bookList.books.add(new BookMain(title, status, label, genre, rating, summary, date_time));
     }
 
     //@@author
