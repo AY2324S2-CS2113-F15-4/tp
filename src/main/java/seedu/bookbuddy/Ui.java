@@ -92,22 +92,32 @@ public class Ui {
         }
     }
     public static void printNoGenresFound(){
-        System.out.println("no such books added...");
+        System.out.println("no such books added under this genre");
     }
     public static void printReadFound(ArrayList<BookMain> bookRead){
         for (int i = 0; i < bookRead.size(); i++) {
             System.out.println(i + 1 + ". " + bookRead.get(i));
         }
     }
+    public static void printNoReadFound(){
+        System.out.println("no read books found...");
+        System.out.println("do rmb to start reading soon!");
+    }
     public static void printUnreadFound(ArrayList<BookMain> bookUnread){
         for (int i = 0; i < bookUnread.size(); i++) {
             System.out.println(i + 1 + ". " + bookUnread.get(i));
         }
     }
-
+    public static void printNoUnreadFound(){
+        System.out.println("no unread books found!");
+        System.out.println("you've read everything on the list!! amazing :)");
+    }
     public static void printLabelFound(ArrayList<BookMain> bookLabel) {
         for (int i = 0; i < bookLabel.size(); i++) {
             System.out.println(i + 1 + ". " + bookLabel.get(i));
         }
+    }
+    public static void printNoLabelFound(){
+        System.out.println("oops there are no books stored under this label...");
     }
 }
