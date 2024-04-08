@@ -67,7 +67,7 @@ public class BookFind {
             }
         }
         if (bookRead.isEmpty()){
-            Ui.printNoGenresFound();
+            Ui.printNoReadFound();
         } else {
             Ui.printReadFound(bookRead);
         }
@@ -80,7 +80,7 @@ public class BookFind {
             }
         }
         if (bookUnread.isEmpty()){
-            Ui.printNoGenresFound();
+            Ui.printNoUnreadFound();
         } else {
 
             Ui.printUnreadFound(bookUnread);
@@ -97,7 +97,7 @@ public class BookFind {
             }
         }
         if (bookLabel.isEmpty()){
-            Ui.printNoBookFound();
+            Ui.printNoLabelFound();
         } else {
             Ui.printLabelFound(bookLabel);
         }
