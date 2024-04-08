@@ -65,7 +65,11 @@ public class ParserMain {
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
             case CommandList.FIND_GENRE_COMMAND:
-                ParserFind.parseFindGenre(books, inputArray[1]);
+                if (inputArray.length == 1) { // Check if there is only 'find-genre' without additional parameters
+                    ParserFind.parseGenreLong(books);
+                } else {
+                    ParserFind.parseFindGenre(books, inputArray[1]);
+                }
                 break;
             case CommandList.FIND_READ_COMMAND:
                 ParserFind.parseFindRead(books);
