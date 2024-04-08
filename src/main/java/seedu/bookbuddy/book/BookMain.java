@@ -1,7 +1,5 @@
 package seedu.bookbuddy.book;
 
-import java.util.Objects;
-
 public class BookMain {
     protected String title;
     protected boolean isRead;
@@ -22,7 +20,7 @@ public class BookMain {
         this.datetimeread = "";
         this.label = "";
         this.genre = "";
-        this.rating = -1;
+        this.rating = 0; // Initialized to 0
         this.summary = "";
     }
 
@@ -37,15 +35,19 @@ public class BookMain {
      * @param rating The rating assigned to the book.
      * @param summary The summary of the book.
      */
-    public BookMain(String title, int status,String label, String genre, int rating, String summary,
-                    String datetimeread) {
+    public BookMain(String title, int status, String label, String genre, int rating, String summary, String datetimeread, int lineNumber) {
+        if (rating < 0 || rating > 5 || status < 0 || status > 1) {
+            throw new IllegalArgumentException("Unable to load book data from line " + lineNumber +
+                    " in books.txt as data is corrupted.");
+        }
+
         this.title = title;
         this.isRead = status == 1;
-        this.datetimeread = (Objects.equals(datetimeread, "*")) ? "" : datetimeread;
-        this.label = (Objects.equals(label, "*")) ? "" : label;
-        this.genre = (Objects.equals(genre, "*")) ? "" : genre;
+        this.datetimeread = datetimeread;
+        this.label = label;
+        this.genre = genre;
+        this.summary = summary;
         this.rating = rating;
-        this.summary = (Objects.equals(summary, "*")) ? "" : summary;
     }
 
     @Override
@@ -62,10 +64,10 @@ public class BookMain {
     public String saveFormat() {
         String status = isRead ? "1" : "0";
         String datetimeread = (this.datetimeread.isEmpty()) ? "*" : this.datetimeread;
-        String label = (this.label.isEmpty()) ? "*" : this.label;
-        String genre = (this.genre.isEmpty()) ? "*" : this.genre;
-        String summary = (this.summary.isEmpty()) ? "*" : this.summary;
-        return this.title + " | " + status + " | " + label + " | " + genre + " | " + this.rating
-                + " | " + summary + " | " + datetimeread;
+        String label = (this.label.isEmpty()) ? "" : this.label;
+        String genre = (this.genre.isEmpty()) ? "" : this.genre;
+        String summary = (this.summary.isEmpty()) ? "" : this.summary;
+        return this.title + " | " + status + " | " + label + " | " + genre + " | " + summary
+                + " | " + this.rating + " | " + datetimeread;
     }
 }

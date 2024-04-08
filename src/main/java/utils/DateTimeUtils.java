@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DateTimeUtils {
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH-mm, dd-MM-yyyy");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("h.mm a, dd-MM-yyyy");
 
     // Private constructor to prevent instantiation
     private DateTimeUtils() {

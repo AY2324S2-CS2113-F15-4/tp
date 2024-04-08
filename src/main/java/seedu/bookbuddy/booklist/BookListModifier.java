@@ -11,17 +11,21 @@ import static seedu.bookbuddy.BookBuddy.LOGGER;
 public class BookListModifier {
 
     //@@author joshuahoky
-    public static void addBookFromFile(BookList bookList, String inputArray) {
-        String[] bookDetails = inputArray.split(" \\| ");
-        LOGGER.log(Level.INFO, "bookDetails: {0}", Arrays.toString(bookDetails));
-        String title = bookDetails[0];
-        int status = Integer.parseInt(bookDetails[1]);
-        String label = bookDetails[2];
-        String genre = bookDetails[3];
-        int rating = Integer.parseInt(bookDetails[4]);
-        String summary = bookDetails[5];
-        String date_time = bookDetails[6];
-        bookList.books.add(new BookMain(title, status, label, genre, rating, summary, date_time));
+    public static void addBookFromFile(BookList bookList, String inputArray, int lineNumber) {
+        try {
+            String[] bookDetails = inputArray.split(" \\| ");
+            String title = bookDetails[0].trim();
+            int status = Integer.parseInt(bookDetails[1].trim());
+            String label = bookDetails[2].trim();
+            String genre = bookDetails[3].trim();
+            int rating = Integer.parseInt(bookDetails[5].trim());
+            String summary = bookDetails[4].trim();
+            String date_time = bookDetails[6].trim();
+            bookList.books.add(new BookMain(title, status, label, genre, rating, summary, date_time, lineNumber));
+        } catch (Exception e) {
+            System.out.println("Unable to load book data from line " + lineNumber + " in books.txt " +
+                    "as data is corrupted.");
+        }
     }
 
     //@@author

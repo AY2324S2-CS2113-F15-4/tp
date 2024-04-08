@@ -13,6 +13,8 @@ public class Read {
         return book.isRead;
     }
 
+    public static String getDateTimeRead(BookMain book){ return book.datetimeread; }
+
     public static void setRead(BookMain book, boolean read) {
         book.isRead = read;
         if (read) {
