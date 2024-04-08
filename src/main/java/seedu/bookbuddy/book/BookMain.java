@@ -35,7 +35,8 @@ public class BookMain {
      * @param rating The rating assigned to the book.
      * @param summary The summary of the book.
      */
-    public BookMain(String title, int status, String label, String genre, int rating, String summary, String datetimeread, int lineNumber) {
+    public BookMain(String title, int status, String label, String genre, int rating, String summary,
+                    String datetimeread, int lineNumber) {
         if (rating < 0 || rating > 5 || status < 0 || status > 1) {
             throw new IllegalArgumentException("Unable to load book data from line " + lineNumber +
                     " in books.txt as data is corrupted.");

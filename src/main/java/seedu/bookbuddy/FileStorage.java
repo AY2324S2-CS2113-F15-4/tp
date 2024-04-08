@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.logging.Level;
 
 
 import java.util.logging.Logger;
