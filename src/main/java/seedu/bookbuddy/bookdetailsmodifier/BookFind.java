@@ -7,10 +7,9 @@ import seedu.bookbuddy.book.Genre;
 import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.booklist.BookList;
-import seedu.bookbuddy.parser.parsercommands.ParserGenre;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 //@@author liuzehui03
 
