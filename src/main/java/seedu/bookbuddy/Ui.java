@@ -62,11 +62,7 @@ public class Ui {
         System.out.println("add [BOOK_TITLE] -> to add new books to the list");
         System.out.println("remove [BOOK_INDEX] -> to remove a book from the list");
         System.out.println("list -> to show whole list of added books");
-        System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
-        System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
-        System.out.println("set-genre [BOOK_INDEX] -> to set a genre for a book");
-        System.out.println("label [BOOK_INDEX] [LABEL] -> to set a label for a book");
-        System.out.println("give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary");
+        
         System.out.println("rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5");
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
