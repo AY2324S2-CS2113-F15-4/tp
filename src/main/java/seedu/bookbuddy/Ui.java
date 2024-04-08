@@ -74,6 +74,7 @@ public class Ui {
         System.out.println("find-genre -> to find books under specific genres");
         System.out.println("find-read -> to find list of books that are read");
         System.out.println("find-unread -> to find list of books that are unread");
+        System.out.println("find-label [KEYWORD] -> to find list of books that stored under a certain label");
         System.out.println("bye -> to exit BookBuddy software");
     }
 

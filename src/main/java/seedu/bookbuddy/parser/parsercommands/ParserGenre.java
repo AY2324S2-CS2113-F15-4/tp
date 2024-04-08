@@ -76,7 +76,7 @@ public class ParserGenre {
         System.out.println((BookList.getAvailableGenres().size() + 1) + ". Add a new genre");
     }
 
-    static String invalidInputLooper(String input, Scanner scanner) {
+    public static String invalidInputLooper(String input, Scanner scanner) {
         while (input == null) {
             while (!scanner.hasNextInt()) {  // Ensure the next input is an integer
                 String newInput = scanner.nextLine();

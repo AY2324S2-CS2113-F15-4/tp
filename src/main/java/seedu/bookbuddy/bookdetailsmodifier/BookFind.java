@@ -7,8 +7,10 @@ import seedu.bookbuddy.book.Genre;
 import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.parser.parsercommands.ParserGenre;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //@@author liuzehui03
 
@@ -35,6 +37,20 @@ public class BookFind {
             String actualGenre = Genre.getGenre(book).toLowerCase();
             String genre = input.toLowerCase();
             if (actualGenre.contains(genre)) {
+                bookGenres.add(book);
+            }
+        }
+        if (bookGenres.isEmpty()){
+            Ui.printNoGenresFound();
+        } else {
+            Ui.printGenresFound(bookGenres);
+        }
+    }
+    public static void findBookGenreLong(BookList bookList, String genre) {
+
+        ArrayList<BookMain> bookGenres = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            if (Genre.getGenre(book).contains(genre)) {
                 bookGenres.add(book);
             }
         }
