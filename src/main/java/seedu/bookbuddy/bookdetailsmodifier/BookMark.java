@@ -84,6 +84,7 @@ public class BookMark {
      */
     public static void markBookAsUnread(BookMain book) {
         Read.setRead(book, false);
+
         System.out.println("Successfully marked " + Title.getTitle(book) + " as unread.");
     }
 }
