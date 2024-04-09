@@ -7,7 +7,9 @@ import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.booklist.BookList;
+import utils.DateTimeUtils;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 import static seedu.bookbuddy.BookBuddy.LOGGER;
@@ -88,5 +90,34 @@ public class BookMark {
         Read.setRead(book, false);
         Ui.printShortLine();
         System.out.println("Successfully marked [" + Title.getTitle(book) + "] as unread.");
+    }
+
+    /**
+     * Prints all books sorted by date in descending order.
+     */
+    public static void printBooksByDateRead(BookList books) {
+        if (books.getBooks().isEmpty()) {
+            System.out.println("The list is empty. Add books by 'add [book]'");
+            return;
+        }
+
+        ArrayList<BookMain> bookRead = new ArrayList<>();
+        for (BookMain book : books.getBooks()) {
+            if (Read.getRead(book)) {
+                bookRead.add(book);
+            }
+        }
+
+        bookRead.sort((book1, book2) -> {
+            String dateTimeStr1 = Read.getDateTimeRead(book1);
+            String dateTimeStr2 = Read.getDateTimeRead(book2);
+            return DateTimeUtils.convertStringToDateTime(dateTimeStr2).compareTo(
+                    DateTimeUtils.convertStringToDateTime(dateTimeStr1));
+        });
+
+        for (BookMain book : bookRead) {
+            String datetime = Read.getDateTimeRead(book);
+            System.out.println(Title.getTitle(book) + " : " + datetime);
+        }
     }
 }

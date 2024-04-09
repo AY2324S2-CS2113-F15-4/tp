@@ -15,5 +15,9 @@ public class DateTimeUtils {
         return now.format(FORMATTER);
     }
 
+    public static LocalDateTime convertStringToDateTime(String datetimestring) {
+        return LocalDateTime.parse(datetimestring, FORMATTER);
+    }
+
 }
 

@@ -2,6 +2,7 @@ package seedu.bookbuddy.parser;
 
 import exceptions.UnsupportedCommandException;
 import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
+import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.bookdetailsmodifier.BookRating;
@@ -101,6 +102,9 @@ public class ParserMain {
                 break;
             case CommandList.PRINT_ORDERED_COMMAND:
                 BookRating.printBooksByRating(books);
+                break;
+            case CommandList.PRINT_ORDERED_DATE_COMMAND:
+                BookMark.printBooksByDateRead(books);
                 break;
             default:
                 LOGGER.log(Level.WARNING, "Sorry but that is not a valid command. Please try again", command);
