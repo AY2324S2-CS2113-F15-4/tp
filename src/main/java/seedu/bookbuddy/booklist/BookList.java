@@ -45,7 +45,7 @@ public class BookList {
      * @param index The index of the book to retrieve.
      * @return The Book at the specified index.
      */
-    public BookMain getBook(int index) throws BookNotFoundException{
+    public BookMain getBook(int index) throws BookNotFoundException {
         if (index < 0 || index > books.size()) {
             throw new BookNotFoundException("Book index out of range.");
         }
