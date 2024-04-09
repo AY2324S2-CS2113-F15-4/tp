@@ -18,7 +18,8 @@ import static java.util.logging.Logger.getLogger;
 public class BookBuddy {
     public static final Logger LOGGER = getLogger(BookBuddy.class.getName());
     public static final String EXIT_COMMAND = "bye";
-
+    private static BookList books = new BookList();
+    static FileStorage filestorage = new FileStorage(books);
     static {
         try {
             LOGGER.setUseParentHandlers(false);
@@ -37,7 +38,6 @@ public class BookBuddy {
         }
     }
 
-    private static BookList books = new BookList();
     public static void main(String[] args) throws IOException {
         LOGGER.log(Level.INFO, "BookBuddy application started.");
         Ui.printWelcome();
@@ -48,7 +48,6 @@ public class BookBuddy {
 
     public static void getUserInput(BookList books) throws IOException {
         Scanner input = new Scanner(System.in);
-        FileStorage filestorage = new FileStorage(books);
         LOGGER.log(Level.INFO, "Starting to get user input.");
 
         while (true) {
@@ -57,9 +56,7 @@ public class BookBuddy {
                 // If the input is empty, do not call parseCommand and just prompt for input again.
                 continue;
             } else if (userInput.equals(EXIT_COMMAND)) {
-                filestorage.saveData(books);
-                Ui.printExitMessage();
-                System.exit(0);
+                exitSystem(books, filestorage);
             }
             assert !userInput.isEmpty() : "User input should not be empty at this point";
             LOGGER.log(Level.FINE, "Processing user input: {0}", userInput);
@@ -75,5 +72,18 @@ public class BookBuddy {
                 System.out.println("An unexpected error occurred. Please contact support.");
             }
         }
+    }
+    //@@author joshuahoky
+    private static void exitSystem(BookList books, FileStorage filestorage) throws IOException {
+        filestorage.saveData(books);
+        Ui.printExitMessage();
+        System.exit(0);
+    }
+
+    //@@author
+
+
+    public static void performExit() throws IOException {
+        exitSystem(books, filestorage);
     }
 }

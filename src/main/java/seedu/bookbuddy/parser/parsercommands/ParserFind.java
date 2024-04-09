@@ -3,6 +3,7 @@ package seedu.bookbuddy.parser.parsercommands;
 import seedu.bookbuddy.bookdetailsmodifier.BookFind;
 import seedu.bookbuddy.booklist.BookList;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 //@@ liuzehui03
@@ -15,7 +16,7 @@ public class ParserFind {
         BookFind.findBookGenre(books, inputArray);
 
     }
-    public static void parseGenreLong(BookList books) {
+    public static void parseGenreLong(BookList books) throws IOException {
         System.out.println("Available genres:");
         for (int i = 0; i < BookList.getAvailableGenres().size(); i++) {
             System.out.println((i + 1) + ". " + BookList.getAvailableGenres().get(i));
