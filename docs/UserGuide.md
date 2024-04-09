@@ -72,9 +72,12 @@ rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
 list-rated -> to sort books by rating in descending order
 display [BOOK_INDEX] -> to view more details about a book
 find-title [KEYWORD] -> to find books with keyword in their title
+(advanced)find-genre [GENRE] -> to find books under specific genres
 find-genre -> to find books under specific genres
 find-read -> to find list of books that are read
 find-unread -> to find list of books that are unread
+find-label [KEYWORD] -> to find list of books that stored under a certain label
+find-rate [RATING] -> to find list of books with specified rating
 bye -> to exit BookBuddy software
 ````
 
@@ -330,17 +333,48 @@ Example output:
 ### Finding a book by genre: `find-genre`
 Returns all books in the saved book list that are stored under the matching genre.
 
-Format: `find-genre [KEYWORD]` .
+Format: `find-genre [KEYWORD]` or `find-genre` where user will receive a prompt.
 
 Example of usage with expected output:
 
+for more advanced users
+
 ```
 //input
-find-genre fiction
+find-genre
 ```
 ````
 //ouput
+___________________________________
+fiction books: 
 1. [U] harry potter
+_____________
+````
+for basic users
+```
+//input
+find-genre
+```
+````
+//ouput
+Available genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
+Enter the number for the desired genre:
+````
+```
+//input
+1
+```
+````
+//ouput
+___________________________________
+fiction books: 
+1. [U] harry potter
+_____________
 ````
 
 ### Find books that are read: `find-read`
@@ -372,7 +406,40 @@ find-unread
 1. [U] geronimo stilton
 2. [U] The Boy in Striped Pyjamas
 ````
+### Find books that are labelled: `find-label`
+Returns all books in the saved book list that stored under specific label.
 
+Format: `find-label [KEYWORD]`
+
+Example of usage with expected output:
+````
+//input
+find-label very cool
+````
+````
+//ouput
+___________________________________
+books with [very cool] in their label:
+1. [R] harry potter
+_____________
+````
+### Find books that are labelled: `find-rate`
+Returns all books in the saved book list that have specific rating.
+
+Format: `find-rate [RATING]`
+
+Example of usage with expected output:
+````
+//input
+find-rate 3
+````
+````
+//ouput
+___________________________________
+books rated [3] :
+1. [R] harry potter
+_____________
+````
 ### Exiting the program: `bye`
 
 Exits the application and saves all tasks in a file.

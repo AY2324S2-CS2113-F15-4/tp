@@ -79,10 +79,12 @@ public class Ui {
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
         System.out.println("find-title [KEYWORD] -> to find books with keyword in their title");
+        System.out.println("(advanced)find-genre [GENRE] -> to find books under specific genres");
         System.out.println("find-genre -> to find books under specific genres");
         System.out.println("find-read -> to find list of books that are read");
         System.out.println("find-unread -> to find list of books that are unread");
         System.out.println("find-label [KEYWORD] -> to find list of books that stored under a certain label");
+        System.out.println("find-rate [RATING] -> to find list of books with specified rating");
         System.out.println("bye -> to exit BookBuddy software");
     }
 
