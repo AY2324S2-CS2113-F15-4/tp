@@ -32,7 +32,7 @@ public class DateTimeUtils {
      * Gets the current date and time formatted as a string.
      *
      * @return A {@link String} representation of the current date and time,
-         * formatted according to the {@link DateTimeUtils#FORMATTER}.
+     ***** formatted according to the {@link DateTimeUtils#FORMATTER}.
      */
     public static String getCurrentDateTime() {
         LocalDateTime now = LocalDateTime.now();
