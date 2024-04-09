@@ -16,7 +16,8 @@ public class ParserLabel {
         try {
                 index = Integer.parseInt(labelMessageParts[0].trim());
                 if (index < 0 || index > books.getSize()) {
-                    throw new IndexOutOfBoundsException("Invalid book index (out of range). Please enter a valid index.");
+                    throw new IndexOutOfBoundsException("Invalid book index (out of range). Please enter a valid " +
+                            "index.");
                 }
                 assert index > 0 : "Index should be non-negative";
         } catch (NumberFormatException e) {
