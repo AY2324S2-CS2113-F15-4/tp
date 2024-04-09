@@ -80,6 +80,9 @@ public class ParserMain {
             case CommandList.FIND_LABEL_COMMAND:
                 ParserFind.parseLabel(books, inputArray[1]);
                 break;
+            case CommandList.FIND_RATE_COMMAND:
+                ParserFind.parseRate(books, inputArray[1]);
+                break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);
                 break;

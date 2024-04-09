@@ -12,6 +12,7 @@ public class CommandList {
     public static final String FIND_READ_COMMAND = "find-read";
     public static final String FIND_UNREAD_COMMAND = "find-unread";
     public static final String FIND_LABEL_COMMAND = "find-label";
+    public static final String FIND_RATE_COMMAND = "find-rate";
     public static final String LABEL_COMMAND = "label";
     public static final String GENRE_COMMAND = "set-genre";
     public static final String SUMMARY_COMMAND = "give-summary";

@@ -136,4 +136,12 @@ public class Ui {
     public static void printNoLabelFound(){
         System.out.println("oops there are no books stored under this label...");
     }
+    public static void printRateFound(ArrayList<BookMain> bookRate) {
+        for (int i = 0; i < bookRate.size(); i++) {
+            System.out.println(i + 1 + ". " + bookRate.get(i));
+        }
+    }
+    public static void printNoRateFound() {
+        System.out.println("oops there are no books stored under this rating...");
+    }
 }
