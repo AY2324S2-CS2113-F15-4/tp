@@ -72,6 +72,7 @@ public class Ui {
         System.out.println("list -> to show whole list of added books");
         System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
         System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
+        System.out.println("list-by-date -> to print out all books sorted in descending order of date");
         System.out.println("set-genre [BOOK_INDEX] -> to set a genre for a book");
         System.out.println("label [BOOK_INDEX] [LABEL] -> to set a label for a book");
         System.out.println("give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary");
