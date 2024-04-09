@@ -19,6 +19,7 @@ public class ParserLabel {
         assert index > 0 : "Index should be non-negative";
         String label = labelMessageParts[1];
         BookLabel.setBookLabelByIndex(index, label, books);
+        //test
     }
 
     public static void executeParseSetLabel (BookList books, String[] inputArray) {
