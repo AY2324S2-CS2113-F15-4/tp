@@ -21,7 +21,7 @@ public class ParserGenre {
         try {
             index = Integer.parseInt(parts[0]); // The first part should be the index
         } catch (NumberFormatException e) {
-            System.out.println("Invalid book index. Please enter a valid numeric index.");
+            System.out.println("Invalid book index format. Please enter a valid numeric index.");
             return;
         }
 
