@@ -21,7 +21,9 @@ public class BookList {
     public static List<String> getAvailableGenres() {
         return availableGenres;
     }
-
+    public static void setAvailableGenres(List<String> availableGenres) {
+        BookList.availableGenres = availableGenres;
+    }
     /**
      * Constructs a new BookList instance with an empty list.
      */
@@ -52,5 +54,9 @@ public class BookList {
         assert books.get(index - 1) != null : "Retrieved book should not be null";
         assert books.get(index - 1) instanceof BookMain : "Object at index should be an instance of Book";
         return books.get(index - 1);
+    }
+
+    public static String saveGenresFormat() {
+        return String.join(",", availableGenres);
     }
 }

@@ -189,7 +189,7 @@ book2 : 6.57 PM, 09-04-2024
 
 Sets the genre of a specific book based on the provided input and the provided index.
 
-Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if 6 is entered
+Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[CUSTOM_GENRE]` if last option is selected
 in the previous step
 
 Or for Pro Users:

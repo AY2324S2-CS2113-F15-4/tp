@@ -3,14 +3,15 @@ package seedu.bookbuddy;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 
-import java.util.Scanner;
 import java.io.File;
-import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-
-
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Logger;
+
 import static java.util.logging.Logger.getLogger;
 
 /**
@@ -49,6 +50,16 @@ public class FileStorage {
      */
     public void readData(BookList books, File file) throws FileNotFoundException {
         Scanner sc = new Scanner(file);
+        if (sc.hasNextLine()) {
+            // Read the first line to get the genres
+            String genresLine = sc.nextLine().trim();
+            // Assuming the line starts with "Genres: "
+            if (genresLine.startsWith("Genres: ")) {
+                String genresData = genresLine.substring(8); // Skip "Genres: "
+                List<String> genres = Arrays.asList(genresData.split(","));
+                BookList.setAvailableGenres(genres); // Update the available genres
+            }
+        }
         int lineNumber = 1;
         while (sc.hasNext()) {
             String line = sc.nextLine();
@@ -68,10 +79,13 @@ public class FileStorage {
     public void saveData(BookList books) throws IOException {
         File file = new File(FILE_PATH);
         FileWriter fw = new FileWriter(file);
+
+        String genresLine = BookList.saveGenresFormat();
+        fw.write("Genres: " + genresLine + '\n');
+
         for (int i = 1; i <= books.getSize(); i += 1) {
             fw.write(books.getBook(i).saveFormat() + '\n');
         }
-
         fw.close();
         System.out.println("Writing successful. Data has been saved.");
     }
