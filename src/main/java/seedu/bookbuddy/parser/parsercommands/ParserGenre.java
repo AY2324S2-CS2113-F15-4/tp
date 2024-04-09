@@ -26,8 +26,8 @@ public class ParserGenre {
         }
 
         if (index <= 0 || index > books.getSize()) {
-            throw new InvalidCommandArgumentException("Invalid book index. Please enter a valid index. Type 'list' to view the " +
-                    "list of books.");
+            throw new InvalidCommandArgumentException("Invalid book index. Please enter a valid " +
+                    "index. Type 'list' to view the list of books.");
         }
 
         if (parts.length > 1 && !parts[1].isEmpty()) {
