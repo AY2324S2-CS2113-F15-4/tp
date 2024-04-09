@@ -1,6 +1,7 @@
 package seedu.bookbuddy.bookdetailsmodifier;
 
 
+import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.book.Genre;
 import seedu.bookbuddy.book.Label;
@@ -47,6 +48,7 @@ public class BookDisplay {
     public static void printAllBooks(BookList bookList) {
         assert bookList.getBooks() != null : "Books list should not be null since it has been initialised.";
         if (!bookList.getBooks().isEmpty()) {
+            Ui.printLine();
             System.out.println("All books:");
             for (int i = 0; i < bookList.getBooks().size(); i++) {
                 BookMain currentBook = bookList.getBooks().get(i);
@@ -54,6 +56,7 @@ public class BookDisplay {
                 System.out.print((i + 1) + ". ");
                 System.out.println(currentBook.toString());
             }
+            Ui.printShortLine();
         } else {
             System.out.println("The list is empty. Add books by 'add [book]'");
         }

@@ -2,6 +2,7 @@ package seedu.bookbuddy.bookdetailsmodifier;
 
 import exceptions.BookReadAlreadyException;
 import exceptions.BookUnreadAlreadyException;
+import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Title;
@@ -74,7 +75,8 @@ public class BookMark {
      */
     public static void markBookAsRead(BookMain book) {
         Read.setRead(book, true);
-        System.out.println("Successfully marked " + Title.getTitle(book) + " as read.");
+        Ui.printShortLine();
+        System.out.println("Successfully marked [" + Title.getTitle(book) + "] as read.");
     }
 
     /**
@@ -84,7 +86,7 @@ public class BookMark {
      */
     public static void markBookAsUnread(BookMain book) {
         Read.setRead(book, false);
-
-        System.out.println("Successfully marked " + Title.getTitle(book) + " as unread.");
+        Ui.printShortLine();
+        System.out.println("Successfully marked [" + Title.getTitle(book) + "] as unread.");
     }
 }

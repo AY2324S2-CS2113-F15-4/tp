@@ -32,20 +32,28 @@ public class Ui {
     }
 
     public static void addBookMessage(String title) {
+        printShortLine();
         System.out.println("okii added [" + title + "] to the list.");
         System.out.println("remember to read it soon....");
+        printShortLine();
     }
     public static void labelBookMessage(String title, String label) {
+        printShortLine();
         System.out.println("okii labeled [" + title + "] as [" + label + "]");
         System.out.println("remember to read it soon....");
+        printShortLine();
     }
     public static void summaryBookMessage(String title, String summary) {
+        printShortLine();
         System.out.println("okii you have written: [" + summary + "] for the book: [" + title + "]");
         System.out.println("remember to read it soon....");
+        printShortLine();
     }
     public static void setGenreBookMessage(String title, String genre) {
+        printShortLine();
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
         System.out.println("remember to read it soon....");
+        printShortLine();
     }
     public static void exitCommandMessage() {
         System.out.println("okii exitting the command now");
@@ -95,18 +103,26 @@ public class Ui {
         System.out.println("no such books added under this genre");
     }
     public static void printReadFound(ArrayList<BookMain> bookRead){
+        printLine();
+        System.out.println("Read books: ");
         for (int i = 0; i < bookRead.size(); i++) {
             System.out.println(i + 1 + ". " + bookRead.get(i));
         }
+        System.out.println("gd job! hope u enjoyed these books ");
+        printShortLine();
     }
     public static void printNoReadFound(){
         System.out.println("no read books found...");
         System.out.println("do rmb to start reading soon!");
     }
     public static void printUnreadFound(ArrayList<BookMain> bookUnread){
+        printLine();
+        System.out.println("Unread books: ");
         for (int i = 0; i < bookUnread.size(); i++) {
             System.out.println(i + 1 + ". " + bookUnread.get(i));
         }
+        System.out.println("do rmb to read these books soon!");
+        printShortLine();
     }
     public static void printNoUnreadFound(){
         System.out.println("no unread books found!");

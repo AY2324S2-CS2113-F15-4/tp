@@ -26,7 +26,10 @@ public class BookFind {
         if (bookTitles.isEmpty()){
             Ui.printNoBookFound();
         } else {
+            Ui.printLine();
+            System.out.println("books with [" + input.toLowerCase() + "] in the title: ");
             Ui.printBookFound(bookTitles);
+            Ui.printShortLine();
         }
     }
 
@@ -42,7 +45,10 @@ public class BookFind {
         if (bookGenres.isEmpty()){
             Ui.printNoGenresFound();
         } else {
+            Ui.printLine();
+            System.out.println(input.toLowerCase() + " books: ");
             Ui.printGenresFound(bookGenres);
+            Ui.printShortLine();
         }
     }
     public static void findBookGenreLong(BookList bookList, String genre) {
@@ -56,7 +62,10 @@ public class BookFind {
         if (bookGenres.isEmpty()){
             Ui.printNoGenresFound();
         } else {
+            Ui.printLine();
+            System.out.println(genre.toLowerCase() + " books: ");
             Ui.printGenresFound(bookGenres);
+            Ui.printShortLine();
         }
     }
     public static void findRead(BookList bookList){
@@ -99,7 +108,10 @@ public class BookFind {
         if (bookLabel.isEmpty()){
             Ui.printNoLabelFound();
         } else {
+            Ui.printLine();
+            System.out.println("books with [" + input.toLowerCase() + "] in their label:");
             Ui.printLabelFound(bookLabel);
+            Ui.printShortLine();
         }
     }
 }
