@@ -1,7 +1,11 @@
 package seedu.bookbuddy.bookdetailsmodifier;
 
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.book.*;
+import seedu.bookbuddy.book.Label;
+import seedu.bookbuddy.book.BookMain;
+import seedu.bookbuddy.book.Genre;
+import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.booklist.BookList;
 
 import java.util.ArrayList;
