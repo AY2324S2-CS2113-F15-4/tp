@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class BookFind {
     public static void findBookTitle(BookList bookList, String input) {
+        assert input != null : "input should not be null";
         ArrayList<BookMain> bookTitles = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
             String actualTitle = Title.getTitle(book).toLowerCase();
@@ -26,11 +27,15 @@ public class BookFind {
         if (bookTitles.isEmpty()){
             Ui.printNoBookFound();
         } else {
+            Ui.printLine();
+            System.out.println("books with [" + input.toLowerCase() + "] in the title: ");
             Ui.printBookFound(bookTitles);
+            Ui.printShortLine();
         }
     }
 
     public static void findBookGenre(BookList bookList, String input) {
+        assert input != null : "input should not be null";
         ArrayList<BookMain> bookGenres = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
             String actualGenre = Genre.getGenre(book).toLowerCase();
@@ -42,21 +47,27 @@ public class BookFind {
         if (bookGenres.isEmpty()){
             Ui.printNoGenresFound();
         } else {
+            Ui.printLine();
+            System.out.println(input.toLowerCase() + " books: ");
             Ui.printGenresFound(bookGenres);
+            Ui.printShortLine();
         }
     }
-    public static void findBookGenreLong(BookList bookList, String genre) {
-
+    public static void findBookGenreLong(BookList bookList, String input) {
+        assert input != null : "input should not be null";
         ArrayList<BookMain> bookGenres = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
-            if (Genre.getGenre(book).contains(genre)) {
+            if (Genre.getGenre(book).contains(input)) {
                 bookGenres.add(book);
             }
         }
         if (bookGenres.isEmpty()){
             Ui.printNoGenresFound();
         } else {
+            Ui.printLine();
+            System.out.println(input.toLowerCase() + " books: ");
             Ui.printGenresFound(bookGenres);
+            Ui.printShortLine();
         }
     }
     public static void findRead(BookList bookList){
@@ -99,7 +110,10 @@ public class BookFind {
         if (bookLabel.isEmpty()){
             Ui.printNoLabelFound();
         } else {
+            Ui.printLine();
+            System.out.println("books with [" + input.toLowerCase() + "] in their label:");
             Ui.printLabelFound(bookLabel);
+            Ui.printShortLine();
         }
     }
 }
