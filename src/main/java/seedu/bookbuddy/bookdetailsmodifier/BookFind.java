@@ -40,7 +40,7 @@ public class BookFind {
         for (BookMain book : bookList.getBooks()) {
             String actualGenre = Genre.getGenre(book).toLowerCase();
             String genre = input.toLowerCase();
-            if (actualGenre.contains(genre)) {
+            if (actualGenre.equals(genre)) {
                 bookGenres.add(book);
             }
         }
