@@ -38,4 +38,8 @@ public class ParserFind {
     public static void parseLabel(BookList books, String inputArray) {
         BookFind.findLabel(books, inputArray);
     }
+
+    public static void parseRate(BookList books, String input) {
+        BookFind.findRate(books, input);
+    }
 }

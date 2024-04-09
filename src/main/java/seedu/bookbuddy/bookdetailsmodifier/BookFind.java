@@ -1,11 +1,7 @@
 package seedu.bookbuddy.bookdetailsmodifier;
 
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.book.Label;
-import seedu.bookbuddy.book.BookMain;
-import seedu.bookbuddy.book.Genre;
-import seedu.bookbuddy.book.Title;
-import seedu.bookbuddy.book.Read;
+import seedu.bookbuddy.book.*;
 import seedu.bookbuddy.booklist.BookList;
 
 import java.util.ArrayList;
@@ -114,6 +110,29 @@ public class BookFind {
             System.out.println("books with [" + input.toLowerCase() + "] in their label:");
             Ui.printLabelFound(bookLabel);
             Ui.printShortLine();
+        }
+    }
+
+    public static void findRate(BookList bookList, String input) {
+        ArrayList<BookMain> bookRate = new ArrayList<>();
+        int inputRating = Integer.parseInt(input);
+        for (BookMain book : bookList.getBooks()) {
+
+            if(Rating.getRating(book) == inputRating){
+                bookRate.add(book);
+            }
+        }
+        if (inputRating <= 5 && inputRating >= 1) {
+            if (bookRate.isEmpty()) {
+                Ui.printNoRateFound();
+            } else {
+                Ui.printLine();
+                System.out.println("books rated [" + input + "] :");
+                Ui.printRateFound(bookRate);
+                Ui.printShortLine();
+            }
+        } else {
+            System.out.println("pls enter a rating from 1-5");
         }
     }
 }
