@@ -26,7 +26,7 @@ public class Exceptions {
         } else if (e instanceof ArrayIndexOutOfBoundsException) {
             System.out.println("Command requires more parameters than provided. Please try again or type: help");
         } else if (e instanceof IndexOutOfBoundsException) {
-            System.out.println("Invalid book index. Please enter a valid index.");
+            System.out.println(e.getMessage());
         } else if (e instanceof InvalidCommandArgumentException) {
             LOGGER.log(Level.WARNING, "Invalid command argument: {0}", new Object[]{e.getMessage()});
             System.out.println(e.getMessage());

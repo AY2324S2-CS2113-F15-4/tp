@@ -1,14 +1,18 @@
 package seedu.bookbuddy.parser.parsercommands;
 
+import exceptions.InvalidCommandArgumentException;
+import exceptions.InvalidInputException;
+import seedu.bookbuddy.BookBuddy;
 import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.bookdetailsmodifier.BookGenre;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ParserGenre {
-    static void parseSetGenre(BookList books, String[] inputArray) {
+    static void parseSetGenre(BookList books, String[] inputArray) throws IOException {
         Exceptions.validateCommandArguments(inputArray, 2, "The set-genre command requires " +
                 "at least a book index.");
 
@@ -22,9 +26,8 @@ public class ParserGenre {
         }
 
         if (index <= 0 || index > books.getSize()) {
-            System.out.println("Invalid book index. Please enter a valid index. Type 'list' to view the " +
-                    "list of books.");
-            return;
+            throw new InvalidCommandArgumentException("Invalid book index. Please enter a valid " +
+                    "index. Type 'list' to view the list of books.");
         }
 
         if (parts.length > 1 && !parts[1].isEmpty()) {
@@ -36,7 +39,7 @@ public class ParserGenre {
         }
     }
 
-    private static void multiStepSetGenre(BookList books, int index) {
+    private static void multiStepSetGenre(BookList books, int index) throws IOException {
         genreSelectionPrinter();
         System.out.println("Enter the number for the desired genre, or add a new one:");
         Scanner scanner = new Scanner(System.in);
@@ -62,32 +65,42 @@ public class ParserGenre {
         System.out.println((BookList.getAvailableGenres().size() + 1) + ". Add a new genre");
     }
 
-    public static String invalidInputLooper(String input, Scanner scanner) {
+    public static String invalidInputLooper(String input, Scanner scanner) throws IOException {
         while (input == null) {
-            while (!scanner.hasNextInt()) {  // Ensure the next input is an integer
-                String newInput = scanner.nextLine().trim();
-                if ("exit".equalsIgnoreCase(newInput)) {
-                    Ui.exitCommandMessage();
-                    return null;
-                } else {
-                    System.out.println("Invalid input. Please enter a valid number or type 'exit'" +
-                            " to cancel.");
+            String newInput;
+            while (true) {
+                newInput = scanner.nextLine().trim();
+                String[] parts = newInput.split("\\s+");  // Splits the input based on one or more spaces
+                try {
+                    if (parts.length == 1 && parts[0].matches("-?\\d+")) {
+                        break;
+                    } else if ("exit".equalsIgnoreCase(newInput)) {
+                        Ui.exitCommandMessage();
+                        return null;
+                    } else if ("bye".equalsIgnoreCase(newInput)) {
+                        BookBuddy.performExit();
+                    } else {
+                        throw new InvalidInputException(newInput + " is an invalid input. Please enter a valid " +
+                                "number or type 'exit' to cancel or 'bye' to exit the programme.");
+                    }
+                } catch (InvalidInputException e) {
+                    System.out.println(e.getMessage());
                 }
             }
-
-            int genreSelection = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline after the number
-
-            if (genreSelection == BookList.getAvailableGenres().size() + 1) {
-                System.out.println("Enter the new genre:");
-                input = scanner.nextLine().trim();
-                input = duplicateChecker(input);
-            } else if (genreSelection > 0 && genreSelection <= BookList.getAvailableGenres().size()) {
-                input = BookList.getAvailableGenres().get(genreSelection - 1);
-            } else {
-                System.out.println("Invalid selection. Please enter a valid number " +
-                        "or type 'exit' to cancel.");
-                // No need for the nextLine or parsing logic here, the while loop will continue
+            try {
+                int genreSelection = Integer.parseInt(newInput);
+                if (genreSelection == BookList.getAvailableGenres().size() + 1) {
+                    System.out.println("Enter the new genre:");
+                    input = scanner.nextLine().trim();
+                    input = duplicateChecker(input);
+                } else if (genreSelection > 0 && genreSelection <= BookList.getAvailableGenres().size()) {
+                    input = BookList.getAvailableGenres().get(genreSelection - 1);
+                } else {
+                    throw new InvalidInputException(genreSelection + " is an invalid selection. Please enter a " +
+                            "valid number or type 'exit' to cancel or 'bye' to exit the programme.");
+                }
+            } catch (InvalidInputException e) {
+                System.out.println(e.getMessage());
             }
         }
         return input;
@@ -113,7 +126,7 @@ public class ParserGenre {
         return input;
     }
 
-    public static void executeParseSetGenre (BookList books, String[] inputArray) {
+    public static void executeParseSetGenre (BookList books, String[] inputArray) throws IOException {
         parseSetGenre(books, inputArray);
     }
 }
