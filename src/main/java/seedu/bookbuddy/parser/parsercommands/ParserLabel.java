@@ -14,12 +14,12 @@ public class ParserLabel {
         // Split the message into index and label message
         assert labelMessageParts.length == 2 : "Command requires an index and a label message";
         try {
-                index = Integer.parseInt(labelMessageParts[0].trim());
-                if (index < 0 || index > books.getSize()) {
-                    throw new IndexOutOfBoundsException("Invalid book index (out of range). Please enter a valid " +
-                            "index.");
-                }
-                assert index > 0 : "Index should be non-negative";
+            index = Integer.parseInt(labelMessageParts[0].trim());
+            if (index < 0 || index > books.getSize()) {
+                throw new IndexOutOfBoundsException("Invalid book index (out of range). Please enter a valid " +
+                        "index.");
+            }
+            assert index > 0 : "Index should be non-negative";
         } catch (NumberFormatException e) {
             System.out.println(labelMessageParts[0] + " is not a valid index format.");
         } catch (IndexOutOfBoundsException e) {
