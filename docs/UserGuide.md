@@ -26,6 +26,7 @@ experience.
     * [list](#viewing-all-books-list)
     * [mark](#marking-a-book-as-read-mark)
     * [unmark](#marking-a-book-as-unread-unmark)
+    * [list-by-date](#listing-read-books-by-date)
     * [set-genre](#setting-the-genre-of-a-book-set-genre)
     * [label](#labelling-a-book-label)
     * [give-summary](#adding-a-book-summary-give-summary)
@@ -164,6 +165,25 @@ Example output:
 ````
 Successfully marked Harry Potter as unread.
 ````
+
+### Listing-read-books-by-date `list-by-date`
+
+Lists all read books by descending order of date read.
+
+Format: `list-by-date`
+
+Example of usage with expected output:
+
+```
+//input
+list-by-date
+
+//output
+booky : 6.57 PM, 09-04-2024
+book2 : 6.57 PM, 09-04-2024
+```
+
+
 
 ### Setting the genre of a book: `set-genre`
 
