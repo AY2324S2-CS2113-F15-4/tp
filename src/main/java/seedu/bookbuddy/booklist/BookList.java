@@ -12,6 +12,10 @@ import java.util.List;
  * and marking book as read or unread.
  */
 public class BookList {
+    public static void setAvailableGenres(List<String> availableGenres) {
+        BookList.availableGenres = availableGenres;
+    }
+
     protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
             "Mystery", "Science Fiction", "Fantasy"));
     protected ArrayList<BookMain> books;
@@ -52,5 +56,9 @@ public class BookList {
         assert books.get(index - 1) != null : "Retrieved book should not be null";
         assert books.get(index - 1) instanceof BookMain : "Object at index should be an instance of Book";
         return books.get(index - 1);
+    }
+
+    public static String saveGenresFormat() {
+        return String.join(",", availableGenres);
     }
 }
