@@ -49,6 +49,12 @@ public class Ui {
         System.out.println("remember to read it soon....");
         printShortLine();
     }
+    public static void authorBookMessage(String title, String author) {
+        printShortLine();
+        System.out.println("okii you have have set: [" + author + "] as the author for the book: [" + title + "]");
+        System.out.println("remember to read it soon....");
+        printShortLine();
+    }
     public static void setGenreBookMessage(String title, String genre) {
         printShortLine();
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");

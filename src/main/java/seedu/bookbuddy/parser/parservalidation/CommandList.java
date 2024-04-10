@@ -20,4 +20,5 @@ public class CommandList {
     public static final String RATING_COMMAND = "rate";
     public static final String PRINT_ORDERED_COMMAND = "list-rated";
     public static final String PRINT_ORDERED_DATE_COMMAND = "list-by-date";
+    public static final String AUTHOR_COMMAND = "set-author";
 }

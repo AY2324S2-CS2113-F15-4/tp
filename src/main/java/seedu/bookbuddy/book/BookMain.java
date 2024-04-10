@@ -8,6 +8,7 @@ public class BookMain {
     protected String genre;
     protected int rating;
     protected String summary;
+    protected String author;
 
     /**
      * Creates a new Book with the specified title.
@@ -22,6 +23,7 @@ public class BookMain {
         this.genre = "";
         this.rating = 0; // Initialized to 0
         this.summary = "";
+        this.author = "";
     }
 
     //@@author joshuahoky
@@ -34,9 +36,10 @@ public class BookMain {
      * @param genre The genre of the book.
      * @param rating The rating assigned to the book.
      * @param summary The summary of the book.
+     * @param author The author of the book.
      */
     public BookMain(String title, int status, String label, String genre, int rating, String summary,
-                    String datetimeread, int lineNumber) {
+                    String datetimeread, int lineNumber, String author) {
         if (rating < 0 || rating > 5 || status < 0 || status > 1) {
             throw new IllegalArgumentException("Unable to load book data from line " + lineNumber +
                     " in books.txt as data is corrupted.");
@@ -49,6 +52,7 @@ public class BookMain {
         this.genre = genre;
         this.summary = summary;
         this.rating = rating;
+        this.author = author;
     }
 
     @Override
@@ -68,7 +72,8 @@ public class BookMain {
         String label = (this.label.isEmpty()) ? "" : this.label;
         String genre = (this.genre.isEmpty()) ? "" : this.genre;
         String summary = (this.summary.isEmpty()) ? "" : this.summary;
+        String author = (this.author.isEmpty()) ? "" : this.author;
         return this.title + " | " + status + " | " + label + " | " + genre + " | " + summary
-                + " | " + this.rating + " | " + datetimeread;
+                + " | " + this.rating + " | " + datetimeread + " | " + author;
     }
 }
