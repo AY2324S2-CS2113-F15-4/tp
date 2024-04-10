@@ -1,6 +1,5 @@
 package seedu.bookbuddy.bookdetailsmodifier;
 
-
 import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.book.Genre;
@@ -10,7 +9,6 @@ import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Summary;
 import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.booklist.BookList;
-
 
 public class BookDisplay {
 
@@ -61,5 +59,4 @@ public class BookDisplay {
             System.out.println("The list is empty. Add books by 'add [book]'");
         }
     }
-
 }

@@ -53,9 +53,13 @@ public class BookListModifier {
      */
     public static void deleteBook(BookList bookList, int index) throws IndexOutOfBoundsException {
         try {
-            Ui.removeBookMessage(index, bookList);
-            bookList.books.remove(index - 1);
-            assert bookList.books.size() >= 0 : "Book list size should not be negative after deletion";
+            if (bookList.getBooks().isEmpty()) {
+                System.out.println("Unable to remove book as the list is empty.");
+            } else {
+                Ui.removeBookMessage(index, bookList);
+                bookList.books.remove(index - 1);
+                assert bookList.books.size() >= 0 : "Book list size should not be negative after deletion";
+            }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Invalid book index. Please enter a valid index");
         } catch (Exception e) {

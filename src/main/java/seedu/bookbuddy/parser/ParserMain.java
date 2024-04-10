@@ -115,5 +115,4 @@ public class ParserMain {
             Exceptions.handleException(e, command, inputArray);
         }
     }
-
 }
