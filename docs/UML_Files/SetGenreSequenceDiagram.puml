@@ -1,38 +1,70 @@
-
-
 @startuml
-participant User
-participant "ParserMain" as ParserMain
-participant "ParserGenre" as ParserGenre
-participant "BookList" as BookList
-participant "BookGenre" as BookGenre
-participant "Ui" as Ui
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserGenre" as ParserGenre
+participant ":BookList" as BookList
+participant ":BookGenre" as BookGenre
+participant ":Ui" as Ui
 
 User -> ParserMain : set-genre [BOOK_INDEX]
+activate ParserMain
 ParserMain -> ParserGenre : executeParseSetGenre(books, inputArray)
+activate ParserGenre
 ParserGenre -> BookList : validate index
+activate BookList
+BookList --> ParserGenre : indexIsValid
+deactivate BookList
 ParserGenre -> ParserGenre : genreSelectionPrinter()
-ParserGenre -> User : Display available genres
+ParserGenre --> User : Display available genres
+deactivate ParserGenre
 
 alt selecting existing genre
     User -> ParserGenre : Select genre number
+    activate ParserGenre
     ParserGenre -> BookList : getAvailableGenres()
+    activate BookList
+    BookList --> ParserGenre : availableGenresList
+    deactivate BookList
     ParserGenre -> BookGenre : setBookGenreByIndex(index, selectedGenre, books)
+    activate BookGenre
     BookGenre -> BookList : getBook(index)
+    activate BookList
+    BookList --> BookGenre : book
+    deactivate BookList
     BookGenre -> Ui : setGenreBookMessage(title, genre)
-    Ui -> User : confirmation message
+    activate Ui
+    Ui --> User : confirmation message
+    deactivate Ui
+    deactivate BookGenre
+    deactivate ParserGenre
 else adding new genre
     User -> ParserGenre : 6 (Add new genre)
+    activate ParserGenre
     ParserGenre -> User : Enter new genre
     User -> ParserGenre : Input custom genre
     ParserGenre -> BookList : Add new genre to list
+    activate BookList
+    BookList --> ParserGenre : newGenreAdded
+    deactivate BookList
     ParserGenre -> BookGenre : setBookGenreByIndex(index, newGenre, books)
+    activate BookGenre
     BookGenre -> BookList : getBook(index)
+    activate BookList
+    BookList --> BookGenre : book
+    deactivate BookList
     BookGenre -> Ui : setGenreBookMessage(title, genre)
-    Ui -> User : confirmation message
+    activate Ui
+    Ui --> User : confirmation message
+    deactivate Ui
+    deactivate BookGenre
+    deactivate ParserGenre
 end
-
+deactivate ParserMain
 @enduml
+
+
+
 
 
 
