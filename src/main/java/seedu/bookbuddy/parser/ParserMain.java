@@ -1,12 +1,22 @@
 package seedu.bookbuddy.parser;
 
 import exceptions.UnsupportedCommandException;
-import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
+
 import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.bookdetailsmodifier.BookRating;
-import seedu.bookbuddy.parser.parsercommands.*;
+import seedu.bookbuddy.parser.parsercommands.ParserFind;
+import seedu.bookbuddy.parser.parsercommands.ParserAdd;
+import seedu.bookbuddy.parser.parsercommands.ParserRemove;
+import seedu.bookbuddy.parser.parsercommands.ParserMark;
+import seedu.bookbuddy.parser.parsercommands.ParserGenre;
+import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
+import seedu.bookbuddy.parser.parsercommands.ParserRating;
+import seedu.bookbuddy.parser.parsercommands.ParserUnmark;
+import seedu.bookbuddy.parser.parsercommands.ParserLabel;
+import seedu.bookbuddy.parser.parsercommands.ParserSummary;
+import seedu.bookbuddy.parser.parsercommands.ParserList;
 import seedu.bookbuddy.parser.parservalidation.CommandList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 

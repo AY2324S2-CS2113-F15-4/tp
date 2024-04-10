@@ -10,7 +10,7 @@ import static seedu.bookbuddy.BookBuddy.LOGGER;
 public class Exceptions {
     public static void validateCommandArguments(String[] inputArray, int requiredArgs, String errorMessage)
             throws InvalidCommandArgumentException {
-        if (inputArray.length < requiredArgs) {
+        if (inputArray.length != requiredArgs) {
             LOGGER.log(Level.WARNING, errorMessage, inputArray);
             throw new InvalidCommandArgumentException(errorMessage);
         }
