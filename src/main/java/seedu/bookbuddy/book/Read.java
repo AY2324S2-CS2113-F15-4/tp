@@ -13,10 +13,22 @@ public class Read {
         return book.isRead;
     }
 
+    /**
+     * Returns the date and time read attribute of the book in string form.
+     *
+     * @param book
+     * @return The date and time read of the book.
+     */
     public static String getDateTimeRead(BookMain book) {
         return book.datetimeread;
     }
 
+    /**
+     * Sets the books read status as unread or read
+     *
+     * @param book
+     * @param read the read status of the book
+     */
     public static void setRead(BookMain book, boolean read) {
         book.isRead = read;
         if (read) {
