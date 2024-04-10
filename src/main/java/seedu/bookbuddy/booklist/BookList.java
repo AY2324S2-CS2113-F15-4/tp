@@ -22,7 +22,7 @@ public class BookList {
         return availableGenres;
     }
     public static void setAvailableGenres(List<String> availableGenres) {
-        BookList.availableGenres = availableGenres;
+        BookList.availableGenres = new ArrayList<>(availableGenres);
     }
     /**
      * Constructs a new BookList instance with an empty list.
