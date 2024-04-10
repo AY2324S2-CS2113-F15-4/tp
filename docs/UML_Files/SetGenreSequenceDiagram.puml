@@ -1,6 +1,7 @@
 
 
 @startuml
+hide footbox
 participant ":User" as User
 participant ":ParserMain" as ParserMain
 participant ":ParserGenre" as ParserGenre
