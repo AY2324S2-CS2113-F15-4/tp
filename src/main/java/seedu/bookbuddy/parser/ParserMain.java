@@ -2,10 +2,8 @@ package seedu.bookbuddy.parser;
 
 import exceptions.UnsupportedCommandException;
 
-import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.bookdetailsmodifier.BookRating;
 import seedu.bookbuddy.parser.parsercommands.ParserFind;
 import seedu.bookbuddy.parser.parsercommands.ParserAdd;
 import seedu.bookbuddy.parser.parsercommands.ParserRemove;
@@ -40,9 +38,11 @@ public class ParserMain {
         String[] inputArray = input.split(" ", 2);
         String command = inputArray[0].toLowerCase();
         LOGGER.log(Level.FINE, "Parsing command: {0}", command);
-        int index;
 
         try {
+            if (command.contains("list")) {
+                ParserList.executeParseList(books, inputArray, command);
+            }
             switch (command) {
             case CommandList.ADD_COMMAND:
                 ParserAdd.executeParseAdd(books, inputArray);
@@ -51,7 +51,13 @@ public class ParserMain {
                 ParserRemove.executeParseRemove(books, inputArray);
                 break;
             case CommandList.LIST_COMMAND:
-                ParserList.executeParseList(books, inputArray);
+                //Empty case, all list commands handled in if block
+                break;
+            case CommandList.PRINT_ORDERED_COMMAND:
+                //Empty case, all list commands handled in if block
+                break;
+            case CommandList.PRINT_ORDERED_DATE_COMMAND:
+                //Empty case, all list commands handled in if block
                 break;
             case CommandList.MARK_COMMAND:
                 ParserMark.executeParseMark(books, inputArray);
@@ -62,7 +68,6 @@ public class ParserMain {
             case CommandList.HELP_COMMAND:
                 Ui.helpMessage();
                 break;
-
             case CommandList.FIND_TITLE_COMMAND:
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
@@ -100,12 +105,6 @@ public class ParserMain {
                 break;
             case CommandList.DISPLAY_COMMAND:
                 ParserDisplay.executeParseAdd(books, inputArray);
-                break;
-            case CommandList.PRINT_ORDERED_COMMAND:
-                BookRating.printBooksByRating(books);
-                break;
-            case CommandList.PRINT_ORDERED_DATE_COMMAND:
-                BookMark.printBooksByDateRead(books);
                 break;
             default:
                 LOGGER.log(Level.WARNING, "Sorry but that is not a valid command. Please try again", command);
