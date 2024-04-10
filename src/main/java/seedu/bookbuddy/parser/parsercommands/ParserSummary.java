@@ -12,7 +12,7 @@ public class ParserSummary {
         Exceptions.validateCommandArguments(inputArray,2, "The summary " +
                 "Command requires a book index and summary");
         String[] summaryMessageParts = inputArray[1].split(" ", 2);
-        assert summaryMessageParts.length == 2 : "Command requires an index and a label message";
+        assert summaryMessageParts.length == 2 : "Command requires an index and a summary message";
         Exceptions.validateCommandArguments(summaryMessageParts,2, "You need " +
                 "to have a summary message");
         index = Integer.parseInt(summaryMessageParts[0]);
@@ -20,7 +20,7 @@ public class ParserSummary {
         String summary = summaryMessageParts[1];
         BookSummary.setBookSummaryByIndex(index, summary, books);
     }
-    //@@author
+
     public static void executeParseSummary (BookList books, String[] inputArray) {
         parseSummary(books, inputArray);
     }

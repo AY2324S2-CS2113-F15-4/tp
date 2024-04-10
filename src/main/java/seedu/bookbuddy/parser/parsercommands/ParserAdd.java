@@ -4,6 +4,7 @@ import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
+
 public class ParserAdd {
     //@@author joshuahoky
     private static void parseAdd(BookList books, String[] inputArray) {
