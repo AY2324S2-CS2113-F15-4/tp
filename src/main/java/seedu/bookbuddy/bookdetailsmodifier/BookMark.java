@@ -98,11 +98,12 @@ public class BookMark {
      * @param books
      */
     public static void printBooksByDateRead(BookList books) {
+        ArrayList<BookMain> sortedlist = sortBooksByDateRead(books);
         if (books.getBooks().isEmpty()) {
             System.out.println("The list is empty. Add books by 'add [book]'");
-            return;
+        } else if (sortedlist.isEmpty()){
+            System.out.println("You have not read any books yet! Marks books by 'mark [BOOK_INDEX]'");
         } else {
-            ArrayList<BookMain> sortedlist = sortBooksByDateRead(books);
             for (BookMain book : sortedlist) {
                 String datetime = Read.getDateTimeRead(book);
                 System.out.println(Title.getTitle(book) + " : " + datetime);
