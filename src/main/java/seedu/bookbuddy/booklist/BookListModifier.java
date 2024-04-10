@@ -1,6 +1,5 @@
 package seedu.bookbuddy.booklist;
 
-import exceptions.BookNotFoundException;
 import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.Ui;
 
