@@ -94,13 +94,28 @@ public class BookMark {
 
     /**
      * Prints all books sorted by date in descending order.
+     *
+     * @param books
      */
     public static void printBooksByDateRead(BookList books) {
         if (books.getBooks().isEmpty()) {
             System.out.println("The list is empty. Add books by 'add [book]'");
             return;
+        } else {
+            ArrayList<BookMain> sortedlist = sortBooksByDateRead(books);
+            for (BookMain book : sortedlist) {
+                String datetime = Read.getDateTimeRead(book);
+                System.out.println(Title.getTitle(book) + " : " + datetime);
+            }
         }
+    }
 
+    /**
+     * Sorts all books sorted by date in descending order.
+     *
+     * @param books
+     */
+    public static ArrayList<BookMain> sortBooksByDateRead(BookList books) {
         ArrayList<BookMain> bookRead = new ArrayList<>();
         for (BookMain book : books.getBooks()) {
             if (Read.getRead(book)) {
@@ -115,9 +130,6 @@ public class BookMark {
                     DateTimeUtils.convertStringToDateTime(dateTimeStr1));
         });
 
-        for (BookMain book : bookRead) {
-            String datetime = Read.getDateTimeRead(book);
-            System.out.println(Title.getTitle(book) + " : " + datetime);
-        }
+        return bookRead;
     }
 }
