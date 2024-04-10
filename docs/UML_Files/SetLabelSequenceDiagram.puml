@@ -1,10 +1,11 @@
 @startuml
-participant User
-participant "ParserMain" as ParserMain
-participant "ParserLabel" as ParserLabel
-participant "BookList" as BookList
-participant "BookLabel" as BookLabel
-participant "Ui" as Ui
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserLabel" as ParserLabel
+participant ":BookList" as BookList
+participant ":BookLabel" as BookLabel
+participant ":Ui" as Ui
 
 User -> ParserMain : label [BOOK_INDEX] [LABEL]
 activate ParserMain
@@ -21,7 +22,7 @@ activate BookLabel
 
 BookLabel -> Ui : labelBookMessage(title, label)
 activate Ui
-Ui -> User : confirmation message
+Ui --> User : confirmation message
 deactivate Ui
 
 deactivate BookLabel

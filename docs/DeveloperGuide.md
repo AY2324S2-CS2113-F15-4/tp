@@ -26,7 +26,41 @@ Reference to AB-3 diagrams code
 
 ## Design & implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+### Labeling Books by Custom Labels
+The labeling feature allows users to tag books with custom labels for easy identification and categorization based on personalized criteria.
+
+#### Overview
+The process of labeling books is streamlined through several components within the system, each responsible for a part of the task:
+`ParserMain`: Interprets the initial command and delegates to the specific parser.
+`ParserLabel`: Processes the label-related commands.
+`BookLabel`: Applies the custom label to an individual book.
+
+#### Architecture-Level Design
+- The book management system continues to utilize a layered architectural approach, encompassing the UI, the command parser, and the data model layers.
+- The `set-label` command operates within the command parser layer and communicates with the data model layer to assign labels to books.
+
+#### Component-Level Design
+ - `UI Layer`: Serves as the interface between the system and the user, where user commands are received and results are displayed. 
+ - `ParserMain` (Command Parser Layer): Functions as the command interpreter, identifying the `set-label` command and directing it to the appropriate parser. 
+ - `ParserLabel` (Command Parser Layer): Dedicated to the execution of the `set-label` command, it ensures that user input is correctly interpreted and validated. 
+ - `BookList` (Data Model Layer): Holds the collection of books and facilitates operations on them, such as accessing and modifying book details. 
+ - `BookLabel` (Data Model Layer): Implements the logic to update a book's label in the `BookList`.
+
+#### Implementation Details
+- The user initiates the `set-label` command with the appropriate index and label.
+- `ParserMain` catches the command and involves ParserLabel for further processing.
+- `ParserLabel` retrieves the relevant book object from BookList using the provided index and assigns the new label.
+- Once the label is set, `Ui` is called to deliver a confirmation message back to the user.
+
+#### Rationale for Design
+- This design maintains consistency with the `set-genre` feature, providing a uniform command structure and user experience.
+- It follows the Single Responsibility Principle, allowing each component to handle a specific part of the task without unnecessary dependencies.
+
+#### Alternatives Considered
+- An alternative considered was to have the labeling functionality within a monolithic book management class, but this would have violated the separation of concerns, leading to a less maintainable and scalable system.
+
+![SetLabelSequenceDiagram.png](UML_diagrams/SetLabelSequenceDiagram.png)
+
 
 ### Categorising the different books by their genres
 This functionality enables the categorization of books into distinct groups based on their genres, facilitating better 
