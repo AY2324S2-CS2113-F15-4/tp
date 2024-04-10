@@ -1,12 +1,12 @@
 
 
 @startuml
-participant User
-participant "ParserMain" as ParserMain
-participant "ParserGenre" as ParserGenre
-participant "BookList" as BookList
-participant "BookGenre" as BookGenre
-participant "Ui" as Ui
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserGenre" as ParserGenre
+participant ":BookList" as BookList
+participant ":BookGenre" as BookGenre
+participant ":Ui" as Ui
 
 User -> ParserMain : set-genre [BOOK_INDEX]
 ParserMain -> ParserGenre : executeParseSetGenre(books, inputArray)
@@ -33,6 +33,8 @@ else adding new genre
 end
 
 @enduml
+
+
 
 
 
