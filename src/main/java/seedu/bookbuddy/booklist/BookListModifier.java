@@ -21,7 +21,8 @@ public class BookListModifier {
             String summary = bookDetails[4].trim();
             String datetime = bookDetails[6].trim();
             String author = bookDetails[7].trim();
-            bookList.books.add(new BookMain(title, status, label, genre, rating, summary, datetime, lineNumber, author));
+            bookList.books.add(new BookMain(title, status, label, genre, rating, summary,
+                    datetime, lineNumber, author));
         } catch (Exception e) {
             System.out.println("Unable to load book data from line " + lineNumber + " in books.txt " +
                     "as data is corrupted.");

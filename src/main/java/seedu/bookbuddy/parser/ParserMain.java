@@ -4,7 +4,19 @@ import exceptions.UnsupportedCommandException;
 
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.parser.parsercommands.*;
+import seedu.bookbuddy.parser.parsercommands.ParserFind;
+import seedu.bookbuddy.parser.parsercommands.ParserAdd;
+import seedu.bookbuddy.parser.parsercommands.ParserRemove;
+import seedu.bookbuddy.parser.parsercommands.ParserMark;
+import seedu.bookbuddy.parser.parsercommands.ParserGenre;
+import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
+import seedu.bookbuddy.parser.parsercommands.ParserRating;
+import seedu.bookbuddy.parser.parsercommands.ParserUnmark;
+import seedu.bookbuddy.parser.parsercommands.ParserLabel;
+import seedu.bookbuddy.parser.parsercommands.ParserSummary;
+import seedu.bookbuddy.parser.parsercommands.ParserList;
+import seedu.bookbuddy.parser.parsercommands.ParserAuthor;
+
 import seedu.bookbuddy.parser.parservalidation.CommandList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
@@ -95,9 +107,9 @@ public class ParserMain {
             case CommandList.DISPLAY_COMMAND:
                 ParserDisplay.executeParseAdd(books, inputArray);
                 break;
-//            case CommandList.AUTHOR_COMMAND:
-//                ParserAuthor.executeParseAuthor(books, inputArray);
-//                break;
+            case CommandList.AUTHOR_COMMAND:
+                ParserAuthor.executeParseAuthor(books, inputArray);
+                break;
             default:
                 LOGGER.log(Level.WARNING, "Sorry but that is not a valid command. Please try again", command);
                 throw new UnsupportedCommandException("Sorry but that is not a valid command. " +

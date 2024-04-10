@@ -4,9 +4,6 @@ import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
-import java.util.logging.Level;
-
-import static seedu.bookbuddy.BookBuddy.LOGGER;
 
 public class ParserAdd {
     //@@author joshuahoky
