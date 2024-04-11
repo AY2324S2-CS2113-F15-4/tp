@@ -7,6 +7,7 @@ import seedu.bookbuddy.book.Genre;
 import seedu.bookbuddy.book.Label;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.book.Author;
 import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
@@ -58,6 +59,14 @@ public class ParserMainTest {
         assertEquals("The Great Gatsby", Title.getTitle(testBookList.getBook(1)));
     }
 
+    @Test
+    void parseAuthorCommand() {
+        BookList testBookList = new BookList();
+        ParserMain.parseCommand("add The Great Gatsby", testBookList);
+        ParserMain.parseCommand("set-author 1 gareth", testBookList);
+        assertEquals(1, testBookList.getSize());
+        assertEquals("gareth", Author.getAuthor(testBookList.getBook(1)));
+    }
     @Test
     void parseRemoveCommand() {
         BookList books = new BookList();

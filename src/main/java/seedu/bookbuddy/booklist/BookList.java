@@ -1,7 +1,9 @@
 package seedu.bookbuddy.booklist;
 
 import exceptions.BookNotFoundException;
+import seedu.bookbuddy.book.Author;
 import seedu.bookbuddy.book.BookMain;
+import seedu.bookbuddy.book.Title;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,5 +60,44 @@ public class BookList {
 
     public static String saveGenresFormat() {
         return String.join(",", availableGenres);
+    }
+
+    //@@lordgareth10
+    /**
+     * Checks whether the book title is already inside the list
+     *
+     * @param bookList The bookList arraylist
+     * @param title The title of the book.
+     */
+    public static boolean checkDuplicateBookTitle(BookList bookList, String title) {
+        assert title != null : "title should not be null";
+        for (BookMain book : bookList.getBooks()) {
+            String actualTitle = Title.getTitle(book).toLowerCase();
+            String lowercasetitle = title.toLowerCase();
+            if (actualTitle.equals(lowercasetitle)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * For books of the same title, checks whether the author is the same as well
+     *
+     * @param bookList The bookList arraylist
+     * @param title The title of the book.
+     */
+    public static boolean checkDuplicateBookAuthor(BookList bookList, String author, String title) {
+        assert author != null : "title should not be null";
+        for (BookMain book : bookList.getBooks()) {
+            if (title.equals(Title.getTitle(book))) {
+                String actualAuthor = Author.getAuthor(book).toLowerCase();
+                String lowercaseauthor = author.toLowerCase();
+                if (actualAuthor.equals(lowercaseauthor)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
