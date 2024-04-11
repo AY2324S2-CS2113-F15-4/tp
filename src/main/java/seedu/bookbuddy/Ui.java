@@ -81,6 +81,7 @@ public class Ui {
         System.out.println("list-by-date -> to print out all books sorted in descending order of date");
         System.out.println("(basic) set-genre [BOOK_INDEX] -> to set a genre for a book");
         System.out.println("(advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book");
+        System.out.println("set-author [BOOK_INDEX] [BOOK_AUTHOR] -> to set an author for a book");
         System.out.println("label [BOOK_INDEX] [LABEL] -> to set a label for a book");
         System.out.println("give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary");
         System.out.println("rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5");

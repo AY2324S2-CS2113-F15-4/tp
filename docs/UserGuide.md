@@ -28,6 +28,7 @@ experience.
     * [unmark](#marking-a-book-as-unread-unmark)
     * [list-by-date](#listing-read-books-by-date-list-by-date)
     * [set-genre](#setting-the-genre-of-a-book-set-genre)
+    * [set-author](#setting-the-author-of-a-book-set-author)
     * [label](#labelling-a-book-label)
     * [give-summary](#adding-a-book-summary-give-summary)
     * [rate](#rating-a-book-rate)
@@ -234,6 +235,26 @@ set-genre 1 Fiction
 okii categorised [Harry Potter] as [Fiction]
 remember to read it soon....
 ````
+
+### Setting the author of a book: `set-author`
+Sets the author of a specific book based on the provided input and the provided index.
+
+Format: `set-author [BOOK_INDEX] [BOOK_AUTHOR]` 
+
+Example of usage with expected output:
+
+```
+
+//input
+set-author 1 zonyao
+
+//output
+_____________
+okii you have have set: [zonyao] as the author for the book: [book1]
+remember to read it soon....
+_____________
+
+```
 
 ### Labelling a book: `label`
 Sets the label of a specific book to the provided input by its index.
