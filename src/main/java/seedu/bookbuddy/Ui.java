@@ -154,4 +154,18 @@ public class Ui {
     public static void printNoRateFound() {
         System.out.println("oops there are no books stored under this rating...");
     }
+
+    public static void printAuthorAlreadySet(String title, String author) {
+        System.out.println("oops " + title + " already has " + author + " as its author...");
+    }
+
+    public static void printDuplicateBookWarning(String title) {
+        System.out.println("Woah ive added " + title + " for you but there is another book with the" +
+                " same name in the list," + " if its a different book with " +
+                "the same name but by a different author " +
+                "please use `set-author` " + "to assign an author!"); }
+
+    public static void printDuplicateAuthorWarning(String title, String author) {
+        System.out.println("Wait !!! " + title + " by: " + author + " is already in the list, " +
+                "you can use `remove` or `set-author` to remove that book or change the author..."); }
 }

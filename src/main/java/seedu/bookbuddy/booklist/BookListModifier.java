@@ -29,24 +29,6 @@ public class BookListModifier {
         }
     }
 
-    //@@author
-    /**
-     * Adds a new Book to the list.
-     *
-     * @param bookList The bookList arraylist
-     * @param title The title of the book.
-     */
-    public static void addBook(BookList bookList, String title) {
-        try {
-            bookList.books.add(new BookMain(title));
-            Ui.addBookMessage(title);
-            assert !bookList.books.isEmpty() : "Book list should not be empty after adding a book";
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "An unexpected error occurred: {0}", e.getMessage());
-            throw e; // Rethrow or handle as needed
-        }
-    }
-
     /**
      * Deletes a book from the list by its index.
      *
@@ -69,4 +51,28 @@ public class BookListModifier {
             throw e; // Rethrow or handle as needed
         }
     }
+
+    //@@author
+    /**
+     * Adds a new Book to the list.
+     *
+     * @param bookList The bookList arraylist
+     * @param title The title of the book.
+     */
+    public static void addBook(BookList bookList, String title) {
+        try {
+            if (BookList.checkDuplicateBookTitle(bookList, title)) {
+                bookList.books.add(new BookMain(title));
+                Ui.printDuplicateBookWarning(title);
+            } else {
+                bookList.books.add(new BookMain(title));
+                Ui.addBookMessage(title);
+            }
+            assert !bookList.books.isEmpty() : "Book list should not be empty after adding a book";
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "An unexpected error occurred: {0}", e.getMessage());
+            throw e; // Rethrow or handle as needed
+        }
+    }
+
 }
