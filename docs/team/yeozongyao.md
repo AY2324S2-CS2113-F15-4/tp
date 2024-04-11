@@ -51,6 +51,7 @@ Link should direct to my code contributions. If not, enter the link and search f
 6. Release management
    - Managed releases `v1.0`, `v2.0` on GitHub ([Releases](https://github.com/AY2324S2-CS2113-F15-4/tp/releases))
 7. Updating user/developer docs that are not specific to a feature e.g. documenting the target user profile ([PR #84](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/84))
+8. Organise project meetings
 
 ### Contributions beyond project team
 Coming soon.
