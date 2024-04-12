@@ -43,4 +43,8 @@ public class ParserFind {
     public static void parseRate(BookList books, String input) {
         BookFind.findRate(books, input);
     }
+
+    public static void parseAuthor(BookList books, String input) {
+        BookFind.findAuthor(books, input);
+    }
 }

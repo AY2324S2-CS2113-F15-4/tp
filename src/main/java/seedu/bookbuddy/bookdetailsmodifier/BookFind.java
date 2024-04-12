@@ -1,12 +1,7 @@
 package seedu.bookbuddy.bookdetailsmodifier;
 
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.book.Label;
-import seedu.bookbuddy.book.BookMain;
-import seedu.bookbuddy.book.Genre;
-import seedu.bookbuddy.book.Title;
-import seedu.bookbuddy.book.Read;
-import seedu.bookbuddy.book.Rating;
+import seedu.bookbuddy.book.*;
 import seedu.bookbuddy.booklist.BookList;
 
 import java.util.ArrayList;
@@ -15,6 +10,12 @@ import java.util.ArrayList;
 //@@author liuzehui03
 
 public class BookFind {
+    /**
+     * Finds books by title containing the specified input.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The title input to match against book titles.
+     */
     public static void findBookTitle(BookList bookList, String input) {
         assert input != null : "input should not be null";
         ArrayList<BookMain> bookTitles = new ArrayList<>();
@@ -34,7 +35,12 @@ public class BookFind {
             Ui.printShortLine();
         }
     }
-
+    /**
+     * Finds books by exact genre match.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The genre input to match against book genres.
+     */
     public static void findBookGenre(BookList bookList, String input) {
         assert input != null : "input should not be null";
         ArrayList<BookMain> bookGenres = new ArrayList<>();
@@ -54,6 +60,12 @@ public class BookFind {
             Ui.printShortLine();
         }
     }
+    /**
+     * Finds books by genre containing the specified input.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The partial genre input to match against book genres.
+     */
     public static void findBookGenreLong(BookList bookList, String input) {
         assert input != null : "input should not be null";
         ArrayList<BookMain> bookGenres = new ArrayList<>();
@@ -138,6 +150,25 @@ public class BookFind {
             }
         } else {
             System.out.println("pls enter a rating from 1-5");
+        }
+    }
+
+    public static void findAuthor(BookList bookList, String input) {
+        ArrayList<BookMain> bookAuthor = new ArrayList<>();
+        for (BookMain book : bookList.getBooks()) {
+            String actualAuthor = Author.getAuthor(book).toLowerCase();
+            String author = input.toLowerCase();
+            if(actualAuthor.contains(author)){
+                bookAuthor.add(book);
+            }
+        }
+        if (bookAuthor.isEmpty()){
+            Ui.printNoLabelFound();
+        } else {
+            Ui.printLine();
+            System.out.println("books written by [" + input.toLowerCase() + "] :");
+            Ui.printAuthorFound(bookAuthor);
+            Ui.printShortLine();
         }
     }
 }
