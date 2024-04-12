@@ -21,7 +21,7 @@ public class BookList {
         this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
     }
     public static List<String> getAvailableGenres() {
-        return availableGenres;
+        return BookList.availableGenres;
     }
     public static void setAvailableGenres(List<String> availableGenres) {
         BookList.availableGenres = new ArrayList<>(availableGenres);
