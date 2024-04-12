@@ -83,6 +83,11 @@ public class BookFind {
             Ui.printShortLine();
         }
     }
+    /**
+     * Finds books that have been marked as read.
+     *
+     * @param bookList The list of books to search from.
+     */
     public static void findRead(BookList bookList){
         ArrayList<BookMain> bookRead = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
@@ -96,6 +101,11 @@ public class BookFind {
             Ui.printReadFound(bookRead);
         }
     }
+    /**
+     * Finds books that have not been marked as read.
+     *
+     * @param bookList The list of books to search from.
+     */
     public static void findUnread(BookList bookList){
         ArrayList<BookMain> bookUnread = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
@@ -110,7 +120,12 @@ public class BookFind {
             Ui.printUnreadFound(bookUnread);
         }
     }
-
+    /**
+     * Finds books by label containing the specified input.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The label input to match against book labels.
+     */
     public static void findLabel(BookList bookList, String input) {
         ArrayList<BookMain> bookLabel = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
@@ -129,7 +144,12 @@ public class BookFind {
             Ui.printShortLine();
         }
     }
-
+    /**
+     * Finds books by exact rating match.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The rating input to match against book ratings.
+     */
     public static void findRate(BookList bookList, String input) {
         ArrayList<BookMain> bookRate = new ArrayList<>();
         int inputRating = Integer.parseInt(input);
@@ -152,7 +172,12 @@ public class BookFind {
             System.out.println("pls enter a rating from 1-5");
         }
     }
-
+    /**
+     * Finds books by author containing the specified input.
+     *
+     * @param bookList The list of books to search from.
+     * @param input The author input to match against book authors.
+     */
     public static void findAuthor(BookList bookList, String input) {
         ArrayList<BookMain> bookAuthor = new ArrayList<>();
         for (BookMain book : bookList.getBooks()) {
