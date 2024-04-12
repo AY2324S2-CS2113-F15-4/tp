@@ -74,6 +74,7 @@ unmark [BOOK_INDEX] -> to mark book as unread [U]
 list-by-date -> to print out all books sorted in descending order of date
 (basic) set-genre [BOOK_INDEX] -> to set a genre for a book
 (advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book
+set-author [BOOK_INDEX] [BOOK_AUTHOR] -> to set an author for a book")
 label [BOOK_INDEX] [LABEL] -> to set a label for a book
 give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary
 rate [BOOK_INDEX] [BOOK_RATING] -> to rate a book from 1-5
@@ -168,7 +169,7 @@ Successfully marked Harry Potter as unread.
 ```
 
 ### Listing read books by date: `list-by-date`
-Lists all read books by descending order of date read.
+Lists all read books by their date read, in order of most recently read.
 
 Format: `list-by-date`
 
@@ -179,8 +180,8 @@ Example of usage with expected output:
 list-by-date
 
 //output
-booky : 6.57 PM, 09-04-2024
-book2 : 6.57 PM, 09-04-2024
+Harry Potter : 6.57 PM, 09-04-2024
+Geronimo Stilton : 6.52 PM, 09-04-2024
 ```
 
 ### Setting the genre of a book: `set-genre`
@@ -244,16 +245,12 @@ Format: `set-author [BOOK_INDEX] [BOOK_AUTHOR]`
 Example of usage with expected output:
 
 ```
-
 //input
 set-author 1 zonyao
 
 //output
-_____________
 okii you have have set: [zonyao] as the author for the book: [book1]
 remember to read it soon....
-_____________
-
 ```
 
 ### Labelling a book: `label`
@@ -517,6 +514,7 @@ to be saved.**
 | Listing read books by date                                      | `list-by-date`                                                              |
 | Set genre (Single-step for advanced users)                      | `set-genre [BOOK_INDEX] [GENRE]`                                            |
 | Set genre (Multi-step for new users)                            | `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if necessary |
+| Add author for book                                             | `set-author [BOOK_INDEX] [AUTHOR]`                                          |
 | Label book                                                      | `label [BOOK_INDEX] [LABEL]`                                                |
 | Add summary for book                                            | `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                                  |
 | Rate book                                                       | `rate [BOOK_INDEX] [BOOK_RATING]`                                           |
