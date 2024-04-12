@@ -2,6 +2,7 @@ package seedu.bookbuddy.parser.parsercommands;
 
 import seedu.bookbuddy.bookdetailsmodifier.BookFind;
 import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -29,22 +30,39 @@ public class ParserFind {
         }
         BookFind.findBookGenreLong(books, selectedGenre);
     }
-    public static void parseFindRead(BookList books) {
+    public static void parseFindRead(BookList books, String[] inputArray) {
+        assert inputArray.length == 1 : "Command requires additional arguments";
+        Exceptions.validateCommandArguments(inputArray, 1,
+                "This find command does not require any further arguments, just type `find-read`" +
+                        " u absolute donut ");
         BookFind.findRead(books);
     }
-    public static void parseFindUnread(BookList books) {
+    public static void parseFindUnread(BookList books, String[] inputArray) {
+        assert inputArray.length == 1 : "Command requires additional arguments";
+        Exceptions.validateCommandArguments(inputArray, 1,
+                "This find command does not require any further arguments, just type `find-unread`" +
+                        " u absolute donut ");
         BookFind.findUnread(books);
     }
 
-    public static void parseLabel(BookList books, String inputArray) {
-        BookFind.findLabel(books, inputArray);
+    public static void parseLabel(BookList books, String[] inputArray) {
+        assert inputArray.length == 2 : "Command requires additional arguments";
+        Exceptions.validateCommandArguments(inputArray, 2,
+                "The correct command is `find-label [LABEL]");
+        BookFind.findLabel(books, inputArray[1].trim());
     }
 
-    public static void parseRate(BookList books, String input) {
-        BookFind.findRate(books, input);
+    public static void parseRate(BookList books, String[] input) {
+        assert input.length == 2 : "Command requires additional arguments";
+        Exceptions.validateCommandArguments(input, 2,
+                "The correct command is `find-rated [RATING]");
+        BookFind.findRate(books, input[1].trim());
     }
 
-    public static void parseAuthor(BookList books, String input) {
-        BookFind.findAuthor(books, input);
+    public static void parseAuthor(BookList books, String[] input) {
+        assert input.length == 2 : "Command requires additional arguments";
+        Exceptions.validateCommandArguments(input, 2,
+                "The correct command is `find-author [AUTHOR]");
+        BookFind.findAuthor(books, input[1].trim());
     }
 }

@@ -13,11 +13,11 @@ public class ParserAuthor {
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray, 2, "The author " +
                 "Command requires a book index and author");
-        String[] authorMessageParts = inputArray[1].split(" ", 2);
+        String[] authorMessageParts = inputArray[1].trim().split(" ", 2);
         assert authorMessageParts.length == 2 : "Command requires an index and a author name";
         Exceptions.validateCommandArguments(authorMessageParts, 2, "You need " +
                 "to have an author name");
-        index = Integer.parseInt(authorMessageParts[0]);
+        index = Integer.parseInt(authorMessageParts[0].trim());
         assert index >= 0 : "Index should be non-negative";
         String author = authorMessageParts[1];
         String title = Title.getTitle(books.getBooks().get(index - 1));

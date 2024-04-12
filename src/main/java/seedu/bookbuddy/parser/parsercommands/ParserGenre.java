@@ -19,7 +19,7 @@ public class ParserGenre {
         String[] parts = inputArray[1].trim().split(" ", 2); //Attempt to split inputArray[1] into two parts
         int index;
         try {
-            index = Integer.parseInt(parts[0]); // The first part should be the index
+            index = Integer.parseInt(parts[0].trim()); // The first part should be the index
         } catch (NumberFormatException e) {
             System.out.println("Invalid book index format. Please enter a valid numeric index.");
             return;

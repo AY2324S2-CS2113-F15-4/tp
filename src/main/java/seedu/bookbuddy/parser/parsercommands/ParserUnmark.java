@@ -10,7 +10,7 @@ public class ParserUnmark {
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray, 2, "The unmark " +
                 "Command requires a book index");
-        index = Integer.parseInt(inputArray[1]);
+        index = Integer.parseInt(inputArray[1].trim());
         assert index >= 0 : "Index should be non-negative";
         BookMark.markUndoneByIndex(books, index);
     }
