@@ -3,7 +3,7 @@ package seedu.bookbuddy.parser.parsercommands;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
-
+//@@author joshuahoky
 public class ParserRemove {
     static void parseRemove(BookList books, String[] inputArray) {
         int index;

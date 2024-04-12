@@ -16,7 +16,7 @@ public class ParserList {
     private static void parseList(BookList books, String[] inputArray, String command) {
         Exceptions.validateCommandArguments(inputArray, 1,
                 "ALl the list commands do not require any further arguments, just type `list`," +
-                        " `list-rated` or `list-by-date` u absolute donut ");
+                        " `list-rated` or `list-by-date`");
         switch (command) {
         case CommandList.LIST_COMMAND:
             BookDisplay.printAllBooks(books);
