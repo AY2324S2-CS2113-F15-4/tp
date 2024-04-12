@@ -71,7 +71,7 @@ public class ParserMainTest {
         System.setOut(new PrintStream(outContent));
 
         ParserMain.parseCommand("list", books);
-        String actualOutput = outContent.toString();
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
 
         String expectedOutput = "___________________________________\nAll books:\n1. [U] The Great Gatsby\n2. " +
                 "[U] Geronimo Stilton\n3. [U] Percy Jackson\n_____________\n";
@@ -94,7 +94,7 @@ public class ParserMainTest {
 
         ParserMain.parseCommand("list-rated", books);
 
-        String actualOutput = outContent.toString();
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
         String expectedOutput = "Books sorted by rating:\n" +
                 "The Great Gatsby - 5\n" +
                 "Geronimo Stilton - 3\n" +
@@ -151,13 +151,15 @@ public class ParserMainTest {
     @Test
     void parseGenreCommand() {
         BookList books = new BookList();
-        BookListModifier.addBook(books, "The Great Gatsby");
+        //BookListModifier.addBook(books, "The Great Gatsby");
         // Simulate user input for genre selection "Classic"
-        String simulatedUserInput = "6\nClassic\n"; // Assuming '3' is the option to add a new genre
+        ParserMain.parseCommand("add The Great Gatsby", books); // Changed to fit your updated command-handling logic
+        int genreSize = BookList.getAvailableGenres().size();
+        String simulatedUserInput = genreSize + 1 + "\nClassic\n";
         InputStream savedStandardInputStream = System.in;
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
         ParserMain.parseCommand("set-genre 1", books); // Changed to fit your updated command-handling logic
-        assertEquals("Classic", Genre.getGenre(books.getBook(1))); // Indexes are typically 0-based in lists
+        assertEquals("Classic", Genre.getGenre(books.getBook(1)));
 
         BookListModifier.addBook(books, "Geronimo");
         String nextSimulatedUserInput = "3\n";
