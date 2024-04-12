@@ -1,6 +1,9 @@
 @startuml
-scale 2000 * 1500
+hide circle
+skinparam classAttributeIconSize 0
 left to right direction
+scale 2000 * 1500
+
 class ParserMain {
     +parseCommand(input : String, books : BookList) : void
 }
@@ -37,11 +40,11 @@ class BookRating {
 }
 
 class CommandList {
-    {static} ADD_COMMAND : String = "add"
+    {static} +ADD_COMMAND : String = "add"
 }
 
 ParserMain --> ParserCommands : uses
-ParserMain --> BookList
+ParserMain --> BookList : uses
 ParserMain --> BookDisplay : uses
 ParserMain --> Ui : uses
 ParserMain --> Exceptions : uses

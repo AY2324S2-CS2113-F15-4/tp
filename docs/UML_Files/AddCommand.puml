@@ -1,22 +1,44 @@
 @startuml
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserAdd" as ParserAdd
+participant ":BookListModifier" as BookListModifier
+participant ":BookList" as BookList
+participant ":Ui" as Ui
+participant ":Exceptions" as Exceptions
 
-User -> Parser : parseCommand(input, books)
-activate Parser
+User -> ParserMain : add [BOOK_TITLE]
+activate ParserMain
 
 alt input is ADD_COMMAND
-    Parser -> ParserAdd : executeParseAdd(books, inputArray)
+    ParserMain -> ParserAdd : executeParseAdd(books, inputArray)
     activate ParserAdd
-    ParserAdd --> Parser : CommandExecuted
+    ParserAdd --> BookListModifier : addBook(books, title)
+    activate BookListModifier
+    BookListModifier --> BookList: add(new BookMain(title))
+    activate BookList
+    BookList --> BookListModifier
+    deactivate BookList
+    BookListModifier --> Ui: addBookMessage(title)
+    activate Ui
+    Ui --> User : message
+    Ui --> BookListModifier
+    deactivate Ui
+    BookListModifier --> ParserAdd
+    deactivate BookListModifier
+    ParserAdd --> ParserMain
     deactivate ParserAdd
 alt other commands
-    Parser -> Parser : handleOtherCommands()
+    ParserMain -> ParserMain : handleOtherCommands()
 else unsupported command
-    Parser -> Exceptions : handleException(e, command, inputArray)
+    ParserMain -> Exceptions : handleException(e, command, inputArray)
     activate Exceptions
-    Exceptions --> Parser : ExceptionHandled
+    Exceptions --> User : exception message
+    Exceptions --> ParserMain
     deactivate Exceptions
 end
 
-Parser --> User : getUserInput(books)
-deactivate Parser
+ParserMain --> User : getUserInput(books)
+
 @enduml
