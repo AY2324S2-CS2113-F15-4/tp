@@ -1,4 +1,7 @@
 @startuml
+hide circle
+skinparam classAttributeIconSize 0
+
 class FileStorage {
     - FILE_NAME : String = "books.txt"
     - FILE_DIRECTORY : String = "./data"

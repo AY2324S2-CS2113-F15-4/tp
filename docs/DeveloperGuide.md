@@ -14,7 +14,6 @@
 
 ## Acknowledgements
 
-
 Reference to AB-3 Developer Guide
 * [Source URL](https://se-education.org/addressbook-level3/DeveloperGuide.html#documentation-logging-testing-configuration-dev-ops)
 * Used as template to structure this DeveloperGuide
@@ -194,33 +193,37 @@ the Single Responsibility Principle.
 ## Product scope
 ### Target user profile
 
-Users that want an all-in-one app to track the books read, progress for each book.
-Progress for each book can be recorded according to the number of pages read.
+Users that want an all-in-one app to track their books read and also record details relevant to the book.
 Users will be able to sort books according to genre.
 Users can sort books according to Read or Unread.
 Users will also be able to search for books via keywords in book titles
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+Saves time and effort as compared to using GUI-based book tracking apps.
 
 ## User Stories
 
-| Version | As a ... | I want to ...                                 | So that I can ...                                         |
-|---------|----------|-----------------------------------------------|-----------------------------------------------------------|
-| v1.0    | new user | see usage instructions                        | refer to them when I forget how to use the application    |
-| v1.0    | user     | add books to a list                           |                                                           |
-| v1.0    | user     | remove books from a list                      |                                                           |
-| v1.0    | user     | see the list of books that are read or unread | I can keep track of my reading progress                   |
-| v1.0    | user     | change the status of a book                   | mark a book when I have finished reading it               |
-| v2.0    | user     | add a summary to a book                       | remember what the book is about                           |
-| v2.0    | user     | provide a label for a book                    | provide my own personal thoughts on the book              |
-| v2.0    | user     | provide a genre for a book                    | categorise books according to their genre                 |
-| v2.0    | user     | provide a rating for a book                   | know whether a book was good or not                       |
-| v2.0    | user     | sort books by their rating                    | recall which are the best books that I have read          |
-| v2.0    | user     | view all information about a book             | remember to add missing information (if any)              |
-| v2.0    | user     | search for books according to keywords        | find a book quickly without going through the entire list |
-| v2.0    | user     | filter books by genre                         | see all the books in a particular genre                   |
+| Version | As a ... | I want to ...                                   | So that I can ...                                             |
+|---------|----------|-------------------------------------------------|---------------------------------------------------------------|
+| v1.0    | new user | see usage instructions                          | refer to them when I forget how to use the application        |
+| v1.0    | user     | add books to a list                             |                                                               |
+| v1.0    | user     | remove books from a list                        |                                                               |
+| v1.0    | user     | see the list of books that are read or unread   | I can keep track of my reading progress                       |
+| v1.0    | user     | change the status of a book                     | mark a book when I have finished reading it                   |
+| v2.0    | user     | view the date that I finished reading each book | know how long I take to finish a book                         |
+| v2.0    | user     | add an author for a book                        | differentiate between books with the same title               |
+| v2.0    | user     | add a summary to a book                         | remember what the book is about                               |
+| v2.0    | user     | provide a label for a book                      | provide my own personal thoughts on the book                  |
+| v2.0    | user     | provide a genre for a book                      | categorise books according to their genre                     |
+| v2.0    | user     | provide a rating for a book                     | know whether a book was good or not                           |
+| v2.0    | user     | sort books by their rating                      | recall which are the best books that I have read              |
+| v2.0    | user     | view all information about a book               | remember to add missing information (if any)                  |
+| v2.0    | user     | filter books by title                           | find a book quickly without going through the entire list     |
+| v2.0    | user     | filter books by genre                           | see all the books in a particular genre                       |
+| v2.0    | user     | filter books by status                          | remember which books I have read / yet to read                |
+| v2.0    | user     | filter books by label                           | see the list of books which I have assigned a custom label to |
+| v2.0    | user     | filter books by specific rating                 | view a smaller list of books of a certain score               |
 
 
 
