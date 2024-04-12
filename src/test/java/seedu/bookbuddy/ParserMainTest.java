@@ -3,11 +3,12 @@ package seedu.bookbuddy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.bookbuddy.book.Author;
 import seedu.bookbuddy.book.Genre;
 import seedu.bookbuddy.book.Label;
+import seedu.bookbuddy.book.Rating;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Title;
-import seedu.bookbuddy.book.Author;
 import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
@@ -57,6 +58,49 @@ public class ParserMainTest {
         ParserMain.parseCommand("add The Great Gatsby", testBookList);
         assertEquals(1, testBookList.getSize());
         assertEquals("The Great Gatsby", Title.getTitle(testBookList.getBook(1)));
+    }
+
+    @Test
+    void parseListCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "Geronimo Stilton");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("list", books);
+        String actualOutput = outContent.toString();
+
+        String expectedOutput = "___________________________________\nAll books:\n1. [U] The Great Gatsby\n2. " +
+                "[U] Geronimo Stilton\n3. [U] Percy Jackson\n_____________\n";
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void parseListRatedCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "Geronimo Stilton");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ParserMain.parseCommand("rate 1 5", books);
+        ParserMain.parseCommand("rate 2 3", books);
+        ParserMain.parseCommand("rate 3 1", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("list-rated", books);
+
+        String actualOutput = outContent.toString();
+        String expectedOutput = "Books sorted by rating:\n" +
+                "The Great Gatsby - 5\n" +
+                "Geronimo Stilton - 3\n" +
+                "Percy Jackson - 1\n";
+
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
@@ -125,6 +169,17 @@ public class ParserMainTest {
         BookListModifier.addBook(books, "Tom And Jerry");
         ParserMain.parseCommand("set-genre 3 Fantasy", books);
         assertEquals("Fantasy", Genre.getGenre(books.getBook(3)));
+    }
+
+    @Test
+    void parseRatingCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "Geronimo");
+        ParserMain.parseCommand("rate 1 5", books);
+        ParserMain.parseCommand("rate 2 3", books);
+        assertEquals(5, Rating.getRating(books.getBook(1)));
+        assertEquals(3, Rating.getRating(books.getBook(2)));
     }
 
     @Test
