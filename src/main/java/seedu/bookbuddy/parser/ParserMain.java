@@ -81,19 +81,19 @@ public class ParserMain {
                 }
                 break;
             case CommandList.FIND_READ_COMMAND:
-                ParserFind.parseFindRead(books);
+                ParserFind.parseFindRead(books, inputArray);
                 break;
             case CommandList.FIND_UNREAD_COMMAND:
-                ParserFind.parseFindUnread(books);
+                ParserFind.parseFindUnread(books, inputArray);
                 break;
             case CommandList.FIND_LABEL_COMMAND:
-                ParserFind.parseLabel(books, inputArray[1]);
+                ParserFind.parseLabel(books, inputArray);
                 break;
             case CommandList.FIND_RATE_COMMAND:
-                ParserFind.parseRate(books, inputArray[1]);
+                ParserFind.parseRate(books, inputArray);
                 break;
             case CommandList.FIND_AUTHOR_COMMAND:
-                ParserFind.parseAuthor(books, inputArray[1]);
+                ParserFind.parseAuthor(books, inputArray);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);
