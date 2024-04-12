@@ -45,7 +45,7 @@ public class BookDisplay {
     /**
      * Prints all books currently in the list.
      *
-     * @param bookList The bookList array with all the books
+     * @param bookList The bookList array with all the books.
      */
     public static void printAllBooks(BookList bookList) {
         assert bookList.getBooks() != null : "Books list should not be null since it has been initialised.";

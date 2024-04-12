@@ -3,7 +3,7 @@ package seedu.bookbuddy.book;
 public class BookMain {
     protected String title;
     protected boolean isRead;
-    protected String datetimeread;
+    protected String dateTimeRead;
     protected String label;
     protected String genre;
     protected int rating;
@@ -18,7 +18,7 @@ public class BookMain {
     public BookMain(String title) {
         this.title = title; // Description of the book
         this.isRead = false; //Completion status of the book (True: Read, False: Unread)
-        this.datetimeread = "";
+        this.dateTimeRead = "";
         this.label = "";
         this.genre = "";
         this.rating = 0; // Initialized to 0
@@ -34,12 +34,14 @@ public class BookMain {
      * @param status Whether the book is read or unread.
      * @param label The label assigned to the book.
      * @param genre The genre of the book.
-     * @param rating The rating assigned to the book.
+     * @param rating  The rating assigned to the book.
      * @param summary The summary of the book.
+     * @param dateTimeRead The date and time in which the book is read (if is it read).
+     * @param lineNumber The line in which the book is in the text file.
      * @param author The author of the book.
      */
     public BookMain(String title, int status, String label, String genre, int rating, String summary,
-                    String datetimeread, int lineNumber, String author) {
+                    String dateTimeRead, int lineNumber, String author) {
         if (rating < 0 || rating > 5 || status < 0 || status > 1) {
             throw new IllegalArgumentException("Unable to load book data from line " + lineNumber +
                     " in books.txt as data is corrupted.");
@@ -47,7 +49,7 @@ public class BookMain {
 
         this.title = title;
         this.isRead = status == 1;
-        this.datetimeread = datetimeread;
+        this.dateTimeRead = dateTimeRead;
         this.label = label;
         this.genre = genre;
         this.summary = summary;
@@ -68,12 +70,12 @@ public class BookMain {
      */
     public String saveFormat() {
         String status = isRead ? "1" : "0";
-        String datetimeread = (this.datetimeread.isEmpty()) ? "*" : this.datetimeread;
+        String dateTimeRead = (this.dateTimeRead.isEmpty()) ? "" : this.dateTimeRead;
         String label = (this.label.isEmpty()) ? "" : this.label;
         String genre = (this.genre.isEmpty()) ? "" : this.genre;
         String summary = (this.summary.isEmpty()) ? "" : this.summary;
         String author = (this.author.isEmpty()) ? "" : this.author;
-        return this.title + " | " + status + " | " + label + " | " + genre + " | " + summary
-                + " | " + this.rating + " | " + datetimeread + " | " + author;
+        return this.title + " | " + author + " | " + status + " | " + dateTimeRead + " | " + label
+                + " | " + genre + " | " + summary + " | " + this.rating;
     }
 }

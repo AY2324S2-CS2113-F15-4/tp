@@ -23,6 +23,7 @@ public class FileStorage {
     private static final String FILE_NAME = "books.txt";
     private static final String FILE_DIRECTORY = "./data";
     private static final String FILE_PATH = FILE_DIRECTORY + '/' + FILE_NAME;
+    private static final String GENRE_DATA = "Genres: Fiction,Non-Fiction,Mystery,Science Fiction,Fantasy";
 
     public FileStorage(BookList books) {
         try {
@@ -53,14 +54,16 @@ public class FileStorage {
         if (sc.hasNextLine()) {
             // Read the first line to get the genres
             String genresLine = sc.nextLine().trim();
-            // Assuming the line starts with "Genres: "
-            if (genresLine.startsWith("Genres: ")) {
+            // Assuming the line starts with "Genres: Fiction,Non-Fiction,Mystery,Science Fiction,Fantasy"
+            if (genresLine.startsWith(GENRE_DATA)) {
                 String genresData = genresLine.substring(8); // Skip "Genres: "
                 List<String> genres = Arrays.asList(genresData.split(","));
                 BookList.setAvailableGenres(genres); // Update the available genres
+            } else {
+                System.out.println("Unable to load genres as they have been tampered with.");
             }
         }
-        int lineNumber = 1;
+        int lineNumber = 2;
         while (sc.hasNext()) {
             String line = sc.nextLine();
             BookListModifier.addBookFromFile(books, line, lineNumber);

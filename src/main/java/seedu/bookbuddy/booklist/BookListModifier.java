@@ -14,15 +14,15 @@ public class BookListModifier {
         try {
             String[] bookDetails = inputArray.split(" \\| ");
             String title = bookDetails[0].trim();
-            int status = Integer.parseInt(bookDetails[1].trim());
-            String label = bookDetails[2].trim();
-            String genre = bookDetails[3].trim();
-            int rating = Integer.parseInt(bookDetails[5].trim());
-            String summary = bookDetails[4].trim();
-            String datetime = bookDetails[6].trim();
-            String author = bookDetails[7].trim();
+            String author = bookDetails[1].trim();
+            int status = Integer.parseInt(bookDetails[2].trim());
+            String dateTimeRead = bookDetails[3].trim();
+            String label = bookDetails[4].trim();
+            String genre = bookDetails[5].trim();
+            String summary = bookDetails[6].trim();
+            int rating = Integer.parseInt(bookDetails[7].trim());
             bookList.books.add(new BookMain(title, status, label, genre, rating, summary,
-                    datetime, lineNumber, author));
+                    dateTimeRead, lineNumber, author));
         } catch (Exception e) {
             System.out.println("Unable to load book data from line " + lineNumber + " in books.txt " +
                     "as data is corrupted.");
@@ -32,7 +32,7 @@ public class BookListModifier {
     /**
      * Deletes a book from the list by its index.
      *
-     * @param bookList
+     * @param bookList The bookList arrayList.
      * @param index The index of the book to delete.
      */
     public static void deleteBook(BookList bookList, int index) throws IndexOutOfBoundsException {
@@ -56,7 +56,7 @@ public class BookListModifier {
     /**
      * Adds a new Book to the list.
      *
-     * @param bookList The bookList arraylist
+     * @param bookList The bookList arraylist.
      * @param title The title of the book.
      */
     public static void addBook(BookList bookList, String title) {
