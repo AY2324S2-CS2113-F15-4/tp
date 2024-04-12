@@ -73,7 +73,8 @@ public class ParserMain {
                 ParserFind.parseTitle(books, inputArray[1]);
                 break;
             case CommandList.FIND_GENRE_COMMAND:
-                if (inputArray.length == 1) { // Check if there is only 'find-genre' without additional parameters
+                if (inputArray.length == 1) {
+                    // Check if there is only 'find-genre' without additional parameters
                     ParserFind.parseGenreLong(books);
                 } else {
                     ParserFind.parseFindGenre(books, inputArray[1]);
@@ -90,6 +91,9 @@ public class ParserMain {
                 break;
             case CommandList.FIND_RATE_COMMAND:
                 ParserFind.parseRate(books, inputArray[1]);
+                break;
+            case CommandList.FIND_AUTHOR_COMMAND:
+                ParserFind.parseAuthor(books, inputArray[1]);
                 break;
             case CommandList.LABEL_COMMAND:
                 ParserLabel.executeParseSetLabel(books, inputArray);

@@ -87,8 +87,8 @@ public class Ui {
         System.out.println("list-rated -> to sort books by rating in descending order");
         System.out.println("display [BOOK_INDEX] -> to view more details about a book");
         System.out.println("find-title [KEYWORD] -> to find books with keyword in their title");
-        System.out.println("(basic) find-genre -> to find books under specific genres");
-        System.out.println("(advanced) find-genre [GENRE] -> to find books under specific genres");
+        System.out.println("(basic) find-genre -> to find books under specified genre");
+        System.out.println("(advanced) find-genre [GENRE] -> to find books under specified genre");
         System.out.println("find-read -> to find list of books that are read");
         System.out.println("find-unread -> to find list of books that are unread");
         System.out.println("find-label [KEYWORD] -> to find list of books that stored under a certain label");
@@ -168,4 +168,10 @@ public class Ui {
     public static void printDuplicateAuthorWarning(String title, String author) {
         System.out.println("Wait !!! " + title + " by: " + author + " is already in the list, " +
                 "you can use `remove` or `set-author` to remove that book or change the author..."); }
+
+    public static void printAuthorFound(ArrayList<BookMain> bookAuthor) {
+        for (int i = 0; i < bookAuthor.size(); i++) {
+            System.out.println(i + 1 + ". " + bookAuthor.get(i));
+        }
+    }
 }
