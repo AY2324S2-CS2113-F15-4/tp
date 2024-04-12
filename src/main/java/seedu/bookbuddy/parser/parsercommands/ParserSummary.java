@@ -11,11 +11,11 @@ public class ParserSummary {
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray,2, "The summary " +
                 "Command requires a book index and summary");
-        String[] summaryMessageParts = inputArray[1].split(" ", 2);
+        String[] summaryMessageParts = inputArray[1].trim().split(" ", 2);
         assert summaryMessageParts.length == 2 : "Command requires an index and a summary message";
         Exceptions.validateCommandArguments(summaryMessageParts,2, "You need " +
                 "to have a summary message");
-        index = Integer.parseInt(summaryMessageParts[0]);
+        index = Integer.parseInt(summaryMessageParts[0].trim());
         assert index >= 0 : "Index should be non-negative";
         String summary = summaryMessageParts[1];
         BookSummary.setBookSummaryByIndex(index, summary, books);

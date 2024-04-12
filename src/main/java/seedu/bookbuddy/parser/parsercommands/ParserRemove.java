@@ -10,7 +10,7 @@ public class ParserRemove {
         assert inputArray.length >= 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray, 2, "The remove " +
                 "Command requires a book index");
-        index = Integer.parseInt(inputArray[1]);
+        index = Integer.parseInt(inputArray[1].trim());
         BookListModifier.deleteBook(books, index);
     }
 
