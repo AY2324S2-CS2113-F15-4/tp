@@ -13,8 +13,8 @@ public class ParserSummary {
                 "Command requires a book index and summary");
         String[] summaryMessageParts = inputArray[1].trim().split(" ", 2);
         assert summaryMessageParts.length == 2 : "Command requires an index and a summary message";
-        Exceptions.validateCommandArguments(summaryMessageParts,2, "You need " +
-                "to have a summary message");
+        Exceptions.validateCommandArguments(summaryMessageParts,2, "The command " +
+                "is `give-summary [INDEX] [SUMMARY]`... dont test me dawg");
         index = Integer.parseInt(summaryMessageParts[0].trim());
         assert index >= 0 : "Index should be non-negative";
         String summary = summaryMessageParts[1];
