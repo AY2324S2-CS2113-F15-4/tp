@@ -1,6 +1,5 @@
-package seedu.bookbuddy.parser.parsercommands;
+package seedu.bookbuddy.parser.parsercommands.parserating;
 
-import exceptions.InvalidCommandArgumentException;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.bookdetailsmodifier.BookRating;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
@@ -8,17 +7,13 @@ import seedu.bookbuddy.parser.parservalidation.Exceptions;
 public class ParserRating {
     static void parseSetRating(BookList books, String[] inputArray) {
         int index;
+        int rating;
         assert inputArray.length >= 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray, 2, "The rating " +
                 "command requires a book index.");
-        String[] ratingParts = inputArray[1].split(" ", 2);
-        // Split the message into index and label message
-        assert ratingParts.length == 2 : "Command requires an index and a rating";
-        if (ratingParts.length < 2) {
-            throw new InvalidCommandArgumentException("You need to have a book index and a rating");
-        }
-        index = Integer.parseInt(ratingParts[0]);
-        int rating = Integer.parseInt(ratingParts[1]);
+        String[] ratingParts = RatingChecks.getRatingParts(inputArray);
+        index = RatingChecks.parseInteger(ratingParts[0],  ratingParts[0] + " is not a valid integer");
+        rating = RatingChecks.parseInteger(ratingParts[1], ratingParts[1] + " is not a valid integer");
         BookRating.setBookRatingByIndex(index, rating, books);
     }
 

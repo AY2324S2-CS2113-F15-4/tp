@@ -28,7 +28,7 @@ public class BookRating {
                 .collect(Collectors.toList());
 
         for (BookMain book : sortedBooks) {
-            String rating = Rating.getRating(book) >= 0 ? String.valueOf(Rating.getRating(book)) : "Not Rated";
+            String rating = Rating.getRating(book) > 0 ? String.valueOf(Rating.getRating(book)) : "Not Rated";
             System.out.println(Title.getTitle(book) + " - " + rating);
         }
     }
@@ -44,7 +44,7 @@ public class BookRating {
     public static void setBookRatingByIndex(int index, int rating, BookList books)
             throws IndexOutOfBoundsException, IllegalArgumentException {
         if (index < 0 || index > books.getSize()) {
-            throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
+            throw new IndexOutOfBoundsException("Invalid book index selection. Please enter a valid index.");
         }
         if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Rating must be between 1 and 5.");

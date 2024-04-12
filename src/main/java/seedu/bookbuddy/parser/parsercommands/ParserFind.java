@@ -2,6 +2,7 @@ package seedu.bookbuddy.parser.parsercommands;
 
 import seedu.bookbuddy.bookdetailsmodifier.BookFind;
 import seedu.bookbuddy.booklist.BookList;
+import seedu.bookbuddy.parser.parsercommands.parsegenre.InputLooper;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class ParserFind {
         }
         System.out.println("Enter the number for the desired genre:");
         Scanner scanner = new Scanner(System.in);
-        String selectedGenre = ParserGenre.invalidInputLooper(null, scanner);
+        String selectedGenre = InputLooper.inputLooper(null, scanner);
         if (selectedGenre == null) {
             return;
         }

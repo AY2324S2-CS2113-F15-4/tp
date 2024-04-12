@@ -52,7 +52,7 @@ public class BookListModifier {
         }
     }
 
-    //@@author
+    //@@author yeozongyao
     /**
      * Adds a new Book to the list.
      *

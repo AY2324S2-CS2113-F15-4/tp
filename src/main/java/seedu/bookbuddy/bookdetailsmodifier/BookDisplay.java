@@ -42,6 +42,7 @@ public class BookDisplay {
         System.out.println("Summary: " + (summary.isEmpty() ? "No summary provided" : summary));
     }
 
+    //@@author yeozongyao
     /**
      * Prints all books currently in the list.
      *
@@ -52,11 +53,11 @@ public class BookDisplay {
         if (!bookList.getBooks().isEmpty()) {
             Ui.printLine();
             System.out.println("All books:");
-            for (int i = 0; i < bookList.getBooks().size(); i++) {
-                BookMain currentBook = bookList.getBooks().get(i);
+            for (int i = 1; i <= bookList.getBooks().size(); i++) {
+                BookMain currentBook = bookList.getBook(i);
                 assert currentBook != null : "Book in list should not be null";
-                System.out.print((i + 1) + ". ");
-                System.out.println(currentBook.toString());
+                System.out.print((i) + ". ");
+                System.out.println(currentBook);
             }
             Ui.printShortLine();
         } else {
