@@ -1,6 +1,7 @@
 package seedu.bookbuddy.parser.parsercommands.parsegenre;
 
 import exceptions.InvalidCommandArgumentException;
+import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.bookdetailsmodifier.BookGenre;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
@@ -38,7 +39,9 @@ public class ParserGenre {
 
     private static void multiStepSetGenre(BookList books, int index) throws IOException {
         NewGenreModifier.genreSelectionPrinter(books);
-        System.out.println("Enter the number for the desired genre, or add a new one:");
+        Ui.printSingleIndentation();
+        System.out.print("Enter the number for the desired genre, or add a new one:\n");
+        Ui.printSingleIndentation();
         Scanner scanner = new Scanner(System.in);
         InputLooper looper = new InputLooper();
         String selectedGenre = looper.inputLooper(null, scanner, books);

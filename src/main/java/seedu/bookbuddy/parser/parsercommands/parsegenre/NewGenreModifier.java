@@ -13,6 +13,9 @@ public class NewGenreModifier {
     }
 
     static String duplicateChecker(String input, BookList books) {
+        if (input == null) {
+            return null;
+        }
         boolean genreExists = false;
         for (String existingGenre : books.getAvailableGenres()) {
             if (existingGenre.equalsIgnoreCase(input)) {

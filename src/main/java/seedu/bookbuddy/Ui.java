@@ -170,4 +170,10 @@ public class Ui {
             System.out.println(i + 1 + ". " + bookAuthor.get(i));
         }
     }
+    public static void printSingleIndentation() {
+        System.out.print("----");
+    }
+    public static void printDoubleIndentation() {
+        System.out.print("--------");
+    }
 }
