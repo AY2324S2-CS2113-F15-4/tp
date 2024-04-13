@@ -40,25 +40,21 @@ public class Ui {
     public static void labelBookMessage(String title, String label) {
         printShortLine();
         System.out.println("okii labeled [" + title + "] as [" + label + "]");
-        System.out.println("remember to read it soon....");
         printShortLine();
     }
     public static void summaryBookMessage(String title, String summary) {
         printShortLine();
         System.out.println("okii you have written: [" + summary + "] for the book: [" + title + "]");
-        System.out.println("remember to read it soon....");
         printShortLine();
     }
     public static void authorBookMessage(String title, String author) {
         printShortLine();
         System.out.println("okii you have have set: [" + author + "] as the author for the book: [" + title + "]");
-        System.out.println("remember to read it soon....");
         printShortLine();
     }
     public static void setGenreBookMessage(String title, String genre) {
         printShortLine();
         System.out.println("okii categorised [" + title + "] as [" + genre + "]");
-        System.out.println("remember to read it soon....");
         printShortLine();
     }
     public static void exitCommandMessage() {
@@ -66,7 +62,6 @@ public class Ui {
     }
     public static void setRatingBookMessage(String title, int rating) {
         System.out.println("okii set rating for [" + title + "] as [" + rating +"]");
-        System.out.println("remember to read it soon....");
     }
     public static void removeBookMessage(int index, BookList books) {
         System.out.println("alright.. i've removed " + Title.getTitle(books.getBook(index)) + " from the list.");
