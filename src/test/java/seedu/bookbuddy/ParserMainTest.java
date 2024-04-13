@@ -200,7 +200,7 @@ public class ParserMainTest {
         BookListModifier.addBook(books, "The Great Gatsby");
         // Simulate user input for genre selection "Classic"
 
-        int genreSize = books.getAvailableGenres().size();
+        int genreSize = books.genreList.getAvailableGenres().size();
         String simulatedUserInput = genreSize + 1 + "\nClassic\n";
         InputStream savedStandardInputStream = System.in;
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));

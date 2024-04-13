@@ -6,10 +6,10 @@ import seedu.bookbuddy.booklist.BookList;
 public class NewGenreModifier {
     static void genreSelectionPrinter(BookList books) {
         System.out.println("Available genres:");
-        for (int i = 0; i < books.getAvailableGenres().size(); i++) {
-            System.out.println((i + 1) + ". " + books.getAvailableGenres().get(i));
+        for (int i = 0; i < books.genreList.getAvailableGenres().size(); i++) {
+            System.out.println((i + 1) + ". " + books.genreList.getAvailableGenres().get(i));
         }
-        System.out.println((books.getAvailableGenres().size() + 1) + ". Add a new genre");
+        System.out.println((books.genreList.getAvailableGenres().size() + 1) + ". Add a new genre");
     }
 
     static String duplicateChecker(String input, BookList books) {
@@ -17,7 +17,7 @@ public class NewGenreModifier {
             return null;
         }
         boolean genreExists = false;
-        for (String existingGenre : books.getAvailableGenres()) {
+        for (String existingGenre : books.genreList.getAvailableGenres()) {
             if (existingGenre.equalsIgnoreCase(input)) {
                 genreExists = true;
                 input = existingGenre; // Normalize to the existing genre's case
@@ -25,7 +25,7 @@ public class NewGenreModifier {
             }
         }
         if (!genreExists) {
-            books.getAvailableGenres().add(input);
+            books.genreList.getAvailableGenres().add(input);
             Ui.printLine();
             System.out.println("Added new genre to the list: " + input);
         } else {

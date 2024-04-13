@@ -18,7 +18,7 @@ public class RatingChecks {
         return ratingParts;
     }
 
-    static int parseInteger(String input, String errorMessage) {
+    public static int parseInteger(String input, String errorMessage) {
         if (isNotNumeric(input.trim())) {
             throw new IllegalArgumentException(errorMessage);
         }

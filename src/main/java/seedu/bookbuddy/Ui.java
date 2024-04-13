@@ -184,4 +184,8 @@ public class Ui {
     public static void printDoubleIndentation() {
         System.out.print("--------");
     }
+    public static void printGenreRemovedMessage(String genre) {
+        System.out.println("okii [" + genre + "] removed from the genre list!");
+        printLine();
+    }
 }

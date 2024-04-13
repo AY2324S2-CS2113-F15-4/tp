@@ -37,7 +37,7 @@ public class InputLooper {
                 Ui.printSingleIndentation();
             }
             if (indentationValue == 2) {
-                System.out.print("Enter the number for the desired genre, or add a new one:\n");
+                System.out.println("Enter the number for the desired genre, or add a new one:");
                 Ui.printSingleIndentation();
             }
             return true;
@@ -93,15 +93,16 @@ public class InputLooper {
     private String processSelection(String newInput, Scanner scanner, BookList books)
             throws InvalidInputException, IOException {
         int selection = Integer.parseInt(newInput);
-        if (selection == books.getAvailableGenres().size() + 1) {
+        if (selection == books.genreList.getAvailableGenres().size() + 1) {
             Ui.printDoubleIndentation();
             System.out.print("Enter the new genre:\n");
             Ui.printDoubleIndentation();
             String genre = handleSecondaryInput(scanner);
             return NewGenreModifier.duplicateChecker(genre, books);
         }
-        if (selection > 0 && selection <= books.getAvailableGenres().size()) {
-            return books.getAvailableGenres().get(selection - 1);
+
+        if (selection > 0 && selection <= books.genreList.getAvailableGenres().size()) {
+            return books.genreList.getAvailableGenres().get(selection - 1);
         }
         throw new InvalidInputException(selection + " is an invalid selection. Please enter a " +
                 "valid number or type 'exit' to cancel or 'bye' to exit the programme.");

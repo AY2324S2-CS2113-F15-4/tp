@@ -58,7 +58,7 @@ public class FileStorage {
             if (genresLine.startsWith(GENRE_DATA)) {
                 String genresData = genresLine.substring(8); // Skip "Genres: "
                 List<String> genres = Arrays.asList(genresData.split(","));
-                books.setAvailableGenres(genres); // Update the available genres
+                books.genreList.setAvailableGenres(genres); // Update the available genres
             } else {
                 System.out.println("Unable to load genres as they have been tampered with.");
             }
@@ -83,7 +83,7 @@ public class FileStorage {
         File file = new File(FILE_PATH);
         FileWriter fw = new FileWriter(file);
 
-        String genresLine = books.saveGenresFormat();
+        String genresLine = books.genreList.saveGenresFormat();
         fw.write("Genres: " + genresLine + '\n');
 
         for (int i = 1; i <= books.getSize(); i += 1) {
