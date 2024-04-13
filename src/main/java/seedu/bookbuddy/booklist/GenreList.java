@@ -36,7 +36,7 @@ public class GenreList {
      * @param genreIndexToRemove The genre to remove from the list.
      */
     public void removeGenre(Integer genreIndexToRemove) {
-         availableGenres.remove(genreIndexToRemove - 1);
+        availableGenres.remove(genreIndexToRemove - 1);
     }
 
     public void printGenreList() {
