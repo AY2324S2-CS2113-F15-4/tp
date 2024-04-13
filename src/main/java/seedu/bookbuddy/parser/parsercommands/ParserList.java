@@ -5,8 +5,8 @@ import seedu.bookbuddy.bookdetailsmodifier.BookDisplay;
 import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.bookdetailsmodifier.BookRating;
 import seedu.bookbuddy.booklist.BookList;
-import seedu.bookbuddy.parser.parservalidation.Exceptions;
 import seedu.bookbuddy.parser.parservalidation.CommandList;
+import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
 import java.util.logging.Level;
 
@@ -16,7 +16,7 @@ public class ParserList {
     private static void parseList(BookList books, String[] inputArray, String command) {
         Exceptions.validateCommandArguments(inputArray, 1,
                 "ALl the list commands do not require any further arguments, just type `list`," +
-                        " `list-rated` or `list-by-date`");
+                        " `list-rated`, `list-genre` or `list-by-date`");
         switch (command) {
         case CommandList.LIST_COMMAND:
             BookDisplay.printAllBooks(books);
@@ -26,6 +26,9 @@ public class ParserList {
             break;
         case CommandList.PRINT_ORDERED_DATE_COMMAND:
             BookMark.printBooksByDateRead(books);
+            break;
+        case CommandList.LIST_GENRE_COMMAND:
+            books.genreList.printGenreList();
             break;
         default:
             LOGGER.log(Level.WARNING, "Sorry but that is not a valid list command. Please try again", command);

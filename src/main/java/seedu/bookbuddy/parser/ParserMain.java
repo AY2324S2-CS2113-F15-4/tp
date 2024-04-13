@@ -4,18 +4,19 @@ import exceptions.UnsupportedCommandException;
 
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.Ui;
-import seedu.bookbuddy.parser.parsercommands.ParserFind;
 import seedu.bookbuddy.parser.parsercommands.ParserAdd;
-import seedu.bookbuddy.parser.parsercommands.ParserRemove;
-import seedu.bookbuddy.parser.parsercommands.ParserMark;
-import seedu.bookbuddy.parser.parsercommands.parsegenre.ParserGenre;
-import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
-import seedu.bookbuddy.parser.parsercommands.parserating.ParserRating;
-import seedu.bookbuddy.parser.parsercommands.ParserUnmark;
-import seedu.bookbuddy.parser.parsercommands.ParserLabel;
-import seedu.bookbuddy.parser.parsercommands.ParserSummary;
-import seedu.bookbuddy.parser.parsercommands.ParserList;
 import seedu.bookbuddy.parser.parsercommands.ParserAuthor;
+import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
+import seedu.bookbuddy.parser.parsercommands.ParserFind;
+import seedu.bookbuddy.parser.parsercommands.ParserLabel;
+import seedu.bookbuddy.parser.parsercommands.ParserList;
+import seedu.bookbuddy.parser.parsercommands.ParserMark;
+import seedu.bookbuddy.parser.parsercommands.ParserRemove;
+import seedu.bookbuddy.parser.parsercommands.ParserRemoveGenre;
+import seedu.bookbuddy.parser.parsercommands.ParserSummary;
+import seedu.bookbuddy.parser.parsercommands.ParserUnmark;
+import seedu.bookbuddy.parser.parsercommands.parsegenre.ParserGenre;
+import seedu.bookbuddy.parser.parsercommands.parserating.ParserRating;
 
 import seedu.bookbuddy.parser.parservalidation.CommandList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
@@ -51,7 +52,13 @@ public class ParserMain {
             case CommandList.REMOVE_COMMAND:
                 ParserRemove.executeParseRemove(books, inputArray);
                 break;
+            case CommandList.GENRE_REMOVE_COMMAND:
+                ParserRemoveGenre.executeParseRemove(books, inputArray);
+                break;
             case CommandList.LIST_COMMAND:
+                //Empty case, all list commands handled in if block
+                break;
+            case CommandList.LIST_GENRE_COMMAND:
                 //Empty case, all list commands handled in if block
                 break;
             case CommandList.PRINT_ORDERED_COMMAND:

@@ -6,7 +6,6 @@ import seedu.bookbuddy.book.BookMain;
 import seedu.bookbuddy.book.Title;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,23 +13,12 @@ import java.util.List;
  * and marking book as read or unread.
  */
 public class BookList {
-    protected ArrayList<String> availableGenres = new ArrayList<>(Arrays.asList(
-            "Fiction", "Non-Fiction", "Mystery", "Science Fiction", "Fantasy"
-    ));
+    public final GenreList genreList = new GenreList();
     protected ArrayList<BookMain> books;
     public BookList() {
         this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
     }
 
-    public ArrayList<String> getAvailableGenres() {
-        return availableGenres;
-    }
-
-    public void setAvailableGenres(List<String> newAvailableGenres) {
-        // Clear the existing list and add all from the new list to avoid reference issues
-        availableGenres.clear();
-        availableGenres.addAll(newAvailableGenres);
-    }
     /**
      * Constructs a new BookList instance with an empty list.
      */
@@ -61,10 +49,6 @@ public class BookList {
         assert books.get(index - 1) != null : "Retrieved book should not be null";
         assert books.get(index - 1) instanceof BookMain : "Object at index should be an instance of Book";
         return books.get(index - 1);
-    }
-
-    public String saveGenresFormat() {
-        return String.join(",", availableGenres);
     }
 
     //@@lordgareth10
