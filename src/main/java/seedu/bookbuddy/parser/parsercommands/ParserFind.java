@@ -20,12 +20,13 @@ public class ParserFind {
     }
     public static void parseGenreLong(BookList books) throws IOException {
         System.out.println("Available genres:");
-        for (int i = 0; i < BookList.getAvailableGenres().size(); i++) {
-            System.out.println((i + 1) + ". " + BookList.getAvailableGenres().get(i));
+        for (int i = 0; i < books.getAvailableGenres().size(); i++) {
+            System.out.println((i + 1) + ". " + books.getAvailableGenres().get(i));
         }
         System.out.println("Enter the number for the desired genre:");
         Scanner scanner = new Scanner(System.in);
-        String selectedGenre = InputLooper.inputLooper(null, scanner);
+        InputLooper looper = new InputLooper();
+        String selectedGenre = looper.inputLooper(null, scanner, books);
         if (selectedGenre == null) {
             return;
         }

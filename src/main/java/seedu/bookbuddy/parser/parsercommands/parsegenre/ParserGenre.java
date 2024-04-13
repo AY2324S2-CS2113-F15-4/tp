@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ParserGenre {
-    static void parseSetGenre(BookList books, String[] inputArray) throws IOException {
+     static void parseSetGenre(BookList books, String[] inputArray) throws IOException {
         Exceptions.validateCommandArguments(inputArray, 2, "The set-genre command requires " +
                 "at least a book index.");
 
@@ -37,11 +37,11 @@ public class ParserGenre {
     }
 
     private static void multiStepSetGenre(BookList books, int index) throws IOException {
-        NewGenreModifier.genreSelectionPrinter();
+        NewGenreModifier.genreSelectionPrinter(books);
         System.out.println("Enter the number for the desired genre, or add a new one:");
         Scanner scanner = new Scanner(System.in);
-
-        String selectedGenre = InputLooper.inputLooper(null, scanner);
+        InputLooper looper = new InputLooper();
+        String selectedGenre = looper.inputLooper(null, scanner, books);
         if (selectedGenre == null) {
             return;
         }
@@ -50,7 +50,7 @@ public class ParserGenre {
 
     private static void singleStepSetGenre(BookList books, String[] parts, int index) {
         String genreInput = parts[1].trim();
-        genreInput = NewGenreModifier.duplicateChecker(genreInput);
+        genreInput = NewGenreModifier.duplicateChecker(genreInput, books);
         BookGenre.setBookGenreByIndex(index, genreInput, books);
     }
 

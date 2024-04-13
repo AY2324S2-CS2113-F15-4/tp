@@ -14,17 +14,22 @@ import java.util.List;
  * and marking book as read or unread.
  */
 public class BookList {
-    protected static List<String> availableGenres = new ArrayList<>(Arrays.asList("Fiction", "Non-Fiction",
-            "Mystery", "Science Fiction", "Fantasy"));
+    protected ArrayList<String> availableGenres = new ArrayList<>(Arrays.asList(
+            "Fiction", "Non-Fiction", "Mystery", "Science Fiction", "Fantasy"
+    ));
     protected ArrayList<BookMain> books;
     public BookList() {
         this.books = new ArrayList<BookMain>(); // Use ArrayList instead of array
     }
-    public static List<String> getAvailableGenres() {
-        return BookList.availableGenres;
+
+    public ArrayList<String> getAvailableGenres() {
+        return availableGenres;
     }
-    public static void setAvailableGenres(List<String> availableGenres) {
-        BookList.availableGenres = new ArrayList<>(availableGenres);
+
+    public void setAvailableGenres(List<String> newAvailableGenres) {
+        // Clear the existing list and add all from the new list to avoid reference issues
+        availableGenres.clear();
+        availableGenres.addAll(newAvailableGenres);
     }
     /**
      * Constructs a new BookList instance with an empty list.
@@ -58,7 +63,7 @@ public class BookList {
         return books.get(index - 1);
     }
 
-    public static String saveGenresFormat() {
+    public String saveGenresFormat() {
         return String.join(",", availableGenres);
     }
 

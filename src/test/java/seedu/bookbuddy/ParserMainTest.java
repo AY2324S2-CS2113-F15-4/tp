@@ -151,10 +151,10 @@ public class ParserMainTest {
     @Test
     void parseGenreCommand() {
         BookList books = new BookList();
-        //BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gatsby");
         // Simulate user input for genre selection "Classic"
-        ParserMain.parseCommand("add The Great Gatsby", books); // Changed to fit your updated command-handling logic
-        int genreSize = BookList.getAvailableGenres().size();
+
+        int genreSize = books.getAvailableGenres().size();
         String simulatedUserInput = genreSize + 1 + "\nClassic\n";
         InputStream savedStandardInputStream = System.in;
         System.setIn(new ByteArrayInputStream(simulatedUserInput.getBytes()));
