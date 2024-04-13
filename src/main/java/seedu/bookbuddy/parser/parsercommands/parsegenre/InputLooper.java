@@ -61,7 +61,8 @@ public class InputLooper {
                 return newInput;
             }
 
-            throw new InvalidInputException(newInput + " is an invalid input. Please enter a valid number or type 'exit' to cancel or 'bye' to exit the programme.");
+            throw new InvalidInputException(newInput + " is an invalid input. Please enter a " +
+                    "valid number or type 'exit' to cancel or 'bye' to exit the programme.");
         }
     }
 
@@ -89,7 +90,8 @@ public class InputLooper {
         return "bye".equalsIgnoreCase(input);
     }
 
-    private String processSelection(String newInput, Scanner scanner, BookList books) throws InvalidInputException, IOException {
+    private String processSelection(String newInput, Scanner scanner, BookList books)
+            throws InvalidInputException, IOException {
         int selection = Integer.parseInt(newInput);
         if (selection == books.getAvailableGenres().size() + 1) {
             Ui.printDoubleIndentation();
