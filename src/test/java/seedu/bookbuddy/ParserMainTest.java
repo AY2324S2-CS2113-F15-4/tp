@@ -53,6 +53,52 @@ public class ParserMainTest {
     }
 
     @Test
+    void parseInvalidRemoveCommandThrowsException() {
+        BookList books = new BookList();
+        String input = "remove 1";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "Unable to remove book as the list is empty.";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
+    void parseInvalidDisplayCommandThrowsException() {
+        BookList books = new BookList();
+        String input = "display 1";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "Unable to display details as the list is empty.";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
+    void parseInvalidRemoveIndexThrowsException() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "Don Quixote");
+        String input = "remove 2";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "Invalid book index. Please enter a valid index";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
+    void parseInvalidDisplayIndexThrowsException() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "Don Quixote");
+        String input = "display -1";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "Invalid book index. Please enter a valid index";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
     void parseAddCommand() {
         BookList testBookList = new BookList();
         ParserMain.parseCommand("add The Great Gatsby", testBookList);
