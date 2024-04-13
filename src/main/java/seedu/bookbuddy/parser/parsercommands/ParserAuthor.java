@@ -19,7 +19,7 @@ public class ParserAuthor {
                 "to have an author name");
         index = Integer.parseInt(authorMessageParts[0].trim());
         assert index >= 0 : "Index should be non-negative";
-        String author = authorMessageParts[1];
+        String author = authorMessageParts[1].trim();
         String title = Title.getTitle(books.getBooks().get(index - 1));
         if (author.equals(Author.getAuthor(books.getBooks().get(index - 1)))) {
             Ui.printAuthorAlreadySet(title, author);

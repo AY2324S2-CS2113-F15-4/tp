@@ -22,24 +22,26 @@ public class BookDisplay {
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
     public static void displayDetails(int index, BookList books) throws IndexOutOfBoundsException {
-        if (index < 0 || index > books.getSize()) {
+        if (books.getBooks().isEmpty()) {
+            System.out.println("Unable to display details as the list is empty.");
+        } else if (index <= 0 || index > books.getSize()) {
             throw new IndexOutOfBoundsException("Invalid book index. Please enter a valid index.");
+        } else {
+            String label = Label.getLabel(books.getBook(index));
+            String genre = Genre.getGenre(books.getBook(index));
+            String author = Author.getAuthor(books.getBook(index));
+            int rating = Rating.getRating(books.getBook(index));
+            String summary = Summary.getSummary(books.getBook(index));
+            System.out.println("Here are the details of your book:");
+            System.out.println("Title: " + Title.getTitle(books.getBook(index)));
+            System.out.println("Status: " + (Read.getRead(books.getBook(index)) ? "Read on " +
+                    Read.getDateTimeRead(books.getBook(index)) : "Unread"));
+            System.out.println("Author: " + (author.isEmpty() ? "No author provided" : author));
+            System.out.println("Label: " + (label.isEmpty() ? "No label provided" : label));
+            System.out.println("Genre: " + (genre.isEmpty() ? "No genre provided" : genre));
+            System.out.println("Rating: " + ((rating == 0) ? "No rating provided" : rating));
+            System.out.println("Summary: " + (summary.isEmpty() ? "No summary provided" : summary));
         }
-
-        String label = Label.getLabel(books.getBook(index));
-        String genre = Genre.getGenre(books.getBook(index));
-        String author = Author.getAuthor(books.getBook(index));
-        int rating = Rating.getRating(books.getBook(index));
-        String summary = Summary.getSummary(books.getBook(index));
-        System.out.println("Here are the details of your book:");
-        System.out.println("Title: " + Title.getTitle(books.getBook(index)));
-        System.out.println("Status: " + (Read.getRead(books.getBook(index)) ? "Read on " +
-                Read.getDateTimeRead(books.getBook(index)) : "Unread"));
-        System.out.println("Author: " + (author.isEmpty() ? "No author provided" : author));
-        System.out.println("Label: " + (label.isEmpty() ? "No label provided" : label));
-        System.out.println("Genre: " + (genre.isEmpty() ? "No genre provided" : genre));
-        System.out.println("Rating: " + ((rating == 0) ? "No rating provided" : rating));
-        System.out.println("Summary: " + (summary.isEmpty() ? "No summary provided" : summary));
     }
 
     //@@author yeozongyao
