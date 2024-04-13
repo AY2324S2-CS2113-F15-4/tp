@@ -49,8 +49,12 @@ public class BookRating {
         if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Rating must be between 1 and 5.");
         }
-        Rating.setRating(books.getBook(index), rating);
-        String title = Title.getTitle(books.getBook(index));
-        Ui.setRatingBookMessage(title, rating);
+        if (rating != Rating.getRating(books.getBook(index))) {
+            Rating.setRating(books.getBook(index), rating);
+            String title = Title.getTitle(books.getBook(index));
+            Ui.setRatingBookMessage(title, rating);
+        } else {
+            Ui.printRateAlreadySetWarning();
+        }
     }
 }

@@ -151,6 +151,14 @@ public class Ui {
         System.out.println("oops there are no books stored under this rating...");
     }
 
+    public static void printRateAlreadySetWarning() {
+        System.out.println("Hey.. you have already given this book this rating man");
+    }
+
+    public static void printLabelAlreadySetWarning() {
+        System.out.println("Hey.. you have already given this book this label man");
+    }
+
     public static void printAuthorAlreadySet(String title, String author) {
         System.out.println("oops " + title + " already has " + author + " as its author...");
     }
