@@ -5,6 +5,8 @@ import seedu.bookbuddy.book.Label;
 import seedu.bookbuddy.book.Title;
 import seedu.bookbuddy.booklist.BookList;
 
+import java.util.Objects;
+
 public class BookLabel {
 
     /**
@@ -16,8 +18,12 @@ public class BookLabel {
      */
     public static void setBookLabelByIndex(int index, String label, BookList books) throws IndexOutOfBoundsException {
         // Set the label for the book at the specified index
-        Label.setLabel(books.getBook(index), label);
-        String title = Title.getTitle(books.getBook(index));
-        Ui.labelBookMessage(title, label);
+        if (!Objects.equals(label, Label.getLabel(books.getBook(index)))) {
+            Label.setLabel(books.getBook(index), label);
+            String title = Title.getTitle(books.getBook(index));
+            Ui.labelBookMessage(title, label);
+        } else {
+            Ui.printLabelAlreadySetWarning();
+        }
     }
 }
