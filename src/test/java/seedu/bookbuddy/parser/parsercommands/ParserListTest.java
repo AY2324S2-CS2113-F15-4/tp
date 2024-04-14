@@ -57,7 +57,8 @@ class ParserListTest {
                 "Percy Jackson - 5\n" +
                 "Geronimo - Not Rated";
 
-        assertEquals(expectedOutput.trim().replaceAll("\\s+", "|"), outContent.toString().trim().replaceAll("\\s+", "|"));
+        assertEquals(expectedOutput.trim().replaceAll("\\s+", "|"),
+                outContent.toString().trim().replaceAll("\\s+", "|"));
     }
     @Test
     void testListGenres() {

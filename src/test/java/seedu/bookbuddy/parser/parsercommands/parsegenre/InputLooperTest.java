@@ -21,9 +21,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 class InputLooperTest {
-    private InputLooper inputLooper;
     BookList books = new BookList();
     Scanner scanner = new Scanner(System.in);
+    private InputLooper inputLooper;
 
     @BeforeEach
     void setUp() {
@@ -107,11 +107,13 @@ class InputLooperTest {
             ParserGenre.executeParseSetGenre(books, new String[]{"set-genre", "1"});
             fail();
         } catch (Exception ignored) {
+            System.out.println("Test in progress");
         }
         try {
             ParserGenre.executeParseSetGenre(books, new String[]{"set-genre", "-1"});
             fail();
         } catch (Exception ignored) {
+            System.out.println("Test in progress");
         }
     }
 
