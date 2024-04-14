@@ -120,6 +120,22 @@ remove 1
 alright.. i've removed Harry Potter from the list.
 ```
 
+### Removing a genre: `remove-genre`
+Removes a specific genre from the genre list by its index.
+Index 1 to 5 are default genres and cannot be removed.
+
+Format: `remove-genre [GENRE_INDEX]`
+
+Example of usage with expected output:
+
+```
+//input
+remove-genre 6
+
+//output
+okii [Classic] removed from the genre list!
+```
+
 ### Viewing all books: `list`
 Shows all books stored in the list along with their titles and read or unread status.
 
@@ -135,6 +151,26 @@ list
 All books:
 1. [U] Harry Potter
 2. [U] Geronimo Stilton
+```
+
+### Viewing all books: `list-genre`
+Shows all genres stored in the list
+
+Format: `list-genre`
+
+Example of usage with expected output:
+
+```
+//input
+list-genre
+
+//output
+All Genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
 ```
 
 ### Marking a book as read: `mark`
@@ -189,8 +225,8 @@ Sets the genre of a specific book based on the provided input and the provided i
 
 For new users:
 
-Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if last option is selected
-in the previous step
+Format: `set-genre [BOOK_INDEX]` followed by `[NUMBER]` <br>
+followed by `[GENRE]` if last option is selected in the previous step
 
 Example of usage with expected output:
 
@@ -508,17 +544,19 @@ to be saved.**
 | View all commands                                               | `help`                                                                      |
 | Add a book                                                      | `add [BOOK_TITLE]`                                                          |
 | Remove a book                                                   | `remove [BOOK_INDEX]`                                                       |
+| Remove a genre                                                  | `remove-genre [GENRE_INDEX]`                                                |
 | View all books                                                  | `list`                                                                      |
+| List all genres                                                 | `list-genre`                                                                |
+| Listing read books by date                                      | `list-by-date`                                                              |
+| Sort books by rating                                            | `list-rated`                                                                |
 | Mark book as read                                               | `mark [BOOK_INDEX]`                                                         |
 | Mark book as unread                                             | `unmark [BOOK_INDEX]`                                                       |
-| Listing read books by date                                      | `list-by-date`                                                              |
 | Set genre (Single-step for advanced users)                      | `set-genre [BOOK_INDEX] [GENRE]`                                            |
 | Set genre (Multi-step for new users)                            | `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if necessary |
 | Add author for book                                             | `set-author [BOOK_INDEX] [AUTHOR]`                                          |
 | Label book                                                      | `label [BOOK_INDEX] [LABEL]`                                                |
 | Add summary for book                                            | `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                                  |
 | Rate book                                                       | `rate [BOOK_INDEX] [BOOK_RATING]`                                           |
-| Sort books by rating                                            | `list-rated`                                                                |
 | Display details of book                                         | `display [BOOK_INDEX]`                                                      |
 | Find books with specific title                                  | `find-title [KEYWORD]`                                                      |
 | Find books with specific genre (Single-step for advanced users) | `find-genre [GENRE]`                                                        |

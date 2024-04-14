@@ -25,6 +25,80 @@ Reference to AB-3 diagrams code
 
 ## Design & implementation
 
+
+### BookMain Class
+The `BookMain class` represents the core structure of a book within our book management system. Here's a short explanation based on the class diagram below: <br><br>
+![BookMainClassDiagram.png](UML_diagrams/BookMainClassDiagram.png)
+- Attributes: The class has several protected attributes that encapsulate the properties of a book:
+
+  - `title`: A string representing the title of the book.
+  - `isRead`: A boolean flag indicating whether the book has been read.
+  - `dateTimeRead`: A string capturing the date and time when the book was marked as read.
+  - `label`: A string for additional categorization or tagging of the book.
+  - `genre`: A string representing the genre the book belongs to.
+  - `rating`: An integer storing the user's rating of the book.
+  - `summary`: A string providing a brief summary of the book's content.
+  - `author`: A string representing the name of the book's author.
+  - 
+- Constructors: There are two constructors available for creating `BookMain` objects:
+  - A single-parameter `BookMain` constructor that accepts the title and sets default values for the other attributes.
+  - A multi-parameter `BookMain` constructor that provides a comprehensive way to create a BookMain object with all its attributes 
+  - defined, including handling the book's status and ratings.
+- Methods:
+  - `toString()`: A public method that overrides the default toString method to return a string representation of the 
+  - book, including its read status and title.
+  - `saveFormat()`: A public method that returns a string formatted with the book's details, suitable for saving to a 
+  - text file. This string includes the book's `title`, `author`, `read status`, `date and time read`, `label`, `genre`, `summary`, and `rating`.
+
+This class serves as a fundamental data model in the system, holding all relevant information about a book and providing
+methods for constructing book instances and preparing them for display or storage.
+
+### Rating Books from 1 to 5
+The rating feature allows users to rate books from a rating of 1 to 5.
+
+#### Overview
+The book rating feature in the book management system allows users to assign numerical ratings to books, 
+facilitating easier assessment and organization based on quality or preference. This feature enhances user interaction 
+by allowing for quick assessments of a book's value or enjoyment level.
+- `ParserMain`: Interprets the initial command and delegates to the specific parser.
+- `ParserRating`: Processes the rating-related commands.
+- `BookRating`: Applies the custom rating to an individual book.
+
+#### Architecture-Level Design
+The system utilizes a layered architecture that separates concerns and streamlines interaction across different functionalities:
+
+- `UI Layer`: This layer is responsible for interacting with the user, displaying prompts, and outputs.
+- `Command Parser Layer`: Includes parsers that interpret user commands and validate inputs.
+- `Data Model Layer`: Manages the book data and handles logic for book operations, including rating updates.
+
+#### Component-Level Design
+- `UI`: Manages all interactions with the user, displaying necessary prompts or success/error messages.
+- `ParserRating`: Parses and validates user input specifically for setting ratings. It ensures the input includes valid indices and rating values before passing them to the data model.
+- `RatingChecks`: Provides utility functions to assist in parsing and validating the parts of the command that deal with numeric indices and ratings.
+- `BookList` & `BookRating`: `BookList` maintains a list of books, and `BookRating` handles the logic for setting and retrieving ratings for these books.
+
+#### Implementation Details
+- Users initiate the `rate` command with the appropriate index and rating.
+- Input Parsing and Validation:
+  - `ParserRating.parseSetRating` is called with the user input. It uses `RatingChecks` to split the command into components and validate them.
+  - If the index is valid and within the range, and the rating is a number between 1 and 5, the process proceeds.
+
+#### Rating Application:
+- `BookRating.setBookRatingByIndex` is invoked to apply the rating. It checks the provided index and rating for validity (e.g., index within range, rating within accepted values).
+- If the rating is new or different from the existing rating, it updates the book’s rating in BookList and confirms the update to the user via UI.
+
+#### Rationale for Design
+- Consistency and Usability: The command structure is consistent with other features like genre setting, providing a familiar interface for users.
+- Robustness: Separate validation steps ensure that only correct and sensible data is processed, improving the system's reliability.
+- Scalability: The modular design allows for easy updates and modifications to the rating feature or additions of new features.
+  
+#### Alternatives Considered
+- Integrated Rating Management: <br>
+Initially, there was consideration for integrating rating management directly within the BookList class. However, 
+separating it into BookRating respects the Single Responsibility Principle, leading to better organized and more maintainable code.
+
+![SetRatingSequenceDiagram.png](UML_diagrams/SetRatingSequenceDiagram.png)
+
 ### Labeling Books by Custom Labels
 The labeling feature allows users to tag books with custom labels for easy identification and categorization based on personalized criteria.
 
