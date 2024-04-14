@@ -1,5 +1,6 @@
 package seedu.bookbuddy.book;
 
+//@@author yeozongyao
 public class Label {
     /**
      * Sets the label for this book.

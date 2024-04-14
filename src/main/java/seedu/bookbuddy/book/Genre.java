@@ -1,5 +1,6 @@
 package seedu.bookbuddy.book;
 
+//@@author yeozongyao
 public class Genre {
     /**
      * Sets the genre for this book.

@@ -1,5 +1,6 @@
 package seedu.bookbuddy.book;
 
+//@@author yeozongyao
 public class Rating {
     /**
      * Sets the rating for this book. The rating must be between 1 and 5.

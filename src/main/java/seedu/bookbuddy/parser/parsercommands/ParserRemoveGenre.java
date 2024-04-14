@@ -4,7 +4,21 @@ import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
 
+//@@author yeozongyao
 public class ParserRemoveGenre {
+
+    /**
+     * Parses the input command to remove a genre from a book list based on the specified index.
+     * The command expects an index that corresponds to the genre to be removed. Genres with an index
+     * less than or equal to 5 are considered default genres and cannot be removed.
+     *
+     * @param books      The BookList containing the genres.
+     * @param inputArray An array of String containing the command and the genre index.
+     *                   The genre index should be a valid integer and correspond to an existing genre.
+     * @throws AssertionError if the input array does not contain exactly two elements.
+     * @throws IndexOutOfBoundsException if the provided index is out of the valid range for the genre list.
+     * @throws NumberFormatException if the index is not a valid integer.
+     */
     static void parseRemoveGenre(BookList books, String[] inputArray) {
         int index;
         assert inputArray.length == 2 : "Command requires additional arguments";
@@ -28,6 +42,13 @@ public class ParserRemoveGenre {
 
     }
 
+    /**
+     * Executes the genre removal process based on the user's input command.
+     * This method acts as the public entry point to initiate the removal of a genre.
+     *
+     * @param books      The BookList containing the genres.
+     * @param inputArray An array of String containing the command and the genre index.
+     */
     public static void executeParseRemove (BookList books, String[] inputArray) {
         parseRemoveGenre(books, inputArray);
     }
