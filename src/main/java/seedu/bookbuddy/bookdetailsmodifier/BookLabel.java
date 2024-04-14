@@ -7,6 +7,7 @@ import seedu.bookbuddy.booklist.BookList;
 
 import java.util.Objects;
 
+//@@author yeozongyao
 public class BookLabel {
 
     /**
