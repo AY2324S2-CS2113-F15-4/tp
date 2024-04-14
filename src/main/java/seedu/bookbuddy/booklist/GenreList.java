@@ -20,7 +20,7 @@ public class GenreList {
     /**
      * Retrieves the list of currently available genres.
      *
-     * @return An ArrayList<String> containing all the genres currently stored.
+     * @return An ArrayList containing all the genres currently stored.
      */
     public ArrayList<String> getAvailableGenres() {
         return availableGenres;
@@ -30,7 +30,7 @@ public class GenreList {
      * Sets the list of available genres to a new list. This method clears the current list of genres
      * and copies all elements from the provided list to ensure no references to the original list are kept.
      *
-     * @param newAvailableGenres A List<String> containing the new list of genres to be set.
+     * @param newAvailableGenres A List containing the new list of genres to be set.
      */
     public void setAvailableGenres(List<String> newAvailableGenres) {
         // Clear the existing list and add all from the new list to avoid reference issues
