@@ -6,6 +6,7 @@ import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.booklist.BookList;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 //@@author yeozongyao
@@ -25,10 +26,10 @@ public class InputLooper {
         while (input == null) {
             try {
                 input = handleInitialInput(scanner);
-                if (input == null) {
+                if (Objects.equals(input, "exit_now")) {
                     return null;  // Break out of the loop if input is null (exit command was used)
                 }
-                if (input.isEmpty()) {
+                if (input == null) {
                     continue;  // If input is empty, continue to the next iteration of the loop
                 }
                 input = processSelection(input, scanner, books);
@@ -81,7 +82,7 @@ public class InputLooper {
             String newInput = scanner.nextLine().trim();
             Integer indentationValue = 1;
             if (handleExitCommands(newInput, indentationValue)) {
-                return null;
+                return "exit_now";
             }
 
             String[] parts = newInput.split("\\s+");
@@ -89,8 +90,14 @@ public class InputLooper {
                 return newInput;
             }
 
-            throw new InvalidInputException(newInput + " is an invalid input. Please enter a " +
-                    "valid number or type 'exit' to cancel or 'bye' to exit the programme.");
+            try {
+                throw new InvalidInputException(newInput+ " is an invalid selection. Please enter a " +
+                        "valid number or type 'exit' to go back");
+            } catch (InvalidInputException e) {
+                System.out.println(newInput + " is not a valid integer man.. try again.. or 'exit' to go back");
+                Ui.printSingleIndentation();
+                return null;
+            }
         }
     }
 
@@ -167,8 +174,21 @@ public class InputLooper {
         if (selection > 0 && selection <= books.genreList.getAvailableGenres().size()) {
             return books.genreList.getAvailableGenres().get(selection - 1);
         }
-        throw new InvalidInputException(selection + " is an invalid selection. Please enter a " +
-                "valid number or type 'exit' to cancel or 'bye' to exit the programme.");
+
+        if (selection > books.genreList.getAvailableGenres().size() + 1) {
+            System.out.println("That's not within the options man... try again.. or 'exit' to go back " +
+                    "or 'bye' to close program");
+            Ui.printSingleIndentation();
+            return null;
+        }
+        try {
+            throw new InvalidInputException(selection + " is an invalid selection. Please enter a " +
+                    "valid number or type 'exit' to go back");
+        } catch (InvalidInputException e) {
+            System.out.println(selection + " is not a valid integer man.. try again.. or 'exit' to go back");
+            Ui.printSingleIndentation();
+            return null;
+        }
     }
 
 

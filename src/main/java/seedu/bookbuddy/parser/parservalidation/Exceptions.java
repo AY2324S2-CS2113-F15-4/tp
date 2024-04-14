@@ -37,6 +37,7 @@ public class Exceptions {
                     new Object[]{command, e.getMessage()});
             System.out.println("An unexpected error occurred while executing " + command
                     + ". Please contact support.");
+            System.out.println(e.getMessage());
         }
     }
 }
