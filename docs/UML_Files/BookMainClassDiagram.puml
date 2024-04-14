@@ -1,0 +1,19 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+class BookMain {
+    #  title : String
+    # isRead : boolean
+    # dateTimeRead : String
+    # label : String
+    # genre : String
+    # rating : int
+    # summary : String
+    # author : String
+
+    + BookMain(title : String)
+    + BookMain(title : String, status : int, label : String, genre : String, rating : int, summary : String, dateTimeRead : String, lineNumber : int, author : String)
+    + toString() : String
+    + saveFormat() : String
+}
+@enduml

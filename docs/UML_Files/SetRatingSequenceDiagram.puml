@@ -1,0 +1,37 @@
+@startuml
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserRating" as ParserRating
+participant ":RatingChecks" as RatingChecks
+participant ":BookList" as BookList
+participant ":BookRating" as BookRating
+participant ":Ui" as Ui
+
+User -> ParserMain : rate [BOOK_INDEX] [RATING]
+activate ParserMain
+ParserMain -> ParserRating : executeParseSetRating(books, inputArray)
+activate ParserRating
+
+ParserRating -> RatingChecks : getRatingParts(inputArray)
+activate RatingChecks
+RatingChecks --> ParserRating : index, rating
+deactivate RatingChecks
+
+ParserRating -> BookList : getBook(index)
+activate BookList
+BookList --> ParserRating : book
+deactivate BookList
+
+ParserRating -> BookRating : setBookRatingByIndex(index, rating, books)
+activate BookRating
+
+BookRating -> Ui : ratingUpdateMessage(bookTitle, rating)
+activate Ui
+Ui --> User : confirmation message
+deactivate Ui
+
+deactivate BookRating
+deactivate ParserRating
+deactivate ParserMain
+@enduml
