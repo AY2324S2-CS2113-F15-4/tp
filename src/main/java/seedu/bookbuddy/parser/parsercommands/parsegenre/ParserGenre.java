@@ -57,7 +57,7 @@ public class ParserGenre {
     private static void multiStepSetGenre(BookList books, int index) throws IOException {
         NewGenreModifier.genreSelectionPrinter(books);
         Ui.printSingleIndentation();
-        System.out.print("Enter the number for the desired genre, or add a new one:\n");
+        System.out.print("Enter the number for the desired genre, or add a new one, or 'exit' to go back:\n");
         Ui.printSingleIndentation();
         Scanner scanner = new Scanner(System.in);
         InputLooper looper = new InputLooper();
