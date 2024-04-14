@@ -90,7 +90,7 @@ public class InputLooper {
         return "bye".equalsIgnoreCase(input);
     }
 
-    private String processSelection(String newInput, Scanner scanner, BookList books)
+    String processSelection(String newInput, Scanner scanner, BookList books)
             throws InvalidInputException, IOException {
         int selection = Integer.parseInt(newInput);
         if (selection == books.genreList.getAvailableGenres().size() + 1) {

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ParserGenre {
-    static void parseSetGenre(BookList books, String[] inputArray) throws IOException {
+    static void parseSetGenre(BookList books, String[] inputArray) throws IOException, InvalidCommandArgumentException {
         Exceptions.validateCommandArguments(inputArray, 2, "The set-genre command requires " +
                 "at least a book index.");
 

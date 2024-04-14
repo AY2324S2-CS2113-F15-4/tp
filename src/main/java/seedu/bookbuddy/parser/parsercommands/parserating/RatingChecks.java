@@ -26,7 +26,7 @@ public class RatingChecks {
     }
 
     // Helper method to check if a string is numeric
-    private static boolean isNotNumeric(String strNum) {
+    static boolean isNotNumeric(String strNum) {
         if (strNum == null) {
             return true;
         }
