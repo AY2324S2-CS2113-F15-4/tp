@@ -20,27 +20,30 @@ experience.
 ## Table of Contents
 * [Getting Started](#getting-started)
 * [Features](#features)
-    * [help](#viewing-all-commands-help)
-    * [add](#adding-a-book-add)
-    * [remove](#removing-a-book-remove)
-    * [list](#viewing-all-books-list)
-    * [mark](#marking-a-book-as-read-mark)
-    * [unmark](#marking-a-book-as-unread-unmark)
-    * [list-by-date](#listing-read-books-by-date-list-by-date)
-    * [set-genre](#setting-the-genre-of-a-book-set-genre)
-    * [set-author](#setting-the-author-of-a-book-set-author)
-    * [label](#labelling-a-book-label)
-    * [give-summary](#adding-a-book-summary-give-summary)
-    * [rate](#rating-a-book-rate)
-    * [list-rated](#sorting-books-by-rating-list-rated)
-    * [display](#displaying-the-details-of-a-book-display)
-    * [find-title](#finding-a-book-by-title-find-title)
-    * [find-genre](#finding-a-book-by-genre-find-genre)
-    * [find-read](#find-books-that-are-read-find-read)
-    * [find-unread](#find-books-that-are-unread-find-unread)
-    * [find-label](#find-books-that-are-labelled-find-label)
-    * [find-rate](#find-books-that-are-labelled-find-rate)
-    * [bye](#exiting-the-program-bye)
+  * [help](#viewing-all-commands-help)
+  * [add](#adding-a-book-add)
+  * [remove](#removing-a-book-remove)
+  * [list](#viewing-all-books-list)
+  * [mark](#marking-a-book-as-read-mark)
+  * [unmark](#marking-a-book-as-unread-unmark)
+  * [list-by-date](#listing-read-books-by-date-list-by-date)
+  * [list-genre](#viewing-all-genres-list-genre)
+  * [set-genre](#setting-the-genre-of-a-book-set-genre)
+  * [remove-genre](#removing-a-genre-remove-genre)
+  * [set-author](#setting-the-author-of-a-book-set-author)
+  * [label](#labelling-a-book-label)
+  * [give-summary](#adding-a-book-summary-give-summary)
+  * [rate](#rating-a-book-rate)
+  * [list-rated](#sorting-books-by-rating-list-rated)
+  * [display](#displaying-the-details-of-a-book-display)
+  * [find-title](#finding-a-book-by-title-find-title)
+  * [find-genre](#finding-a-book-by-genre-find-genre)
+  * [find-read](#find-books-that-are-read-find-read)
+  * [find-unread](#find-books-that-are-unread-find-unread)
+  * [find-label](#find-books-that-are-labelled-find-label)
+  * [find-rate](#find-books-that-are-labelled-find-rate)
+  * [find-author](#find-books-that-are-written-by-specific-author-find-author)
+  * [bye](#exiting-the-program-bye)
 * [FAQ](#faq)
 * [Command Summary](#command-summary)
 
@@ -121,22 +124,6 @@ remove 1
 alright.. i've removed Harry Potter from the list.
 ```
 
-### Removing a genre: `remove-genre`
-Removes a specific genre from the genre list by its index.
-Index 1 to 5 are default genres and cannot be removed.
-
-Format: `remove-genre [GENRE_INDEX]`
-
-Example of usage with expected output:
-
-```
-//input
-remove-genre 6
-
-//output
-okii [Classic] removed from the genre list!
-```
-
 ### Viewing all books: `list`
 Shows all books stored in the list along with their titles and read or unread status.
 
@@ -152,26 +139,6 @@ list
 All books:
 1. [U] Harry Potter
 2. [U] Geronimo Stilton
-```
-
-### Viewing all books: `list-genre`
-Shows all genres stored in the list
-
-Format: `list-genre`
-
-Example of usage with expected output:
-
-```
-//input
-list-genre
-
-//output
-All Genres:
-1. Fiction
-2. Non-Fiction
-3. Mystery
-4. Science Fiction
-5. Fantasy
 ```
 
 ### Marking a book as read: `mark`
@@ -221,6 +188,26 @@ Harry Potter : 6.57 PM, 09-04-2024
 Geronimo Stilton : 6.52 PM, 09-04-2024
 ```
 
+### Viewing all genres: `list-genre`
+Shows all genres stored in the list
+
+Format: `list-genre`
+
+Example of usage with expected output:
+
+```
+//input
+list-genre
+
+//output
+All Genres:
+1. Fiction
+2. Non-Fiction
+3. Mystery
+4. Science Fiction
+5. Fantasy
+```
+
 ### Setting the genre of a book: `set-genre`
 Sets the genre of a specific book based on the provided input and the provided index.
 
@@ -257,7 +244,7 @@ satire
 //output
 okii categorised [animal farm] as [satire]
 remember to read it soon....
-````
+```
 
 For advanced users:
 
@@ -265,14 +252,30 @@ Format: `set-genre [BOOK_INDEX] [GENRE]`
 
 Example of usage with expected output:
 
-````
+```
 //input
 set-genre 1 Fiction
 
 //output
 okii categorised [Harry Potter] as [Fiction]
 remember to read it soon....
-````
+```
+
+### Removing a genre: `remove-genre`
+Removes a specific genre from the genre list by its index.
+Index 1 to 5 are default genres and cannot be removed.
+
+Format: `remove-genre [GENRE_INDEX]`
+
+Example of usage with expected output:
+
+```
+//input
+remove-genre 6
+
+//output
+okii [Classic] removed from the genre list!
+```
 
 ### Setting the author of a book: `set-author`
 Sets the author of a specific book based on the provided input and the provided index.
@@ -472,7 +475,7 @@ find-unread
 ```
 
 ### Find books that are labelled: `find-label`
-Returns all books in the saved book list that stored under specific label.
+Returns all books in the saved book list that stored under a specific label.
 The keyword is not case-sensitive.
 
 Format: `find-label [KEYWORD]`
@@ -489,7 +492,7 @@ books with [very cool] in their label:
 ```
 
 ### Find books that are labelled: `find-rate`
-Returns all books in the saved book list that have specific rating.
+Returns all books in the saved book list that have a specific rating.
 
 Format: `find-rate [RATING]`
 
@@ -505,6 +508,7 @@ books rated [3] :
 ```
 ### Find books that are written by specific author: `find-author`
 Returns all books in the saved book list that are written by the same author.
+The author is not case-sensitive.
 
 Format: `find-author [AUTHOR]`
 
@@ -520,7 +524,6 @@ books written by [jk rowling] :
 ```
 
 ### Exiting the program: `bye`
-
 Exits the application and saves all tasks in a file.
 
 Format: `bye`
@@ -537,7 +540,6 @@ Thank you for using BookBuddy! Hope to see you again keke :)
 ```
 
 ## FAQ
-
 **Q**: How do I load and save data from a previous session?
 
 **A**: All data entered is automatically saved by the program and does not require any
@@ -554,32 +556,31 @@ be prompted to re-enter the command with an instruction on how to properly type 
 to be saved.**
 
 ## Command Summary
-
-| Purpose of Command                                              | Command Syntax                                                             |
-|-----------------------------------------------------------------|----------------------------------------------------------------------------|
-| View all commands                                               | `help`                                                                     |
-| Add a book                                                      | `add [BOOK_TITLE]`                                                         |
-| Remove a book                                                   | `remove [BOOK_INDEX]`                                                      |
-| Remove a genre                                                  | `remove-genre [GENRE_INDEX]`                                               |
-| View all books                                                  | `list`                                                                     |
-| List all genres                                                 | `list-genre`                                                               |
-| Listing read books by date                                      | `list-by-date`                                                             |
-| Sort books by rating                                            | `list-rated`                                                               |
-| Mark book as read                                               | `mark [BOOK_INDEX]`                                                        |
-| Mark book as unread                                             | `unmark [BOOK_INDEX]`                                                      |
-| Set genre (Single-step for advanced users)                      | `set-genre [BOOK_INDEX] [GENRE]`                                           |
+| Purpose of Command                                              | Command Syntax                                                              |
+|-----------------------------------------------------------------|-----------------------------------------------------------------------------|
+| View all commands                                               | `help`                                                                      |
+| Add a book                                                      | `add [BOOK_TITLE]`                                                          |
+| Remove a book                                                   | `remove [BOOK_INDEX]`                                                       |
+| View all books                                                  | `list`                                                                      |
+| Mark book as read                                               | `mark [BOOK_INDEX]`                                                         |
+| Mark book as unread                                             | `unmark [BOOK_INDEX]`                                                       |
+| Listing read books by date                                      | `list-by-date`                                                              |
+| List all genres                                                 | `list-genre`                                                                |
+| Set genre (Single-step for advanced users)                      | `set-genre [BOOK_INDEX] [GENRE]`                                            |
 | Set genre (Multi-step for new users)                            | `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if necessary |
-| Add author for book                                             | `set-author [BOOK_INDEX] [AUTHOR]`                                         |
-| Label book                                                      | `label [BOOK_INDEX] [LABEL]`                                               |
-| Add summary for book                                            | `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                                 |
-| Rate book                                                       | `rate [BOOK_INDEX] [BOOK_RATING]`                                          |
-| Display details of book                                         | `display [BOOK_INDEX]`                                                     |
-| Find books with specific title                                  | `find-title [KEYWORD]`                                                     |
-| Find books with specific genre (Single-step for advanced users) | `find-genre [GENRE]`                                                       |
-| Find books with specific genre (Multi-step for new users)       | `find-genre` followed by `[NUMBER]`                                        |
-| Find books that are read                                        | `find-read`                                                                |
-| Find books that are unread                                      | `find-unread`                                                              |
-| Find books with specific label                                  | `find-label [KEYWORD]`                                                     |
-| Find books with specific rating                                 | `find-rate [RATING]`                                                       |
-| Find books with specific author                                 | `find-author [AUTHOR]`                                                     |
-| Exit program                                                    | `bye`                                                                      |
+| Remove a genre                                                  | `remove-genre [GENRE_INDEX]`                                                |
+| Add author for book                                             | `set-author [BOOK_INDEX] [AUTHOR]`                                          |
+| Label book                                                      | `label [BOOK_INDEX] [LABEL]`                                                |
+| Add summary for book                                            | `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                                  |
+| Rate book                                                       | `rate [BOOK_INDEX] [BOOK_RATING]`                                           |
+| Sort books by rating                                            | `list-rated`                                                                |
+| Display details of book                                         | `display [BOOK_INDEX]`                                                      |
+| Find books with specific title                                  | `find-title [KEYWORD]`                                                      |
+| Find books with specific genre (Single-step for advanced users) | `find-genre [GENRE]`                                                        |
+| Find books with specific genre (Multi-step for new users)       | `find-genre` followed by `[NUMBER]`                                         |
+| Find books that are read                                        | `find-read`                                                                 |
+| Find books that are unread                                      | `find-unread`                                                               |
+| Find books with specific label                                  | `find-label [KEYWORD]`                                                      |
+| Find books with specific rating                                 | `find-rate [RATING]`                                                        |
+| Find books with specific author                                 | `find-author [AUTHOR]`                                                      |
+| Exit program                                                    | `bye`                                                                       |
