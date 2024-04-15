@@ -37,7 +37,7 @@ Link should direct to my code contributions. If not, enter the link and search f
 1. Added Overiew, Detailed Workflow and explanation of class components.([PR #48](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/48))
 
 ### Contribution to team-based tasks / Project Management
-
+1. Fixed various bugs ([PR #175](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/175))
 
 ### Contributions beyond project team
 Coming soon.
