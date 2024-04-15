@@ -38,14 +38,14 @@ public class BookListModifier {
     public static void deleteBook(BookList bookList, int index) throws IndexOutOfBoundsException {
         try {
             if (bookList.getBooks().isEmpty()) {
-                System.out.println("Unable to remove book as the list is empty.");
+                System.out.println("Unable to remove book as the list is empty. Type 'list' to view the list of books.");
             } else {
                 Ui.removeBookMessage(index, bookList);
                 bookList.books.remove(index - 1);
                 assert bookList.books.size() >= 0 : "Book list size should not be negative after deletion";
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Invalid book index. Please enter a valid index");
+            System.out.println("Invalid book index. Please enter a valid index. Type 'list' to view the list of books.");
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred: {0}", e.getMessage());
             throw e; // Rethrow or handle as needed
