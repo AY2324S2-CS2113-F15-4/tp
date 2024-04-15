@@ -57,7 +57,7 @@ public class ParserFind {
     public static void parseRate(BookList books, String[] input) {
         assert input.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(input, 2,
-                "The correct command is `find-rated [RATING]");
+                "The correct command is `find-rate [RATING]");
         BookFind.findRate(books, input[1].trim());
     }
 

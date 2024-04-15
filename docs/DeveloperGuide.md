@@ -99,6 +99,48 @@ separating it into BookRating respects the Single Responsibility Principle, lead
 
 ![SetRatingSequenceDiagram.png](UML_diagrams/SetRatingSequenceDiagram.png)
 
+### Listing all Books
+This feature allows users to list all books currently added.
+
+#### Overview
+The book list feature in the book management system allows users to view all the books they have added at a quick glance. 
+This feature enhances user interaction by allowing for a quick overview of all the book titles.
+- `ParserMain`: Interprets the initial command and delegates to the specific parser.
+- `ParserList`: Processes the list-related commands.
+- `BookList`: Maintains the list of books
+- `BookDisplay`: Prints out all the books currently in the list.
+
+#### Architecture-Level Design
+The system utilizes a layered architecture that separates concerns and streamlines interaction across different functionalities:
+
+- `UI Layer`: This layer is responsible for interacting with the user, displaying prompts, and outputs.
+- `Command Parser Layer`: Includes parsers that interpret user commands and validate inputs.
+- `Data Model Layer`: Manages the book data and handles logic for book operations, including storing of the books in the list.
+
+#### Component-Level Design
+- `UI`: Manages all interactions with the user, displaying necessary prompts or success/error messages.
+- `ParserList`: Parses and validates user input specifically for which list to display. It ensures the input does not include extra parameters before passing them to the data model.
+- `BookList` & `BookDisplay`: `BookList` maintains a list of books, and `BookDisplay` handles the logic for printing out all these books.
+
+#### Implementation Details
+- Users initiate the `list` command.
+- Input Parsing and Validation:
+  - `ParserList.parseList` is called with the user input. It uses `Exceptions.validateCommandArguments` to check whether there are extra input parameters added.
+  - If there are the correct number of parameters give, the command proceeds.
+
+#### Lisitng Application:
+- `BookDisplay.printAllBooks` is invoked to print all the books. It checks whether the current booklist is empty and prints out all books if it is not.
+
+#### Rationale for Design
+- Consistency and Usability: The command structure is consistent with other list features like list-by-date and list-rated, providing a familiar interface for users.
+- Robustness: Separate validation steps ensure that only correct and sensible data is processed, improving the system's reliability.
+- Scalability: The modular design allows for easy updates and modifications to the listing feature or additions of new features.
+
+#### Alternatives Considered
+- An alternative considered was to have a command that opened the text file in which the data was stored. However, this could lead to issues when the user is trying to comprehend the data as it might not be in a readable format.
+
+![ListCommand.png](UML_diagrams/ListCommand.png)
+
 ### Labeling Books by Custom Labels
 The labeling feature allows users to tag books with custom labels for easy identification and categorization based on personalized criteria.
 

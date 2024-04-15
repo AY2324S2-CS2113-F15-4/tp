@@ -8,16 +8,9 @@ import java.util.ArrayList;
 //@@ liuzehui03
 public class Ui {
     public static void printWelcome() {
-        String logo =
-                " ____    ____  \n"
-                        + "|    \\  |    \\ \n"
-                        + "| |_) / | |_) / \n"
-                        + "| |_) \\ | |_) \\ \n"
-                        + "|____/  |____/ \n";
         printLine();
         System.out.println("Hello from");
         System.out.println("BookBuddy!");
-        //System.out.println("Hello! We are BookBuddy!");
         System.out.println("How can I help you today?");
         printShortLine();
     }
@@ -74,7 +67,7 @@ public class Ui {
         System.out.println("list -> to show whole list of added books");
         System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
         System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
-        System.out.println("list-by-date -> to print out all books sorted in descending order of date");
+        System.out.println("list-by-date -> to print out all books sorted in descending order of date read");
         System.out.println("list-genre - > to print out all genres");
         System.out.println("(basic) set-genre [BOOK_INDEX] -> to set a genre for a book");
         System.out.println("(advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book");
