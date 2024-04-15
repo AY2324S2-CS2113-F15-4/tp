@@ -558,31 +558,31 @@ be prompted to re-enter the command with an instruction on how to properly type 
 to be saved.**
 
 ## Command Summary
-|                       Purpose of Command                        |                               Command Syntax                                |
-|:---------------------------------------------------------------:|:---------------------------------------------------------------------------:|
-|                        View all commands                        |                                   `help`                                    |
-|                           Add a book                            |                             `add [BOOK_TITLE]`                              |
-|                          Remove a book                          |                            `remove [BOOK_INDEX]`                            |
-|                         View all books                          |                                   `list`                                    |
-|                        Mark book as read                        |                             `mark [BOOK_INDEX]`                             |
-|                       Mark book as unread                       |                            `unmark [BOOK_INDEX]`                            |
-|                   Listing read books by date                    |                               `list-by-date`                                |
-|                         List all genres                         |                                `list-genre`                                 |
-|           Set genre (Single-step for advanced users)            |                      `set-genre [BOOK_INDEX] [GENRE]`                       |
-|              Set genre (Multi-step for new users)               | `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if necessary |
-|                         Remove a genre                          |                        `remove-genre [GENRE_INDEX]`                         |
-|                       Add author for book                       |                     `set-author [BOOK_INDEX] [AUTHOR]`                      |
-|                           Label book                            |                        `label [BOOK_INDEX] [LABEL]`                         |
-|                      Add summary for book                       |                 `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                  |
-|                            Rate book                            |                      `rate [BOOK_INDEX] [BOOK_RATING]`                      |
-|                      Sort books by rating                       |                                `list-rated`                                 |
-|                     Display details of book                     |                           `display [BOOK_INDEX]`                            |
-|                 Find books with specific title                  |                           `find-title [KEYWORD]`                            |
-| Find books with specific genre (Single-step for advanced users) |                            `find-genre [GENRE]`                             |
-|    Find books with specific genre (Multi-step for new users)    |                     `find-genre` followed by `[NUMBER]`                     |
-|                    Find books that are read                     |                                 `find-read`                                 |
-|                   Find books that are unread                    |                                `find-unread`                                |
-|                 Find books with specific label                  |                           `find-label [KEYWORD]`                            |
-|                 Find books with specific rating                 |                            `find-rate [RATING]`                             |
-|                 Find books with specific author                 |                           `find-author [AUTHOR]`                            |
-|                          Exit program                           |                                    `bye`                                    |
+| Purpose of Command                                              | Command Syntax                                                              |
+|-----------------------------------------------------------------|-----------------------------------------------------------------------------|
+| View all commands                                               | `help`                                                                      |
+| Add a book                                                      | `add [BOOK_TITLE]`                                                          |
+| Remove a book                                                   | `remove [BOOK_INDEX]`                                                       |
+| View all books                                                  | `list`                                                                      |
+| Mark book as read                                               | `mark [BOOK_INDEX]`                                                         |
+| Mark book as unread                                             | `unmark [BOOK_INDEX]`                                                       |
+| Listing read books by date                                      | `list-by-date`                                                              |
+| List all genres                                                 | `list-genre`                                                                |
+| Set genre (Single-step for advanced users)                      | `set-genre [BOOK_INDEX] [GENRE]`                                            |
+| Set genre (Multi-step for new users)                            | `set-genre [BOOK_INDEX]` followed by `[NUMBER]` then `[GENRE]` if necessary |
+| Remove a genre                                                  | `remove-genre [GENRE_INDEX]`                                                |
+| Add author for book                                             | `set-author [BOOK_INDEX] [AUTHOR]`                                          |
+| Label book                                                      | `label [BOOK_INDEX] [LABEL]`                                                |
+| Add summary for book                                            | `give-summary [BOOK_INDEX] [BOOK_SUMMARY]`                                  |
+| Rate book                                                       | `rate [BOOK_INDEX] [BOOK_RATING]`                                           |
+| Sort books by rating                                            | `list-rated`                                                                |
+| Display details of book                                         | `display [BOOK_INDEX]`                                                      |
+| Find books with specific title                                  | `find-title [KEYWORD]`                                                      |
+| Find books with specific genre (Single-step for advanced users) | `find-genre [GENRE]`                                                        |
+| Find books with specific genre (Multi-step for new users)       | `find-genre` followed by `[NUMBER]`                                         |
+| Find books that are read                                        | `find-read`                                                                 |
+| Find books that are unread                                      | `find-unread`                                                               |
+| Find books with specific label                                  | `find-label [KEYWORD]`                                                      |
+| Find books with specific rating                                 | `find-rate [RATING]`                                                        |
+| Find books with specific author                                 | `find-author [AUTHOR]`                                                      |
+| Exit program                                                    | `bye`                                                                       |
