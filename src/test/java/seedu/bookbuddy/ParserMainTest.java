@@ -268,6 +268,27 @@ public class ParserMainTest {
         assertTrue(outContent.toString().contains(expectedMessage),
                 "Expected message not found in the console output.");
     }
+    @Test
+    void parseFindTitleCommand() {
+        // Setup
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Wall");
+        String input = "find-title Great";
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent)); // Redirect standard out to capture console output
+
+        // Act
+        ParserMain.parseCommand(input, books);
+
+        // Assert
+        String output = outContent.toString();
+        assertTrue(output.contains("The Great Gatsby"), "Output should contain 'The Great Gatsby'");
+        assertTrue(output.contains("The Great Wall"), "Output should contain 'The Great Wall'");
+
+        // Cleanup
+        System.setOut(System.out); // Reset standard out
+    }
 }
 
 

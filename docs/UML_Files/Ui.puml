@@ -1,0 +1,46 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam BackgroundColor white
+skinparam ArrowColor Black
+skinparam ClassBorderColor Black
+skinparam ClassFontColor Black
+
+class Ui {
+    -logo : String
+    +printWelcome() : void
+    +printLine() : void
+    +printShortLine() : void
+    +printExitMessage() : void
+    +addBookMessage(title : String) : void
+    +labelBookMessage(title : String, label : String) : void
+    +summaryBookMessage(title : String, summary : String) : void
+    +authorBookMessage(title : String, author : String) : void
+    +setGenreBookMessage(title : String, genre : String) : void
+    +exitCommandMessage() : void
+    +setRatingBookMessage(title : String, rating : int) : void
+    +removeBookMessage(index : int, books : BookList) : void
+    +helpMessage() : void
+    +printBookFound(bookTitles : ArrayList<BookMain>) : void
+    +printNoBookFound() : void
+    +printGenresFound(bookGenres : ArrayList<BookMain>) : void
+    +printNoGenresFound() : void
+    +printReadFound(bookRead : ArrayList<BookMain>) : void
+    +printNoReadFound() : void
+    +printUnreadFound(bookUnread : ArrayList<BookMain>) : void
+    +printNoUnreadFound() : void
+    +printLabelFound(bookLabel : ArrayList<BookMain>) : void
+    +printNoLabelFound() : void
+    +printRateFound(bookRate : ArrayList<BookMain>) : void
+    +printNoRateFound() : void
+    +printRateAlreadySetWarning() : void
+    +printLabelAlreadySetWarning() : void
+    +printAuthorAlreadySet(title : String, author : String) : void
+    +printDuplicateBookWarning(title : String) : void
+    +printDuplicateAuthorWarning(title : String, author : String) : void
+    +printAuthorFound(bookAuthor : ArrayList<BookMain>) : void
+    +printSingleIndentation() : void
+    +printDoubleIndentation() : void
+    +printGenreRemovedMessage(genre : String) : void
+}
+
+@enduml
