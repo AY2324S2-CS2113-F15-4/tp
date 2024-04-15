@@ -284,6 +284,23 @@ By abstracting out the parsing functionality of BookBuddy into a separate `Parse
 user input is removed from the main code. It is instead replaced by a simple interface for the user to work with, adhering to the abstraction
 concept of object-oriented programming.
 
+### Ui Class Component
+#### Overview
+The Ui class in BookBuddy serves as the primary interaction point between the user and the system. 
+It facilitates the display of messages, user prompts, and the outcomes of commands executed within the application.
+
+#### Implementation Details
+The `Ui` class is composed entirely of static methods, meaning that the state is not maintained between method calls, and no instance of Ui is ever created. 
+This design choice reflects the stateless nature of console outputs and simplifies method invocations without needing to pass around a Ui object.
+
+For commands that result in lists (such as finding books or listing genres), the `Ui` class provides methods like 
+printBookFound(), printGenresFound(), printReadFound(), and others to iterate over the list of books and display each one with a numeric index.
+
+#### Rationale for Design
+- Consistency: The Ui class provides a consistent interface for all user messages, which is crucial for a cohesive user experience.
+- Simplicity: Static methods in the Ui class simplify the calling code, as there is no need to manage Ui instances.
+- Maintenance: Centralizing user interface code in one class makes the application easier to maintain and update.
+
 ### FileStorage Class Component
 The `FileStorage` class is crucial for managing file operations in BookBuddy, such as reading from and writing to files, 
 thereby ensuring data is saved for future sessions.
