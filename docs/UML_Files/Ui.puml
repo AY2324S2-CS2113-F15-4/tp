@@ -1,9 +1,10 @@
 @startuml
-actor User
-participant "Other Classes" as OtherClasses
-participant "BookList" as BookList
-participant "BookFind" as BookFind
-participant "Ui" as Ui
+participant ":User" as User
+participant ":Other Classes" as OtherClasses
+participant ":BookList" as BookList
+participant ":BookFind" as BookFind
+participant ":Ui" as Ui
+hide footbox
 
 == Welcome Message ==
 User -> Ui : startApplication()

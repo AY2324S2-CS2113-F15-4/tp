@@ -1,13 +1,15 @@
 @startuml
-actor User
-participant "UI" as UI
-participant "ParserFind" as ParserFind
-participant "BookFind" as BookFind
-participant "BookList" as BookList
-participant "Ui" as Ui
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserFind" as ParserFind
+participant ":BookFind" as BookFind
+participant ":BookList" as BookList
+participant ":BookMain" as BookMain
+participant ":Ui" as Ui
 
-User -> UI: enter("find-title [title]")
-UI -> ParserFind: parseTitle(bookList, "[title]")
+User -> ParserMain: enter("find-title [title]")
+ParserMain -> ParserFind: parseTitle(bookList, "[title]")
 activate ParserFind
 
 ParserFind -> BookFind: findBookTitle(bookList, "[title]")

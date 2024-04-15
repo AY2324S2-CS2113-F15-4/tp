@@ -13,6 +13,8 @@
 * [User Stories](#user-stories)
 
 ## Acknowledgements
+**Thanks to Dr Akshay Narayan (module coordinator) and Jai (TA) for their guidance
+throughout the course of this project.**
 
 Reference to AB-3 Developer Guide
 * [Source URL](https://se-education.org/addressbook-level3/DeveloperGuide.html#documentation-logging-testing-configuration-dev-ops)
