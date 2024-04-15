@@ -50,3 +50,5 @@ Link should direct to my code contributions. If not, enter the link and search f
 ### Contribution to team-based tasks / Project Management
 1. Created UG v1.0 report
 2. Created project notes document for meetings
+3. Tested teammates' commands for bugs
+4. Helped to improve teammates' code 
