@@ -170,7 +170,7 @@ public class InputLooper {
                     "You're messing with me");
             if (selection == books.genreList.getAvailableGenres().size() + 1) {
                 Ui.printDoubleIndentation();
-                System.out.print("Enter the new genre:\n");
+                System.out.print("Enter the new genre, or 'exit' to go back:\n");
                 Ui.printDoubleIndentation();
                 String genre = handleSecondaryInput(scanner);
                 return NewGenreModifier.duplicateChecker(genre, books);

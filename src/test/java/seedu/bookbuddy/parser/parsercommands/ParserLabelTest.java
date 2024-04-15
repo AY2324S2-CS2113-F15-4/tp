@@ -39,9 +39,10 @@ class ParserLabelTest {
     @Test
     void testInvalidIndexOutOfRange() {
         String[] inputArray = {"label", "2 haha"};
-        Exception exception = assertThrows(BookNotFoundException.class, () -> {
-            ParserLabel.executeParseSetLabel(books, inputArray);        });
-        assertTrue(exception.getMessage().contains("Book index out of range"));
+        Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+            ParserLabel.executeParseSetLabel(books, inputArray);
+        });
+        assertTrue(exception.getMessage().contains("Invalid book index selection"));
     }
 
 }
