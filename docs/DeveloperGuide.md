@@ -210,7 +210,7 @@ class handles errors related to the
 ArrayList, throwing exceptions for invalid indexes and invalid actions based on current state (if trying to mark a book 
 that is already read).
 
-#### Implementation and Rationale
+![BookList.png](UML_diagrams/BookList.png)
 
 ### ParserMain Class Component
 The `ParserMain` class is responsible for parsing any input from the user and making sense of them to execute the correct commands.

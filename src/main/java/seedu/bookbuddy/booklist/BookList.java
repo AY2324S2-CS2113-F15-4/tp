@@ -62,8 +62,8 @@ public class BookList {
         assert title != null : "title should not be null";
         for (BookMain book : bookList.getBooks()) {
             String actualTitle = Title.getTitle(book).toLowerCase();
-            String lowercasetitle = title.toLowerCase();
-            if (actualTitle.equals(lowercasetitle)) {
+            String lowerCaseTitle = title.toLowerCase();
+            if (actualTitle.equals(lowerCaseTitle)) {
                 return true;
             }
         }
