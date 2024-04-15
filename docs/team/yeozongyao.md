@@ -24,13 +24,15 @@ Link should direct to my code contributions. If not, enter the link and search f
 4. Ability to label books with personalised labels ([PR #41](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/41))
 5. Ability to rate books between 1 and 5 ([PR #58](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/58))
 6. Ability to list the book from the highest rated to the lowest rated ([PR #58](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/58))
+7. Ability to list the genres in the genre list ([PR #191](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/191))
+8. Ability to remove a genre from the genre list ([PR #191](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/191))
 
 ### Enhancement to existing features
-1. Refactored, abstracted and modified the entire codebase for code clarity ([PR #61](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/61), [PR #72](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/72))
+1. Refactored, abstracted and modified the entire codebase for code clarity ([PR #61](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/61), [PR #72](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/72), [PR #179](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/179))
 2. Created all the custom exceptions ([PR #19](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/19))
 3. Reformat set-genre to be both multistep for normal users and single-step for pro users ([PR #57](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/57), [PR #88](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/88)) 
 4. Added assertions and logging to the codebase across multiple features ([PR #20](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/20), [PR #28](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/28/files), [PR #37](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/37))
-5. Added JUnit Test cases for label and set-genre features and other features ([PR #52](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/52))
+5. Added JUnit Test cases for label and set-genre features and other features ([PR #52](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/52), [PR #192](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/192))
 
 ### Contributions to UG
 1. Added expected output to all methods in user guide ([PR #80](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/80))
@@ -41,6 +43,8 @@ Link should direct to my code contributions. If not, enter the link and search f
 1. Added references and implementation details of set-genre feature ([PR #42](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/42))
 2. Added implementation details of label feature ([PR #161](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/161))
 3. Added Sequence diagrams for set-genre and label features ([PR #81](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/81))
+4. Added Sequence diagram for rate feature ([PR #196](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/196))
+5. Added Class diagram for BookMain class ([PR #196](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/196))
 
 ### Contribution to team-based tasks / Project Management
 1. Added external logging to logging file and disable logging in command line output ([PR #27](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/27))
@@ -52,9 +56,6 @@ Link should direct to my code contributions. If not, enter the link and search f
    - Managed releases `v1.0`, `v2.0` on GitHub ([Releases](https://github.com/AY2324S2-CS2113-F15-4/tp/releases))
 7. Updating user/developer docs that are not specific to a feature e.g. documenting the target user profile ([PR #84](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/84))
 8. Organise project meetings
-
-### Contributions beyond project team
-Coming soon.
 
 ### Community
 1. PRs reviewed: [#17](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/17)
