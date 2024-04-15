@@ -38,9 +38,12 @@ Link should direct to my code contributions. If not, enter the link and search f
 
 ### Contribution to team-based tasks / Project Management
 1. Fixed various bugs ([PR #175](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/175))
+2. Helped to write Javadoc comments
+3. Wrote v1.0 base code ([PR #13](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/13))
+4. Helped to link and close issues ([Issues](https://github.com/AY2324S2-CS2113-F15-4/tp/issues))
 
 ### Contributions beyond project team
-Coming soon.
+1. Treated team with bubble tea to boost morale
 
 ### Community
-1. PRs reviewed: 
+1. PRs reviewed: [#188](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/188)
