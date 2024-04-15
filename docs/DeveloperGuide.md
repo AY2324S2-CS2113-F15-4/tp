@@ -252,6 +252,9 @@ Integrated Search within BookList: Initially considered integrating all search f
 This design ensures that the system remains adaptable, with BookFind serving a specific role that complements the existing structure without overcrowding individual components. The implementation details provided cater to a broad range of user needs, making the application a comprehensive tool for managing and retrieving book information efficiently.
 ![BookFind.png](UML_diagrams/BookFind.png)
 
+The sequence diagram below shows how user input is processed to carry out the find book command.
+![BookFindSequenceDiagram.png](UML_diagrams/BookFindSequenceDiagram.png)
+
 ### ParserMain Class Component
 The `ParserMain` class is responsible for parsing any input from the user and making sense of them to execute the correct commands.
 

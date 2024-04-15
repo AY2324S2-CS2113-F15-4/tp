@@ -1,0 +1,40 @@
+@startuml
+actor User
+participant "UI" as UI
+participant "ParserFind" as ParserFind
+participant "BookFind" as BookFind
+participant "BookList" as BookList
+participant "Ui" as Ui
+
+User -> UI: enter("find-title [title]")
+UI -> ParserFind: parseTitle(bookList, "[title]")
+activate ParserFind
+
+ParserFind -> BookFind: findBookTitle(bookList, "[title]")
+activate BookFind
+
+loop for each book in bookList
+    BookFind -> BookList: getBooks()
+    activate BookList
+    BookList --> BookFind: books
+    deactivate BookList
+
+    BookFind -> BookMain: getTitle()
+    activate BookMain
+    BookMain --> BookFind: title
+    deactivate BookMain
+
+    alt if title contains "[title]"
+        BookFind -> BookMain: add to bookTitles
+    end
+end
+
+alt if bookTitles is not empty
+    BookFind -> Ui: printBookFound(bookTitles)
+else
+    BookFind -> Ui: printNoBookFound()
+end
+
+deactivate BookFind
+Ui -> User: display result
+@enduml
