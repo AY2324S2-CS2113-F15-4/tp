@@ -26,9 +26,9 @@ Link should direct to my code contributions. If not, enter the link and search f
 
 ### Enhancement to existing features
 1. Created Utilities package for getting and converting DateTime to Strings ([PR #146](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/146))
-2. Reformat BookList to check allow checking and handling of duplicate books and authors ([PR #169](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/169)
+2. Reformat BookList to allow checking and handling of duplicate books and authors ([PR #169](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/169)
 3. Added assertions and logging to the codebase for features including Author ([PR #168](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/168)
-4. Added JUnit Test cases for author feature and BookList methods ([PR #169](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/169)), ([PR #17](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/17))
+4. Added JUnit Test cases for Author class and BookList methods ([PR #169](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/169)), ([PR #17](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/17))
 
 ### Contributions to UG
 1. Added UG documentation for all features that I implemented ([PR #171](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/171)), ([PR #154](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/154))([PR #95](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/95))

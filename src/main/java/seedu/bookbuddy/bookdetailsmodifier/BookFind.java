@@ -194,7 +194,7 @@ public class BookFind {
             }
         }
         if (bookAuthor.isEmpty()){
-            Ui.printNoLabelFound();
+            Ui.printNoAuthorFound();
         } else {
             Ui.printLine();
             System.out.println("books written by [" + input.toLowerCase() + "] :");
