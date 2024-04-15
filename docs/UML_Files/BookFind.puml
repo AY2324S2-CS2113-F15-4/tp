@@ -1,0 +1,49 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+left to right direction
+scale 2000 * 1500
+
+class BookFind {
+    +findBookTitle(bookList: BookList, input: String) : void
+    +findBookGenre(bookList: BookList, input: String) : void
+    +findBookGenreLong(bookList: BookList, input: String) : void
+    +findRead(bookList: BookList) : void
+    +findUnread(bookList: BookList) : void
+    +findLabel(bookList: BookList, input: String) : void
+    +findRate(bookList: BookList, input: String) : void
+    +findAuthor(bookList: BookList, input: String) : void
+}
+
+class BookList {
+    -books : ArrayList<BookMain>
+    +getBooks() : List<BookMain>
+}
+
+class BookMain {
+    #title : String
+    #author : Author
+    #genre : Genre
+    #label : Label
+    #read : Read
+    #rating : Rating
+}
+
+class Ui {
+    +printNoBookFound() : void
+    +printNoGenresFound() : void
+    +printNoReadFound() : void
+    +printNoUnreadFound() : void
+    +printNoLabelFound() : void
+    +printBookFound(books : ArrayList<BookMain>) : void
+    +printGenresFound(books : ArrayList<BookMain>) : void
+    +printReadFound(books : ArrayList<BookMain>) : void
+    +printUnreadFound(books : ArrayList<BookMain>) : void
+    +printLabelFound(books : ArrayList<BookMain>) : void
+    +printRateFound(books : ArrayList<BookMain>) : void
+}
+
+BookFind --> BookList : uses
+BookFind --> Ui : uses
+BookMain ..> BookFind : used by
+@enduml
