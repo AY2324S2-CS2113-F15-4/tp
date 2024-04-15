@@ -38,7 +38,7 @@ public class ParserMain {
      * @param books ArrayList of books
      */
     public static void parseCommand(String input, BookList books) {
-        String[] inputArray = input.split(" ", 2);
+        String[] inputArray = input.split("\\s+", 2);
         String command = inputArray[0].toLowerCase();
         LOGGER.log(Level.FINE, "Parsing command: {0}", command);
         try {
