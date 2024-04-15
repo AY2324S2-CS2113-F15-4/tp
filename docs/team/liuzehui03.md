@@ -20,33 +20,33 @@ Link should direct to my code contributions. If not, enter the link and search f
 
 ### New Features
 1. Ability to find books according to different requirements
-   2. title
-   3. read status
-   4. genre
-   4. label
-   5. rating
-   6. author
-7. Ui class and the expected outputs
+   2. title ([PR #53](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/53))
+   3. read status ([PR #86](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/86))
+   4. genre ([PR #75](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/75))
+   4. label ([PR #101](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/101))
+   5. rating  ([PR #151](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/151))
+   6. author ([PR #173](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/173))
+7. Ui class and the expected outputs ([PR #21](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/21))
 
 ### Enhancement to existing Features
 1. Reformat find-genre to be both multistep for normal users and single-step for pro users
 2. Integrated use of Ui class to some functions
 
 ### Contributions to UG
-1. Added Ug documentation for all find features
+1. Added Ug documentation for all find features 
    2. find-title
-   3. find-read / find-unread
+   3. find-read / find-unread 
    4. find-genre
-   4. find-label
+   4. find-label 
    5. find-rate
-   6. find-author
+   6. find-author 
 
 ### Contributions to DG
-1. Added implementation details of find function
-2. Added Class Diagram for BookFind
-3. Added Sequence Diagram for BookFind
-4. Added implementation details of Ui class
-5. Added Sequence Diagram for Ui
+1. Added implementation details of find function ([PR #202](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/202))
+2. Added Class Diagram for BookFind ([PR #202](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/202))
+3. Added Sequence Diagram for BookFind ([PR #203](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/203))
+4. Added implementation details of Ui class ([PR #206](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/206))
+5. Added Sequence Diagram for Ui ([PR #215](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/215))
 
 ### Contribution to team-based tasks / Project Management
 1. Fixed various bugs
