@@ -84,4 +84,12 @@ class BookListTest {
         assertEquals("[U] Harry Potter", bookList.getBook(1).toString());
     }
 
+    //@lordgareth10
+    @Test
+    void checkDuplicateBookTitle() {
+        BookList bookList = new BookList();
+        BookListModifier.addBook(bookList, "Harry Potter");
+        assertTrue(BookList.checkDuplicateBookTitle(bookList, "Harry Potter"));
+    }
+
 }

@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserMark" as ParserMark
+participant ":BookListModifier" as BookListModifier
+participant ":BookList" as BookList
+participant ":Ui" as Ui
+participant ":Exceptions" as Exceptions
+
+User -> ParserMain : mark [BOOK_INDEX]
+activate ParserMain
+
+alt input is MARK_COMMAND
+    ParserMain -> ParserMark : executeParseMark(books, inputArray)
+    activate ParserMark
+    ParserMark --> BookListModifier : markDoneByIndex(books, index)
+    activate BookListModifier
+    BookListModifier --> BookList: getBook(index)
+    activate BookList
+    BookList --> BookListModifier : return book
+    deactivate BookList
+    BookListModifier -> BookListModifier : markBookAsRead(book)
+    BookListModifier --> Ui : markBookMessage(title)
+    activate Ui
+    Ui --> User : message
+    Ui --> BookListModifier
+    deactivate Ui
+    BookListModifier --> ParserMark
+    deactivate BookListModifier
+    ParserMark --> ParserMain
+    deactivate ParserMark
+alt other commands
+    ParserMain -> ParserMain : handleOtherCommands()
+else unsupported command
+    ParserMain -> Exceptions : handleException(e, command, inputArray)
+    activate Exceptions
+    Exceptions --> User : exception message
+    Exceptions --> ParserMain
+    deactivate Exceptions
+end
+
+ParserMain --> User : getUserInput(books)
+
+@enduml

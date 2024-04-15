@@ -1,0 +1,59 @@
+@startuml
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserAuthor" as ParserAuthor
+participant ":BookList" as BookList
+participant ":Ui" as Ui
+participant ":Exceptions" as Exceptions
+participant ":BookAuthor" as BookAuthor
+participant ":Author" as Author
+
+User -> ParserMain : set-author [BOOK_INDEX] [AUTHOR]
+activate ParserMain
+
+alt input is AUTHOR_COMMAND
+    ParserMain -> ParserAuthor : executeParseAuthor(books, inputArray)
+    activate ParserAuthor
+    ParserAuthor -> ParserAuthor : parseAuthor(books, inputArray)
+    activate ParserAuthor
+    ParserAuthor -> BookList : getBook(index)
+    activate BookList
+    BookList --> ParserAuthor : return book
+    deactivate BookList
+    ParserAuthor -> Author : getAuthor(book)
+    activate Author
+    Author --> ParserAuthor : return author
+    deactivate Author
+    alt author matches existing author
+        ParserAuthor -> Ui : printAuthorAlreadySet(title, author)
+        activate Ui
+        Ui --> User : message
+        deactivate Ui
+    else duplicate author
+        ParserAuthor -> Ui : printDuplicateAuthorWarning(title, author)
+        activate Ui
+        Ui --> User : message
+        deactivate Ui
+    else
+        ParserAuthor -> BookAuthor : setBookAuthorByIndex(index, author, books)
+        activate BookAuthor
+        BookAuthor -> BookList : setAuthor(book, author)
+        deactivate BookAuthor
+        BookList -> Ui : authorBookMessage(title, author)
+        activate Ui
+        Ui --> User : message
+        deactivate Ui
+    end
+    ParserAuthor --> ParserMain
+    deactivate ParserAuthor
+else unsupported command
+    ParserMain -> Exceptions : handleException(e, command, inputArray)
+    activate Exceptions
+    Exceptions --> User : exception message
+    deactivate Exceptions
+end
+
+ParserMain --> User : getUserInput(books)
+
+@enduml

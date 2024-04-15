@@ -9,6 +9,7 @@ import seedu.bookbuddy.book.Label;
 import seedu.bookbuddy.book.Rating;
 import seedu.bookbuddy.book.Read;
 import seedu.bookbuddy.book.Title;
+import seedu.bookbuddy.book.Summary;
 import seedu.bookbuddy.bookdetailsmodifier.BookMark;
 import seedu.bookbuddy.booklist.BookList;
 import seedu.bookbuddy.booklist.BookListModifier;
@@ -99,6 +100,32 @@ public class ParserMainTest {
     }
 
     @Test
+    void parseInvalidListCommandThrowsException() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "Don Quixote");
+        String input = "list 2";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "ALl the list commands do not require any further arguments, just type `list`, " +
+                "`list-rated`, `list-genre` or `list-by-date`";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
+    void parseInvalidListByDateCommandThrowsException() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "Don Quixote");
+        String input = "list-by-date 2";
+        ParserMain.parseCommand(input, books); // Execute the command that should trigger the error message
+
+        String expectedOutput = "ALl the list commands do not require any further arguments, just type `list`, " +
+                "`list-rated`, `list-genre` or `list-by-date`";
+        assertTrue(outContent.toString().contains(expectedOutput),
+                "Expected output message not found in the console output.");
+    }
+
+    @Test
     void parseAddCommand() {
         BookList testBookList = new BookList();
         ParserMain.parseCommand("add The Great Gatsby", testBookList);
@@ -150,6 +177,107 @@ public class ParserMainTest {
     }
 
     @Test
+    void parseFindTitleCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-title great", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "books with [great] in the title: \n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] The Great Gareth\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void parseFindLabelCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ParserMain.parseCommand("label 1 fantastic", books);
+        ParserMain.parseCommand("label 3 fantastic", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-label fantastic", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "books with [fantastic] in their label:\n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] Percy Jackson\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void parseFindAuthorCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ParserMain.parseCommand("set-author 1 joy", books);
+        ParserMain.parseCommand("set-author 3 joy", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-author joy", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "books written by [joy] :\n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] Percy Jackson\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void parseFindRatedCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        ParserMain.parseCommand("rate 1 5", books);
+        ParserMain.parseCommand("rate 3 5", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-rate 5", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "books rated [5] :\n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] Percy Jackson\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
     void parseAuthorCommand() {
         BookList testBookList = new BookList();
         ParserMain.parseCommand("add The Great Gatsby", testBookList);
@@ -178,11 +306,32 @@ public class ParserMainTest {
     }
 
     @Test
+    void parseMarkCommandWithSpace() {
+        BookList books = new BookList();
+        System.out.println(books.getSize());
+        BookListModifier.addBook(books, "The Great Gatsby");
+        System.out.println(books);
+        ParserMain.parseCommand("mark         1", books);
+        System.out.println(books);
+        BookMark.markDoneByIndex(books, 1);
+        assertTrue(Read.getRead(books.getBook(1)));
+    }
+
+    @Test
     void parseUnmarkCommand() {
         BookList books = new BookList();
         BookListModifier.addBook(books, "The Great Gatsby");
         ParserMain.parseCommand("mark 1", books);
         ParserMain.parseCommand("unmark 1", books);
+        assertFalse(Read.getRead(books.getBook(1)));
+    }
+
+    @Test
+    void parseUnmarkCommandWithSpace() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        ParserMain.parseCommand("mark 1", books);
+        ParserMain.parseCommand("unmark       1", books);
         assertFalse(Read.getRead(books.getBook(1)));
     }
 
@@ -228,6 +377,17 @@ public class ParserMainTest {
         ParserMain.parseCommand("rate 2 3", books);
         assertEquals(5, Rating.getRating(books.getBook(1)));
         assertEquals(3, Rating.getRating(books.getBook(2)));
+    }
+
+    @Test
+    void parseSummaryCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "Geronimo");
+        ParserMain.parseCommand("give-summary 1 boring af", books);
+        ParserMain.parseCommand("give-summary 2 torture", books);
+        assertEquals("boring af", Summary.getSummary(books.getBook(1)));
+        assertEquals("torture", Summary.getSummary(books.getBook(2)));
     }
 
     @Test

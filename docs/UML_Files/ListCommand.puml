@@ -1,0 +1,53 @@
+@startuml
+hide footbox
+participant ":User" as User
+participant ":ParserMain" as ParserMain
+participant ":ParserList" as ParserList
+participant ":BookList" as BookList
+participant ":BookDisplay" as BookDisplay
+participant ":Ui" as Ui
+participant ":Exceptions" as Exceptions
+participant ":BookMain" as BookMain
+
+User -> ParserMain : list [OPTION]
+activate ParserMain
+
+ParserMain -> ParserList : executeParseList(books, inputArray, command)
+activate ParserList
+
+alt input is LIST_COMMAND
+    ParserList -> BookDisplay : printAllBooks(books)
+    activate BookDisplay
+    loop for each book in BookList
+        BookDisplay -> BookList : getBook(i)
+        activate BookList
+        BookList -> BookMain : return book
+        deactivate BookList
+        BookDisplay -> Ui : print book details
+        deactivate BookDisplay
+    end
+    Ui --> User : show all books
+    deactivate Ui
+else input is DISPLAY_DETAILS_COMMAND
+    ParserList -> BookDisplay : displayDetails(index, books)
+    activate BookDisplay
+    BookDisplay -> BookList : getBook(index)
+    activate BookList
+    BookList --> BookDisplay : return book
+    deactivate BookList
+    BookDisplay -> Ui : display book details
+    deactivate BookDisplay
+    Ui --> User : show book details
+    deactivate Ui
+else
+    ParserList -> Exceptions : handleException(unsupportedCommandException)
+    activate Exceptions
+    Exceptions --> User : display error message
+    deactivate Exceptions
+end
+
+ParserList --> ParserMain : return
+deactivate ParserList
+ParserMain --> User : completion signal
+
+@enduml
