@@ -3,7 +3,6 @@ package seedu.bookbuddy.parser;
 import exceptions.UnsupportedCommandException;
 
 import seedu.bookbuddy.booklist.BookList;
-import seedu.bookbuddy.Ui;
 import seedu.bookbuddy.parser.parsercommands.ParserAdd;
 import seedu.bookbuddy.parser.parsercommands.ParserAuthor;
 import seedu.bookbuddy.parser.parsercommands.ParserDisplay;
@@ -17,6 +16,7 @@ import seedu.bookbuddy.parser.parsercommands.ParserSummary;
 import seedu.bookbuddy.parser.parsercommands.ParserUnmark;
 import seedu.bookbuddy.parser.parsercommands.parsegenre.ParserGenre;
 import seedu.bookbuddy.parser.parsercommands.parserating.ParserRating;
+import seedu.bookbuddy.parser.parsercommands.ParserHelp;
 
 import seedu.bookbuddy.parser.parservalidation.CommandList;
 import seedu.bookbuddy.parser.parservalidation.Exceptions;
@@ -74,7 +74,7 @@ public class ParserMain {
                 ParserUnmark.executeParseUnmark(books, inputArray);
                 break;
             case CommandList.HELP_COMMAND:
-                Ui.helpMessage();
+                ParserHelp.executeParseHelp(inputArray);
                 break;
             case CommandList.FIND_TITLE_COMMAND:
                 ParserFind.parseTitle(books, inputArray[1]);
