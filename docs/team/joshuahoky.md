@@ -27,6 +27,8 @@ Link should direct to my code contributions. If not, enter the link and search f
 1. Added exception handling to prevent program from crashing when text file data is corrupted
 2. Added exception handling for ParserMain class to handle invalid input
 3. Created more specific exception messages when removing a book
+4. Added JUnit tests for remove features
+5. Added assertions for display and remove features
 
 ### Contributions to UG
 1. Wrote the skeleton for the UG with the appropriate headers
