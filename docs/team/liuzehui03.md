@@ -26,7 +26,7 @@ Link should direct to my code contributions. If not, enter the link and search f
    4. label
    5. rating
    6. author
-7. Ui class, specifically the expected outputs
+7. Ui class and the expected outputs
 
 ### Enhancement to existing Features
 1. Reformat find-genre to be both multistep for normal users and single-step for pro users
@@ -45,3 +45,9 @@ Link should direct to my code contributions. If not, enter the link and search f
 1. Added implementation details of find function
 2. Added Class Diagram for BookFind
 3. Added Sequence Diagram for BookFind
+4. Added implementation details of Ui class
+
+### Contribution to team-based tasks / Project Management
+1. Fixed various bugs
+2. Created, managed and closed issues
+
