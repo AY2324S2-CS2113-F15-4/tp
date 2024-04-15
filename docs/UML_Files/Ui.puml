@@ -1,46 +1,60 @@
 @startuml
-skinparam classAttributeIconSize 0
-skinparam BackgroundColor white
-skinparam ArrowColor Black
-skinparam ClassBorderColor Black
-skinparam ClassFontColor Black
+actor User
+participant "Other Classes" as OtherClasses
+participant "BookList" as BookList
+participant "BookFind" as BookFind
+participant "Ui" as Ui
 
-class Ui {
-    -logo : String
-    +printWelcome() : void
-    +printLine() : void
-    +printShortLine() : void
-    +printExitMessage() : void
-    +addBookMessage(title : String) : void
-    +labelBookMessage(title : String, label : String) : void
-    +summaryBookMessage(title : String, summary : String) : void
-    +authorBookMessage(title : String, author : String) : void
-    +setGenreBookMessage(title : String, genre : String) : void
-    +exitCommandMessage() : void
-    +setRatingBookMessage(title : String, rating : int) : void
-    +removeBookMessage(index : int, books : BookList) : void
-    +helpMessage() : void
-    +printBookFound(bookTitles : ArrayList<BookMain>) : void
-    +printNoBookFound() : void
-    +printGenresFound(bookGenres : ArrayList<BookMain>) : void
-    +printNoGenresFound() : void
-    +printReadFound(bookRead : ArrayList<BookMain>) : void
-    +printNoReadFound() : void
-    +printUnreadFound(bookUnread : ArrayList<BookMain>) : void
-    +printNoUnreadFound() : void
-    +printLabelFound(bookLabel : ArrayList<BookMain>) : void
-    +printNoLabelFound() : void
-    +printRateFound(bookRate : ArrayList<BookMain>) : void
-    +printNoRateFound() : void
-    +printRateAlreadySetWarning() : void
-    +printLabelAlreadySetWarning() : void
-    +printAuthorAlreadySet(title : String, author : String) : void
-    +printDuplicateBookWarning(title : String) : void
-    +printDuplicateAuthorWarning(title : String, author : String) : void
-    +printAuthorFound(bookAuthor : ArrayList<BookMain>) : void
-    +printSingleIndentation() : void
-    +printDoubleIndentation() : void
-    +printGenreRemovedMessage(genre : String) : void
-}
+== Welcome Message ==
+User -> Ui : startApplication()
+activate Ui
+Ui -> Ui : printWelcome()
+Ui --> User : [Display Welcome Message]
+deactivate Ui
+
+== Add Book ==
+User -> OtherClasses : addBook("1984")
+OtherClasses -> Ui : addBookMessage("1984")
+activate Ui
+Ui -> Ui : printShortLine()
+Ui -> Ui : [Print Book Added Message]
+Ui -> Ui : printShortLine()
+Ui --> User : [Display Add Book Message]
+deactivate Ui
+
+== Find Book ==
+User -> BookFind : findBookTitle(bookList, "1984")
+BookFind -> BookList : getBooks()
+BookList -> BookFind : return books
+BookFind -> Ui : printBookFound(books)
+activate Ui
+Ui -> Ui : [Print Book Found]
+Ui --> User : [Display Found Books]
+deactivate Ui
+
+== Remove Book ==
+User -> OtherClasses : removeBook(2)
+OtherClasses -> BookList : getBook(2)
+BookList -> OtherClasses : return book
+OtherClasses -> Ui : removeBookMessage(2, bookList)
+activate Ui
+Ui -> Ui : [Print Book Removed Message]
+Ui --> User : [Display Book Removed Message]
+deactivate Ui
+
+== Error Handling ==
+OtherClasses -> Ui : printNoBookFound()
+activate Ui
+Ui -> Ui : [Print No Book Found Message]
+Ui --> User : [Display Error Message]
+deactivate Ui
+
+== Exit Application ==
+User -> Ui : exitApplication()
+activate Ui
+Ui -> Ui : printExitMessage()
+Ui --> User : [Display Exit Message]
+deactivate Ui
 
 @enduml
+
