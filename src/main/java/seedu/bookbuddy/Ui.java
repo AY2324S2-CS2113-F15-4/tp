@@ -70,10 +70,12 @@ public class Ui {
         System.out.println("Here's a list of commands to get you started!!");
         System.out.println("add [BOOK_TITLE] -> to add new books to the list");
         System.out.println("remove [BOOK_INDEX] -> to remove a book from the list");
+        System.out.println("remove-genre [GENRE_INDEX] -> to remove a genre from the genre list");
         System.out.println("list -> to show whole list of added books");
         System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
         System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
         System.out.println("list-by-date -> to print out all books sorted in descending order of date");
+        System.out.println("list-genre - > to print out all genres");
         System.out.println("(basic) set-genre [BOOK_INDEX] -> to set a genre for a book");
         System.out.println("(advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book");
         System.out.println("set-author [BOOK_INDEX] [BOOK_AUTHOR] -> to set an author for a book");
