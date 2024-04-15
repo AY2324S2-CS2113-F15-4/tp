@@ -51,5 +51,3 @@ Link should direct to my code contributions. If not, enter the link and search f
 1. Fixed various bugs
 2. Created, managed and closed issues
 
-### Community
-1. PRs reviewed: [#17](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/17)
