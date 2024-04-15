@@ -28,15 +28,13 @@ public class ParserLabel {
         assert labelMessageParts.length == 2 : "Command requires an index and a label message";
         try {
             index = Integer.parseInt(labelMessageParts[0].trim());
-            if (index < 0 || index > books.getSize()) {
-                throw new IndexOutOfBoundsException("Invalid book index (out of range). Please enter a valid " +
-                        "index.");
+            if (index <= 0 || index > books.getSize()) {
+                throw new IndexOutOfBoundsException("Invalid book index selection. Please enter a valid index. " +
+                        "Type 'list' to view the list of books.");
             }
             assert index > 0 : "Index should be non-negative";
         } catch (NumberFormatException e) {
             System.out.println(labelMessageParts[0] + " is not a valid index format.");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
         }
         Exceptions.validateCommandArguments(labelMessageParts, 2, "You " +
                 "need to have a label message");

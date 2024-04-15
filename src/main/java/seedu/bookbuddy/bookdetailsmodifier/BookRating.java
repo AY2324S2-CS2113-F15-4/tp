@@ -44,8 +44,9 @@ public class BookRating {
      */
     public static void setBookRatingByIndex(int index, int rating, BookList books)
             throws IndexOutOfBoundsException, IllegalArgumentException {
-        if (index < 0 || index > books.getSize()) {
-            throw new IndexOutOfBoundsException("Invalid book index selection. Please enter a valid index.");
+        if (index <= 0 || index > books.getSize()) {
+            throw new IndexOutOfBoundsException("Invalid book index selection. Please enter a valid index. " +
+                    "Type 'list' to view the list of books.");
         }
         if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Rating must be between 1 and 5.");
