@@ -75,8 +75,10 @@ list -> to show whole list of added books
 mark [BOOK_INDEX] -> to mark book as read [R]
 unmark [BOOK_INDEX] -> to mark book as unread [U]
 list-by-date -> to print out all books sorted in descending order of date
+list-genre -> to see all genres stored in the list
 (basic) set-genre [BOOK_INDEX] -> to set a genre for a book
 (advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book
+remove-genre -> to remove a specific genre from the list
 set-author [BOOK_INDEX] [BOOK_AUTHOR] -> to set an author for a book")
 label [BOOK_INDEX] [LABEL] -> to set a label for a book
 give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary

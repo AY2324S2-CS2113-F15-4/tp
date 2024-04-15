@@ -74,8 +74,10 @@ public class Ui {
         System.out.println("mark [BOOK_INDEX] -> to mark book as read [R]");
         System.out.println("unmark [BOOK_INDEX] -> to mark book as unread [U]");
         System.out.println("list-by-date -> to print out all books sorted in descending order of date");
+        System.out.println("list-genre -> to see all genres stored in the list");
         System.out.println("(basic) set-genre [BOOK_INDEX] -> to set a genre for a book");
         System.out.println("(advanced) set-genre [BOOK_INDEX] [GENRE] -> to set a genre for a book");
+        System.out.println("remove-genre -> to remove a specific genre from the list");
         System.out.println("set-author [BOOK_INDEX] [BOOK_AUTHOR] -> to set an author for a book");
         System.out.println("label [BOOK_INDEX] [LABEL] -> to set a label for a book");
         System.out.println("give-summary [BOOK_INDEX] [BOOK_SUMMARY] -> to give a book a summary");
