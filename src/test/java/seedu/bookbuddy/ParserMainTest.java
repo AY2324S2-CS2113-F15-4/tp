@@ -252,6 +252,61 @@ public class ParserMainTest {
     }
 
     @Test
+    void parseFindReadCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        // Mark the first and third books as read
+        ParserMain.parseCommand("mark 1", books);
+        ParserMain.parseCommand("mark 3", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-read", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "Read books: \n" +
+                "1. [R] The Great Gatsby\n" +
+                "2. [R] Percy Jackson\n" +
+                "gd job! hope u enjoyed these books \n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void parseFindUnreadCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "The Great Gareth");
+        BookListModifier.addBook(books, "Percy Jackson");
+
+        // Mark the second book as read to leave the others as unread
+        ParserMain.parseCommand("mark 2", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-unread", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "Unread books: \n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] Percy Jackson\n" +
+                "do rmb to read these books soon!\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
     void parseFindRatedCommand() {
         BookList books = new BookList();
         BookListModifier.addBook(books, "The Great Gatsby");
