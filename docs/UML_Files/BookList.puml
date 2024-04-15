@@ -1,0 +1,21 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class BookList {
+    - books : ArrayList<BookMain>
+    + genreList : GenreList
+    + BookList()
+    + getBooks() : List<BookMain>
+    + getSize() : int
+    + getBook(index : int) : BookMain
+    + checkDuplicateBookTitle(bookList : BookList, title : String) : boolean
+    + checkDuplicateBookAuthor(bookList : BookList, author : String, title : String) : boolean
+}
+
+class BookNotFoundException {
+}
+
+BookList ..> BookNotFoundException : throws
+
+@enduml

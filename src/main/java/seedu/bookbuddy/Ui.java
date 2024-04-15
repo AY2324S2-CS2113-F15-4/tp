@@ -89,6 +89,7 @@ public class Ui {
         System.out.println("find-unread -> to find list of books that are unread");
         System.out.println("find-label [KEYWORD] -> to find list of books that stored under a certain label");
         System.out.println("find-rate [RATING] -> to find list of books with specified rating");
+        System.out.println("find-author [AUTHOR] -> to find list of books written by specific author");
         System.out.println("bye -> to exit BookBuddy software");
     }
 

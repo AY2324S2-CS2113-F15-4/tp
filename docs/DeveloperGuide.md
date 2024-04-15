@@ -210,7 +210,50 @@ class handles errors related to the
 ArrayList, throwing exceptions for invalid indexes and invalid actions based on current state (if trying to mark a book 
 that is already read).
 
-#### Implementation and Rationale
+![BookList.png](UML_diagrams/BookList.png)
+
+### BookFind Class Component
+BookFind class provides functionality to search for books in a list based on various criteria such as title, genre, read status, label, rating, and author.
+This allows users to easily locate books based on specific requirements or preferences.
+
+#### Architecture-Level Design
+The book management system incorporates the BookFind class under the data model layer, enhancing the system's capability to filter and search books efficiently:
+
+- `UI Layer`: Interacts with the user, receiving input commands for searches and displaying the relevant search results.
+- Command Parser Layer: Identifies and parses the search command, then delegates the task to the BookFind class for processing the query.
+- Data Model Layer: Executes the search functionality through the BookFind class, accessing and filtering the BookList based on the provided criteria.
+
+#### Component-Level Design
+- `UI`: Provides interaction points for input and output, guiding the user through the process and displaying the results of the search.
+- `ParserMain` (Command Parser Layer): Serves as the initial interpreter for all commands, including search commands, which it then forwards to the appropriate method in BookFind for action.
+- `BookFind` (Data Model Layer): Handles the specifics of each search type (e.g., by title, genre, rating), returning results back to the UI.
+
+#### Implementation Details
+`BookFind` includes several methods to support different search criteria:
+
+- `findBookTitle`(BookList bookList, String input): Searches books by titles that contain the given substring.
+- `findBookGenre`(BookList bookList, String input): Finds books with an exact genre match.
+- `findBookGenreLong`(BookList bookList, String input): Locates books by genres that contain the specified substring.
+- `findRead`(BookList bookList): Retrieves all books that have been marked as read.
+- `findUnread`(BookList bookList): Retrieves all books that have not been marked as read.
+- `findLabel`(BookList bookList, String input): Searches for books with labels containing the given substring.
+- `findRate`(BookList bookList, String input): Finds books with the exact rating specified.
+- `findAuthor`(BookList bookList, String input): Searches for books by authors whose names contain the given substring.
+
+Each method operates by iterating over the books ArrayList from the BookList class, checking for matches based on the method's criteria. If matches are found, they are added to a result list and printed; 
+if no matches are found, a message indicating no results is printed.
+
+#### Rationale for Design
+Flexibility and Extensibility: Each search function is implemented as a separate method, allowing easy extension or modification, such as adding new search criteria.
+Single Responsibility Principle: BookFind is dedicated solely to the search functionality, making the class more maintainable and the system more robust against changes.
+
+#### Alternatives Considered
+Integrated Search within BookList: Initially considered integrating all search functionalities directly into the BookList class. However, separating them into BookFind maintains cleaner code and adheres to the Single Responsibility Principle, enhancing maintainability and scalability.
+This design ensures that the system remains adaptable, with BookFind serving a specific role that complements the existing structure without overcrowding individual components. The implementation details provided cater to a broad range of user needs, making the application a comprehensive tool for managing and retrieving book information efficiently.
+![BookFind.png](UML_diagrams/BookFind.png)
+
+The sequence diagram below shows how user input is processed to carry out the find book command.
+![BookFindSequenceDiagram.png](UML_diagrams/BookFindSequenceDiagram.png)
 
 ### ParserMain Class Component
 The `ParserMain` class is responsible for parsing any input from the user and making sense of them to execute the correct commands.
@@ -298,6 +341,7 @@ Saves time and effort as compared to using GUI-based book tracking apps.
 | v2.0    | user     | filter books by status                          | remember which books I have read / yet to read                |
 | v2.0    | user     | filter books by label                           | see the list of books which I have assigned a custom label to |
 | v2.0    | user     | filter books by specific rating                 | view a smaller list of books of a certain score               |
+| v2.0    | user     | filter books by author                          | find the books written by my favorite author                  |
 
 
 
