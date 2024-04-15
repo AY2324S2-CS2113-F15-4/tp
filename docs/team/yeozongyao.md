@@ -58,5 +58,8 @@ Link should direct to my code contributions. If not, enter the link and search f
 8. Organise project meetings
 9. Update the main ReadMe Page
 
+### Contribution beyond project team
+1. Reported 5 bugs in PE Dry Run
+
 ### Community
 1. PRs reviewed: [#17](https://github.com/AY2324S2-CS2113-F15-4/tp/pull/17)
