@@ -87,6 +87,7 @@ find-read -> to find list of books that are read
 find-unread -> to find list of books that are unread
 find-label [KEYWORD] -> to find list of books that stored under a certain label
 find-rate [RATING] -> to find list of books with specified rating
+find-author [AUTHOR] -> to find list of books written by specific author
 bye -> to exit BookBuddy software
 ```
 

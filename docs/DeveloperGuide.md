@@ -298,7 +298,7 @@ Saves time and effort as compared to using GUI-based book tracking apps.
 | v2.0    | user     | filter books by status                          | remember which books I have read / yet to read                |
 | v2.0    | user     | filter books by label                           | see the list of books which I have assigned a custom label to |
 | v2.0    | user     | filter books by specific rating                 | view a smaller list of books of a certain score               |
-| v2.0    | user     | filter books by author                          |                                                               |
+| v2.0    | user     | filter books by author                          | find the books written by my favorite author                  |
 
 
 
