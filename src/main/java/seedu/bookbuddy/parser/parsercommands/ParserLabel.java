@@ -23,7 +23,7 @@ public class ParserLabel {
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray,2, "The Label " +
                 "Command requires a book index and label");
-        String[] labelMessageParts = inputArray[1].trim().split(" ", 2);
+        String[] labelMessageParts = inputArray[1].trim().split("\\s+", 2);
         // Split the message into index and label message
         assert labelMessageParts.length == 2 : "Command requires an index and a label message";
         try {

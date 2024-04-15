@@ -11,7 +11,7 @@ public class ParserSummary {
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray,2, "The summary " +
                 "Command requires a book index and summary");
-        String[] summaryMessageParts = inputArray[1].trim().split(" ", 2);
+        String[] summaryMessageParts = inputArray[1].trim().split("\\s+", 2);
         assert summaryMessageParts.length == 2 : "Command requires an index and a summary message";
         Exceptions.validateCommandArguments(summaryMessageParts,2, "The command " +
                 "is `give-summary [INDEX] [SUMMARY]`... dont test me dawg");

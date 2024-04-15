@@ -15,7 +15,7 @@ public class RatingChecks {
      * @throws IllegalArgumentException If either the book index or the rating is not a valid integer.
      */
     static String[] getRatingParts(String[] inputArray) {
-        String[] ratingParts = inputArray[1].trim().split(" ", 2);
+        String[] ratingParts = inputArray[1].trim().split("\\s+", 2);
         // Split the message into index and label message
         assert ratingParts.length == 2 : "Command requires an index and a rating";
         if (ratingParts.length < 2) {
