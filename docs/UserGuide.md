@@ -232,20 +232,26 @@ Available genres:
 4. Science Fiction
 5. Fantasy
 6. Add a new genre
-Enter the number for the desired genre, or add a new one:
+----Enter the number for the desired genre, or add a new one, or 'exit' to go back:
 
+//Enter the number for the desired genre, or add a new one:
 //input
 6
 
 //output
-Enter the new genre:
+--------Enter the new genre, or 'exit' to go back:
 
 //input
 satire
 
 //output
-okii categorised [animal farm] as [satire]
-remember to read it soon....
+___________________________________
+Added new genre to the list: satire
+_____________
+okii categorised [e] as [satire]
+_____________
+
+
 ```
 
 For advanced users:
@@ -259,8 +265,13 @@ Example of usage with expected output:
 set-genre 1 Fiction
 
 //output
-okii categorised [Harry Potter] as [Fiction]
-remember to read it soon....
+___________________________________
+[Fiction] exists in the existing genre list!
+_____________
+okii categorised [Geronimo] as [Fiction]
+_____________
+
+
 ```
 
 ### Removing a genre: `remove-genre`
