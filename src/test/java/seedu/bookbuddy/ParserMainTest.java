@@ -198,6 +198,33 @@ public class ParserMainTest {
 
         assertEquals(expectedOutput, actualOutput);
     }
+    @Test
+    void parseFindGenreFictionCommand() {
+        BookList books = new BookList();
+        BookListModifier.addBook(books, "The Great Gatsby");
+        BookListModifier.addBook(books, "Nineteen Eighty-Four");
+        BookListModifier.addBook(books, "Percy Jackson");
+        BookListModifier.addBook(books, "Brave New World");
+
+        // Set genres for the books
+        ParserMain.parseCommand("set-genre 1 Fiction", books);
+        ParserMain.parseCommand("set-genre 4 Fiction", books);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        ParserMain.parseCommand("find-genre Fiction", books);
+
+        String actualOutput = outContent.toString().replace("\r\n", "\n");
+
+        String expectedOutput = "___________________________________\n" +
+                "fiction books: \n" +
+                "1. [U] The Great Gatsby\n" +
+                "2. [U] Brave New World\n" +
+                "_____________\n";
+
+        assertEquals(expectedOutput, actualOutput);
+    }
 
     @Test
     void parseFindLabelCommand() {
