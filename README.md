@@ -1,6 +1,13 @@
-# Duke project template
+# BookBuddy project
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+BookBuddy is a CLI-based desktop app that is targeted towards users who prefer the CLI to efficiently keep track of the books that
+they have read or intend to read. BookBuddy targets casual readers who read for entertainment but not on a regular basis, avid readers
+who have a huge collection of books and profession/critical readers who read scholarly journals and papers for research and work.
+
+BookBuddy provides a one-stop solution for building a personalised reading repository,is optimised for users who are quick at typing for
+efficient retrieval of book details and seeks to enable a customisable user experience to enhance the overall reading experience.
+
+The program was created using Java. Version control was done using Sourcetree and Git.
 
 ## Setting up in Intellij
 
@@ -8,23 +15,21 @@ Prerequisites: JDK 11 (use the exact version), update Intellij to the most recen
 
 1. **Ensure Intellij JDK 11 is defined as an SDK**, as described [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk) -- this step is not needed if you have used JDK 11 in a previous Intellij project.
 1. **Import the project _as a Gradle project_**, as described [here](https://se-education.org/guides/tutorials/intellijImportGradleProject.html).
-1. **Verify the set up**: After the importing is complete, locate the `src/main/java/seedu/duke/Duke.java` file, right-click it, and choose `Run Duke.main()`. If the setup is correct, you should see something like the below:
+1. **Verify the set up**: After the importing is complete, locate the `src/main/java/seedu/bookbuddy/BookBuddy.java` file, right-click it, and choose `Run BookBuddy.main()`. If the setup is correct, you should see something like the below:
    ```
    > Task :compileJava
    > Task :processResources NO-SOURCE
    > Task :classes
    
-   > Task :Duke.main()
+   > Task :BookBuddy.main()
+   ___________________________________
    Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   
-   What is your name?
+   BookBuddy!
+   How can I help you today?
+   _____________
+
    ```
-   Type some word and press enter to let the execution proceed to the end.
+   Read the user guide for the features available and use the programme!
 
 ## Build automation using Gradle
 
