@@ -23,7 +23,7 @@ public class ParserRemoveGenre {
         int index;
         assert inputArray.length == 2 : "Command requires additional arguments";
         Exceptions.validateCommandArguments(inputArray, 2, "The remove " +
-                "Command requires a book index");
+                "Command requires a book genre");
         try {
             index = Integer.parseInt(inputArray[1].trim());
             String genre = books.genreList.getGenre(index);
