@@ -268,6 +268,7 @@ public class ParserMainTest {
         assertTrue(outContent.toString().contains(expectedMessage),
                 "Expected message not found in the console output.");
     }
+    
     @Test
     void parseFindTitleCommand() {
         // Setup
