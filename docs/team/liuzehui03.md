@@ -46,7 +46,7 @@ Link should direct to my code contributions. If not, enter the link and search f
 2. Added Class Diagram for BookFind
 3. Added Sequence Diagram for BookFind
 4. Added implementation details of Ui class
-5. 3. Added Sequence Diagram for Ui
+5. Added Sequence Diagram for Ui
 
 ### Contribution to team-based tasks / Project Management
 1. Fixed various bugs
