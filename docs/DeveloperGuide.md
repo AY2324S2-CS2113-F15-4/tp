@@ -300,6 +300,7 @@ printBookFound(), printGenresFound(), printReadFound(), and others to iterate ov
 - Consistency: The Ui class provides a consistent interface for all user messages, which is crucial for a cohesive user experience.
 - Simplicity: Static methods in the Ui class simplify the calling code, as there is no need to manage Ui instances.
 - Maintenance: Centralizing user interface code in one class makes the application easier to maintain and update.
+![Ui.png](UML_diagrams/Ui.png)
 
 ### FileStorage Class Component
 The `FileStorage` class is crucial for managing file operations in BookBuddy, such as reading from and writing to files, 
