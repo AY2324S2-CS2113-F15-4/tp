@@ -558,6 +558,7 @@ be prompted to re-enter the command with an instruction on how to properly type 
 to be saved.**
 
 ## Command Summary
+
 | Purpose of Command                                              | Command Syntax                                                              |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------|
 | View all commands                                               | `help`                                                                      |
